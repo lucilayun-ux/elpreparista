@@ -141,6 +141,9 @@ section { padding-block: 3.5rem; scroll-margin-top: 4.5rem; }
 .kitintro .text { max-width: 44rem; }
 .kitintro p { color: var(--muted); }
 .kitintro .text .cap { color: var(--muted); }
+.kitintro .price { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .7rem; margin-top: .5rem; padding-top: .6rem; border-top: 2px solid var(--ink); }
+.kitintro .price b { font-family: var(--f-sign); font-weight: 800; font-size: 2.1rem; line-height: 1; white-space: nowrap; }
+.kitintro .price small { color: var(--muted); font-size: .88rem; line-height: 1.35; flex: 1 1 14rem; }
 .kitintro .art { border: 1px solid var(--hair); background: var(--paper); position: relative; overflow: hidden; }
 .kitintro .art .ex { position: absolute; right: 5px; bottom: 3px; font-size: .62rem; color: var(--muted); font-family: var(--f-sign); letter-spacing: .06em; text-transform: uppercase; }
 @media (max-width: 560px) { .kitintro { grid-template-columns: 1fr; } .kitintro .art { max-width: 240px; } }
@@ -304,7 +307,7 @@ footer .wrap { display: grid; gap: .6rem; }
     <div class="kitpanel" id="kitpanel">
     <div class="kitintro">
       <div class="art"><div id="kArt"></div><span class="ex">Imagen de ejemplo</span></div>
-      <div class="text"><span class="cap" id="kArtCap"></span><h4 id="kTitle"></h4><p id="kScene"></p></div>
+      <div class="text"><span class="cap" id="kArtCap"></span><h4 id="kTitle"></h4><p id="kScene"></p><div class="price" id="kPrice"></div></div>
     </div>
 
     <div class="stephead"><span class="num">2</span><h3>Elige el nivel</h3>
@@ -555,7 +558,7 @@ const PRODUCTS = {
   // Casa
   caja:      { name: "Caja de almacenaje con tapa", search: "caja almacenaje plastico tapa 50 litros", asin: "B01NCM40UF", alts: ["B01IEKKQP6"], pack: 1, unit: "ud" },
   agua:      { name: "Agua de emergencia en sobres (5 años)", search: "agua emergencia larga duracion", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L" },
-  comida:    { name: "Raciones de 3.600 kcal sin cocinar (5 años)", search: "raciones emergencia 5 años", asin: "B01HPGX1QG", alts: [{ asin: "B07DX92V1X", pack: 6, name: "Raciones de emergencia NRG-5 sin cocinar" }], pack: 18, unit: "raciones" },
+  comida:    { name: "Raciones de 3.600 kcal sin cocinar (5 años)", search: "raciones emergencia 5 años", asin: "B01HPGX1QG", alts: [{ asin: "B07DX92V1X", pack: 6, name: "Raciones de emergencia NRG-5 sin cocinar", price: 6 }], pack: 18, unit: "raciones" },
   linterna:  { name: "Linterna LED", search: "linterna led potente pilas", asin: "B005FEGYCO", alts: ["B07YZ4TMZS"], pack: 1, unit: "ud" },
   farol:     { name: "Farol LED de mesa", search: "farol led camping pilas", asin: "B08C2CVBF4", alts: ["B0BXLYZZHM"], pack: 1, unit: "ud" },
   pilas:     { name: "Pilas Duracell AA y AAA (24 uds)", search: "pilas alcalinas aa aaa pack", asin: "B096QYFG1D", alts: ["B093LVB4P7"], pack: 1, unit: "pack" },
@@ -651,6 +654,12 @@ const AGOTADOS = [
   "B074SW64NR", // botiquín Active Era
   "B08QZQGRR3", // hornillo Campingaz Camp Bistro DLX
 ];
+/* Precio orientativo en Amazon (€ por unidad de compra), solo para el coste aproximado del kit. Revisar de vez en cuando. */
+const PRICE = { caja: 25, agua: 40, comida: 25, linterna: 15, farol: 20, pilas: 18, radio: 30, powerbank: 25, funda: 12,
+  botiquin: 25, mantas: 12, garrafa: 12, estacion: 250, solar: 60, filtro: 25, bolsa: 20, aguacoche: 40, barritas: 6,
+  manta: 15, chaleco: 8, rescate: 10, cargador: 15, v16: 35, guantes: 15, pala: 20, calcetines: 70, arrancador: 70,
+  botcoche: 15, mochila: 40, aguamoch: 40, frontal: 15, poncho: 15, silbato: 7, navaja: 30, paracord: 10, vivac: 20,
+  higiene: 12, pastillas: 10, hornillo: 30 };
 const resolve = id => {
   const pr = PRODUCTS[id];
   if (!pr.asin) return pr;
@@ -700,7 +709,7 @@ function buildLines(kitKey, level, p) {
   });
   return [...out.values()].map(l => {
     const pr = resolve(l.id);
-    return { ...l, ...pr, qty: pr.diy ? 0 : Math.ceil(l.amount / pr.pack) };
+    return { ...l, ...pr, qty: pr.diy ? 0 : Math.ceil(l.amount / pr.pack), price: pr.price ?? PRICE[l.id] ?? 0 };
   });
 }
 
@@ -772,6 +781,10 @@ function render() {
   } else {
     send.removeAttribute("aria-disabled"); send.href = productUrl(toBuy[0]); send.textContent = "Empezar la compra en Amazon";
   }
+
+  // Coste aproximado de lo marcado, redondeado a 5 €.
+  const total = Math.round(toBuy.reduce((n, l) => n + l.qty * l.price, 0) / 5) * 5;
+  $("kPrice").innerHTML = `<b>≈ ${fmt(total)} €</b><small>Coste aproximado del ${kit.name} ${kit.levels[state.level].name} para ${p === 1 ? "1 persona" : p + " personas"} en Amazon. Orientativo: los precios cambian.</small>`;
 }
 
 function selectKit(k, focus) {
