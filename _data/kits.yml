@@ -1,0 +1,16 @@
+# Recuadro de llamada al final de cada artículo (campo «kit:» del artículo).
+casa:
+  name: Kit Casa
+  cap: Para el próximo apagón
+  title: Tu Kit Casa, listo en un clic
+  text: Luz, agua, comida sin cocinar, radio y batería para 72 horas. Elige el nivel y el número de personas, y te creamos la lista en Amazon.
+coche:
+  name: Kit Coche
+  cap: Para nevadas, DANA y atascos
+  title: Tu Kit Coche, listo en un clic
+  text: Abrigo, agua, luz, comida y la herramienta para salir del coche. Elige el nivel y te creamos la lista en Amazon.
+salida:
+  name: Kit Salida
+  cap: Para evacuar en un minuto
+  title: Tu mochila de evacuación, lista en un clic
+  text: Agua, comida, luz, abrigo y documentos en una mochila por persona. Elige el nivel y te creamos la lista en Amazon.

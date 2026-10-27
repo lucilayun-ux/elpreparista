@@ -266,6 +266,7 @@ footer .wrap { display: grid; gap: .6rem; }
       <a href="#complementos">Complementos</a>
       <a href="#reposicion">Reposición</a>
       <a href="#faq">Preguntas</a>
+      <a href="/blog/">Blog</a>
     </nav>
     <a class="btn red" href="#kits" style="padding:.35rem .8rem;font-size:1rem;box-shadow:3px 3px 0 var(--ink)">Elegir kit</a>
   </div>
@@ -406,7 +407,7 @@ footer .wrap { display: grid; gap: .6rem; }
   <div class="wrap">
     <p><strong style="color:var(--ink)">El Preparista</strong> · elpreparista.com</p>
     <p>Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
-    <p><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="#" data-cookies>Configurar cookies</a></p>
+    <p><a href="/blog/">Blog</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="#" data-cookies>Configurar cookies</a></p>
   </div>
 </footer>
 
@@ -871,6 +872,7 @@ $("repoForm").addEventListener("submit", e => {
   $("repoOk").textContent = `Listo${name ? ", " + name : ""}, ya estás suscrito. Primera revisión: ${yearly}. Aviso de reposición del agua y la comida: ${due}. La newsletter te llegará cada mes. (Prototipo: todavía no se envía ningún email.)`;
 });
 
+{ const k = new URLSearchParams(location.search).get("kit"); if (k && KITS[k]) state.kit = k; }
 render();
 {
   const q = new URLSearchParams(location.search);

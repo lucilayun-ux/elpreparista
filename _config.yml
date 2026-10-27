@@ -1,4 +1,29 @@
-# GitHub Pages: no publicar el código del backend de estadísticas.
+# Configuración de Jekyll (GitHub Pages). Solo afecta al blog: el resto de páginas se publican tal cual.
+title: El Preparista
+description: Kits de emergencia para casa, coche y evacuación, con la compra en Amazon.
+url: https://elpreparista.com
+lang: es_ES
+timezone: Europe/Madrid
+
+# Artículos del blog: carpeta _posts, dirección elpreparista.com/blog/titulo-del-articulo/
+permalink: /blog/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+feed:
+  path: blog/feed.xml
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+
+# No publicar el código del backend de estadísticas ni los documentos internos.
 exclude:
   - analytics
   - README.md
+  - BLOG.md

@@ -1,0 +1,15 @@
+---
+layout: blog
+title: Blog
+description: Guías claras para preparar tu casa, tu coche y tu familia ante apagones, temporales y evacuaciones.
+---
+<main class="wrap bloghome">
+  <header class="sechead">
+    <span class="cap" style="color:var(--red)">Blog</span>
+    <h1>Información para estar preparado</h1>
+    <p>Guías claras y sin alarmismo para preparar tu casa, tu coche y tu familia ante apagones, temporales y evacuaciones.</p>
+  </header>
+  <div class="cards">
+    {% for p in site.posts %}{% include card.html post=p %}{% endfor %}
+  </div>
+</main>

@@ -1,0 +1,41 @@
+---
+layout: blog
+---
+{% assign words = content | number_of_words %}
+{% assign minutes = words | divided_by: 200 | plus: 1 %}
+{% assign meses = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" | split: "," %}
+{% assign m = page.date | date: "%-m" | minus: 1 %}
+<main class="wrap post">
+  <article>
+    <header class="posthead">
+      <a class="cap back" href="/blog/">← Blog</a>
+      {% if page.category %}<span class="cap tag">{{ page.category }}</span>{% endif %}
+      <h1>{{ page.title }}</h1>
+      {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+      <p class="meta">{{ page.date | date: "%-d" }} de {{ meses[m] }} de {{ page.date | date: "%Y" }} · {{ minutes }} min de lectura</p>
+    </header>
+    {% if page.image %}<img class="cover" src="{{ page.image }}" alt="{{ page.image_alt }}">{% endif %}
+    <div class="prose">
+      {{ content }}
+    </div>
+    {% if page.kit %}
+    {% assign k = site.data.kits[page.kit] %}
+    <aside class="cta">
+      <span class="cap">{{ k.cap }}</span>
+      <h2>{{ k.title }}</h2>
+      <p>{{ k.text }}</p>
+      <a class="btn red" href="/?kit={{ page.kit }}#kits" data-kit="{{ page.kit }}">Ver el {{ k.name }}</a>
+    </aside>
+    {% endif %}
+  </article>
+
+  {% assign others = site.posts | where_exp: "p", "p.url != page.url" %}
+  {% if others.size > 0 %}
+  <section class="more">
+    <h2>Más artículos</h2>
+    <div class="cards">
+      {% for p in others limit: 3 %}{% include card.html post=p %}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+</main>

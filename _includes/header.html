@@ -1,0 +1,16 @@
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="El Preparista, inicio">
+      <img src="/logo.png" alt="" width="40" height="40">
+      <span>EL PREPARISTA</span>
+    </a>
+    <nav class="links" aria-label="Secciones">
+      <a href="/#kits">Kits</a>
+      <a href="/#complementos">Complementos</a>
+      <a href="/#reposicion">Reposición</a>
+      <a href="/#faq">Preguntas</a>
+      <a href="/blog/"{% if page.url contains '/blog/' %} aria-current="page"{% endif %}>Blog</a>
+    </nav>
+    <a class="btn red small" href="/#kits">Elegir kit</a>
+  </div>
+</header>

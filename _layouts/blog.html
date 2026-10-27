@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/blog.css">
+<link rel="alternate" type="application/rss+xml" title="Blog de El Preparista" href="/blog/feed.xml">
+{% seo %}
+<script src="/consent.js" defer></script>
+</head>
+<body>
+{% include header.html %}
+{{ content }}
+{% include footer.html %}
+<script>
+/* Eventos del blog para Google Analytics (solo si el visitante aceptó las cookies). */
+document.addEventListener("click", function (e) {
+  var a = e.target.closest("a[data-kit]");
+  if (a && window.analyticsAllowed && window.analyticsAllowed()) gtag("event", "blog_kit", { kit: a.dataset.kit, article: location.pathname });
+});
+</script>
+</body>
+</html>
