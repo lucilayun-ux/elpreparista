@@ -93,6 +93,9 @@ nav.links a:hover { color: var(--red); }
 @media (max-width: 400px) { .panel img.photo { max-width: 130px; } }
 .panel p { grid-column: 1 / -1; font-family: var(--f-sign); font-weight: 600; font-size: 1.05rem; line-height: 1.15; text-transform: uppercase; text-align: center; }
 .panel .num { grid-column: 1; }
+/* Títulos de los pasos a la misma altura: la ilustración ocupa el hueco y se apoya abajo */
+.panels .panel { grid-row: span 4; grid-template-rows: subgrid; }
+.panels .panel .pic { align-self: end; }
 a.panel { text-decoration: none; color: var(--ink); transition: background .12s; }
 a.panel:hover { background: #F3F3F0; }
 a.panel:hover p { color: var(--red); }
