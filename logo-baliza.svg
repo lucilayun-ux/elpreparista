@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -1 106 102" role="img" aria-label="Baliza roja">
+  <g fill="none" stroke="#1A1A1A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 3v15.5M27.5 10.5l6.5 11.5M72.5 10.5L66 22M7 28.5l12.5 7.5M93 28.5L80.5 36M1.5 53h14M98.5 53h-14"/>
+    <path d="M23.7 75L30 29.5Q31 25 36 25h28q5 0 6 4.5L76.3 75z" fill="#E52A2A"/>
+    <path d="M34 69l4.6-33q.8-4 11-4.2" stroke="#FFFFFF" stroke-width="2.2"/>
+    <path d="M18 84v-6q0-3 3-3h58q3 0 3 3v6z" fill="#FFFFFF"/>
+    <path d="M11.5 97.5v-10.5q0-3 3-3h71q3 0 3 3v10.5z" fill="#FFFFFF"/>
+  </g>
+</svg>
