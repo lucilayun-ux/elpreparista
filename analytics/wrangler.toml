@@ -1,0 +1,10 @@
+# Configuración para desplegar con la línea de comandos (npx wrangler deploy).
+# Si lo montas desde el panel web de Cloudflare no necesitas este archivo.
+name = "elpreparista-stats"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "elpreparista-stats"
+database_id = "PON-AQUI-EL-ID-DE-TU-BASE-D1"

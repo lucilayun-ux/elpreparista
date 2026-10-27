@@ -1,0 +1,4 @@
+# GitHub Pages: no publicar el código del backend de estadísticas.
+exclude:
+  - analytics
+  - README.md

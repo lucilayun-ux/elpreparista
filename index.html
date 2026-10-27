@@ -222,6 +222,7 @@ a.thumb:hover { border-color: var(--ink); transform: translateY(-1px); }
 /* Reposición */
 .repo { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
 .repo > * { min-width: 0; }
+.repo .timeline { align-self: center; }
 .timeline { list-style: none; padding: 0; margin: 0; display: grid; border-top: 3px solid var(--ink); }
 .timeline li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding-block: .9rem; border-bottom: 1px solid var(--hair); }
 .timeline .when { font-family: var(--f-sign); font-weight: 800; font-size: 1.1rem; text-transform: uppercase; color: var(--green); line-height: 1.2; }
@@ -683,6 +684,14 @@ const thumbHtml = id => {
 };
 const thumbClass = id => (PRODUCTS[id] && PRODUCTS[id].img) ? "thumb has-img" : "thumb";
 const $ = id => document.getElementById(id);
+
+/* Estadísticas propias, sin cookies (código en analytics/). Vacío = desactivado. */
+const ANALYTICS_URL = "";
+function track(type, data = {}) {
+  if (!ANALYTICS_URL) return;
+  const body = JSON.stringify({ type, path: location.pathname, ...data });
+  try { navigator.sendBeacon(ANALYTICS_URL + "/e", body) || fetch(ANALYTICS_URL + "/e", { method: "POST", body, keepalive: true }); } catch (e) {}
+}
 const fmt = n => n.toLocaleString("es-ES");
 
 function productUrl(pr) {
@@ -756,7 +765,7 @@ function render() {
     const tag = l.from > 0 ? `<span class="new">${kit.levels[l.from].name.toUpperCase()}</span>` : "";
     const thumb = l.diy
       ? `<span class="thumb diy" title="No se compra">${thumbHtml(l.id)}</span>`
-      : `<a class="${thumbClass(l.id)}" href="${productUrl(l)}" target="_blank" rel="noopener sponsored" aria-label="Ver ${l.name} en Amazon">${thumbHtml(l.id)}</a>`;
+      : `<a class="${thumbClass(l.id)}" data-id="${l.id}" href="${productUrl(l)}" target="_blank" rel="noopener sponsored" aria-label="Ver ${l.name} en Amazon">${thumbHtml(l.id)}</a>`;
     const off = state.removed.has(l.id);
     const box = l.diy
       ? `<span class="box" aria-hidden="true">✓</span>`
@@ -782,11 +791,13 @@ function render() {
 
   // Coste aproximado de lo marcado, redondeado a 5 €.
   const total = Math.round(toBuy.reduce((n, l) => n + l.qty * l.price, 0) / 5) * 5;
+  state.total = total; state.count = toBuy.length;
   $("kPrice").innerHTML = `<b>≈ ${fmt(total)} €</b><small>Precio orientativo x ${toBuy.length} ${toBuy.length === 1 ? "producto" : "productos"} del ${kit.name} ${kit.levels[state.level].name} para ${p === 1 ? "1 persona" : p + " personas"} en Amazon. Puedes reducir productos.</small>`;
 }
 
 function selectKit(k, focus) {
   state.kit = k; render();
+  track("kit", { kit: k });
   if (focus) $("tab-" + k).focus();
 }
 $("tabs").addEventListener("click", e => { const b = e.target.closest("[data-kit]"); if (b) selectKit(b.dataset.kit); });
@@ -795,7 +806,7 @@ $("tabs").addEventListener("keydown", e => {
   if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); selectKit(keys[(i + 1) % 3], true); }
   if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); selectKit(keys[(i + 2) % 3], true); }
 });
-$("levels").addEventListener("click", e => { const b = e.target.closest("[data-level]"); if (b) { state.level = +b.dataset.level; render(); } });
+$("levels").addEventListener("click", e => { const b = e.target.closest("[data-level]"); if (b) { state.level = +b.dataset.level; render(); track("level", { kit: state.kit, level: KITS[state.kit].levels[state.level].name }); } });
 $("levels").addEventListener("keydown", e => {
   let d = 0;
   if (e.key === "ArrowRight" || e.key === "ArrowDown") d = 1;
@@ -808,9 +819,15 @@ $("rList").addEventListener("change", e => {
   const id = e.target.dataset.pick; if (!id) return;
   e.target.checked ? state.removed.delete(id) : state.removed.add(id);
   render();
+  if (!e.target.checked) track("remove", { kit: state.kit, item: resolve(id).name });
 });
 $("pMinus").addEventListener("click", () => { state.people = Math.max(1, state.people - 1); render(); });
 $("pPlus").addEventListener("click", () => { state.people = Math.min(8, state.people + 1); render(); });
+$("rList").addEventListener("click", e => { const a = e.target.closest("a[data-id]"); if (a) track("product", { kit: state.kit, item: resolve(a.dataset.id).name }); });
+$("sendAll").addEventListener("click", () => {
+  if ($("sendAll").getAttribute("aria-disabled") === "true") return;
+  track("cart", { kit: state.kit, level: KITS[state.kit].levels[state.level].name, people: state.people, item: state.count, value: state.total });
+});
 
 /* Complementos: piezas sueltas para ampliar o reponer el kit. */
 const EXTRAS = [
@@ -829,9 +846,10 @@ const EXTRAS = [
 ];
 $("extras").innerHTML = EXTRAS.map(([id, why]) => {
   const pr = resolve(id);
-  return `<article class="extra"><a class="${thumbClass(id)}" href="${productUrl(pr)}" target="_blank" rel="noopener sponsored" aria-label="Ver ${pr.name} en Amazon">${thumbHtml(id)}</a>
+  return `<article class="extra" data-id="${id}"><a class="${thumbClass(id)}" href="${productUrl(pr)}" target="_blank" rel="noopener sponsored" aria-label="Ver ${pr.name} en Amazon">${thumbHtml(id)}</a>
     <h3>${pr.name}</h3><p>${why}</p><a class="go" href="${productUrl(pr)}" target="_blank" rel="noopener sponsored">Ver en Amazon</a></article>`;
 }).join("");
+$("extras").addEventListener("click", e => { const a = e.target.closest("a"); const box = e.target.closest("[data-id]"); if (a && box) track("extra", { item: resolve(box.dataset.id).name }); });
 
 /* Avisos de reposición: en la web real, este formulario se conecta a la herramienta de email (Brevo, Mailchimp…). */
 $("repoForm").addEventListener("submit", e => {
@@ -846,10 +864,17 @@ $("repoForm").addEventListener("submit", e => {
   const yearly = new Date(now.getFullYear() + 1, now.getMonth(), 1).toLocaleDateString("es-ES", { month: "long", year: "numeric" });
   const name = $("rFullName").value.trim().split(/\s+/)[0];
   $("repoOk").hidden = false;
+  track("subscribe", { item: $("rPhone").value.trim() ? "con teléfono" : "sin teléfono" });
   $("repoOk").textContent = `Listo${name ? ", " + name : ""}, ya estás suscrito. Primera revisión: ${yearly}. Aviso de reposición del agua y la comida: ${due}. La newsletter te llegará cada mes. (Prototipo: todavía no se envía ningún email.)`;
 });
 
 render();
+{
+  const q = new URLSearchParams(location.search);
+  let ref = q.get("utm_source") || "";
+  try { if (!ref && document.referrer) { const h = new URL(document.referrer).hostname.replace(/^www\./, ""); if (h !== location.hostname.replace(/^www\./, "")) ref = h; } } catch (e) {}
+  track("pageview", ref ? { ref } : {});
+}
 </script>
 
 </body>
