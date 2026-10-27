@@ -250,6 +250,7 @@ a.thumb:hover { border-color: var(--ink); transform: translateY(-1px); }
 footer { background: var(--paper); border-top: 3px solid var(--ink); padding-block: 1.8rem 2.6rem; margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); color: var(--muted); font-size: .92rem; }
 footer .wrap { display: grid; gap: .6rem; }
 </style>
+<script src="consent.js" defer></script>
 </head>
 <body>
 
@@ -405,7 +406,7 @@ footer .wrap { display: grid; gap: .6rem; }
   <div class="wrap">
     <p><strong style="color:var(--ink)">El Preparista</strong> · elpreparista.com</p>
     <p>Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
-    <p><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></p>
+    <p><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="#" data-cookies>Configurar cookies</a></p>
   </div>
 </footer>
 
@@ -688,6 +689,8 @@ const $ = id => document.getElementById(id);
 /* Estadísticas propias, sin cookies (código en analytics/). Vacío = desactivado. */
 const ANALYTICS_URL = "";
 function track(type, data = {}) {
+  // Google Analytics (solo si el visitante aceptó las cookies; la visita la cuenta Analytics solo).
+  if (type !== "pageview" && window.analyticsAllowed && window.analyticsAllowed()) gtag("event", type === "cart" ? "add_to_cart_amazon" : type, data);
   if (!ANALYTICS_URL) return;
   const body = JSON.stringify({ type, path: location.pathname, ...data });
   try { navigator.sendBeacon(ANALYTICS_URL + "/e", body) || fetch(ANALYTICS_URL + "/e", { method: "POST", body, keepalive: true }); } catch (e) {}

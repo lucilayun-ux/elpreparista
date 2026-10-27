@@ -13,3 +13,6 @@ p, ul { margin: 0 0 .8rem; }
 footer { border-top: 3px solid var(--ink); padding-block: 1.2rem 2rem; color: var(--muted); }
 a { color: var(--ink); }
 a:hover { color: var(--red); }
+table { width: 100%; border-collapse: collapse; margin: 0 0 1rem; font-size: .92rem; }
+th, td { text-align: left; padding: .45rem .5rem; border-bottom: 1px solid var(--hair); vertical-align: top; overflow-wrap: anywhere; }
+th { font-weight: 700; }
