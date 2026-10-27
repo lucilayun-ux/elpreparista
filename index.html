@@ -784,7 +784,7 @@ function render() {
 
   // Coste aproximado de lo marcado, redondeado a 5 €.
   const total = Math.round(toBuy.reduce((n, l) => n + l.qty * l.price, 0) / 5) * 5;
-  $("kPrice").innerHTML = `<b>≈ ${fmt(total)} €</b><small>Coste aproximado del ${kit.name} ${kit.levels[state.level].name} para ${p === 1 ? "1 persona" : p + " personas"} en Amazon. Orientativo: los precios cambian.</small>`;
+  $("kPrice").innerHTML = `<b>≈ ${fmt(total)} €</b><small>Precio orientativo del ${kit.name} ${kit.levels[state.level].name} para ${p === 1 ? "1 persona" : p + " personas"} en Amazon. Puedes reducir productos y precio.</small>`;
 }
 
 function selectKit(k, focus) {
