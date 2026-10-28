@@ -13,7 +13,7 @@ Backend propio de estadísticas y suscriptores para elpreparista.com. Funciona e
 | Visita | Al abrir la web. Guarda de dónde viene (Google, Instagram…) o la campaña `?utm_source=`. |
 | Kit | Al elegir Kit Casa, Coche o Salida. |
 | Nivel | Al elegir Esencial, Completo o Total. |
-| Carrito | Al pulsar «Revisa tu lista en Amazon». Guarda kit, nivel, personas, número de productos y precio orientativo. |
+| Carrito | Al pulsar «Revisa y compra tu kit en Amazon». Guarda kit, nivel, personas, número de productos y precio orientativo. |
 | Producto | Al pulsar la miniatura de un producto de la lista. |
 | Complemento | Al pulsar un producto de Complementos. |
 | Quitado | Al desmarcar un producto de la lista. |
