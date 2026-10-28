@@ -50,6 +50,8 @@ Texto normal. **Negrita** con dos asteriscos.
 | `kit` | Recuadro final con botón al kit: `casa`, `coche` o `salida`. Si no lo pones, no sale recuadro. |
 | `image` | Opcional: una imagen de portada, por ejemplo `/blog/img/apagon.jpg` (sube antes la imagen a esa carpeta). |
 | `image_alt` | Descripción de la imagen, para personas ciegas y para Google. |
+| `summary` | Opcional: «Respuesta rápida» al principio, en 2-3 frases. Ayuda a salir en Google y en asistentes como ChatGPT. |
+| `faq` | Opcional: preguntas frecuentes al final (ver los artículos de 72 horas como ejemplo). Google las entiende como preguntas y respuestas. |
 
 ## Enlazar a un kit desde el texto
 

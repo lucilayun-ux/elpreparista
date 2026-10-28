@@ -88,6 +88,13 @@ a.card .go { color: var(--red); margin-top: .3rem; }
 .prose th, .prose td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--hair); vertical-align: top; }
 .prose th { font-family: var(--f-sign); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: .9rem; border-bottom: 2px solid var(--ink); }
 
+.answer { margin-bottom: 1.8rem; padding: 1rem 1.2rem; border: 3px solid var(--ink); border-left-width: 10px; border-left-color: var(--green); display: grid; gap: .35rem; }
+.answer .cap { color: var(--green); }
+.answer p { font-size: 1.1rem; line-height: 1.55; }
+.faq { margin-top: 2.6rem; padding-top: 1.6rem; border-top: 3px solid var(--ink); display: grid; gap: .5rem; }
+.faq h2 { font-size: 2rem; margin-bottom: .4rem; }
+.faq h3 { font-size: 1.3rem; margin-top: 1rem; text-transform: none; letter-spacing: 0; line-height: 1.15; }
+.faq p { font-size: 1.05rem; line-height: 1.6; }
 .cta { margin-top: 2.6rem; padding: 1.5rem; border: 3px solid var(--ink); background: var(--paper); box-shadow: 6px 6px 0 var(--green); display: grid; gap: .6rem; justify-items: start; }
 .cta .cap { color: var(--green); }
 .cta h2 { font-size: 2rem; }

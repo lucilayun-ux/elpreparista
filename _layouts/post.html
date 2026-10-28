@@ -15,9 +15,24 @@ layout: blog
       <p class="meta">{{ page.date | date: "%-d" }} de {{ meses[m] }} de {{ page.date | date: "%Y" }} · {{ minutes }} min de lectura</p>
     </header>
     {% if page.image %}<img class="cover" src="{{ page.image }}" alt="{{ page.image_alt }}">{% endif %}
+    {% if page.summary %}
+    <div class="answer"><span class="cap">Respuesta rápida</span><p>{{ page.summary }}</p></div>
+    {% endif %}
     <div class="prose">
       {{ content }}
     </div>
+    {% if page.faq %}
+    <section class="faq">
+      <h2>Preguntas frecuentes</h2>
+      {% for q in page.faq %}
+      <h3>{{ q.q }}</h3>
+      <p>{{ q.a }}</p>
+      {% endfor %}
+    </section>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for q in page.faq %}{"@type":"Question","name":{{ q.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ q.a | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
+    </script>
+    {% endif %}
     {% if page.kit %}
     {% assign k = site.data.kits[page.kit] %}
     <aside class="cta">
