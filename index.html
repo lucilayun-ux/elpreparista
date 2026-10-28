@@ -188,6 +188,7 @@ label.box:has(input:focus-visible) { outline: 3px solid var(--red); outline-offs
 .thumb { width: 64px; height: 64px; padding: 9px; background: #F3F3F0; border: 1.5px solid var(--hair); color: var(--ink); display: block; transition: border-color .12s, transform .12s; }
 .thumb svg, .thumb img { display: block; width: 100%; height: 100%; }
 .thumb img { object-fit: contain; }
+.thumb svg[hidden] { display: none; } /* icono de reserva: solo se ve si la foto no carga */
 .thumb.has-img { background: #fff; padding: 4px; }
 a.thumb:hover { border-color: var(--ink); transform: translateY(-1px); }
 .thumb.diy { background: transparent; border-style: dashed; color: var(--muted); }
@@ -684,7 +685,7 @@ const thumbSvg = id => `<svg viewBox="0 0 100 100" aria-hidden="true">${ICONS[TH
 const thumbHtml = id => {
   const img = PRODUCTS[id] && PRODUCTS[id].img;
   if (!img) return thumbSvg(id);
-  return `<img src="${img}" alt="" loading="lazy" onerror="this.nextElementSibling.hidden=false;this.parentNode.classList.remove('has-img');this.remove()">${thumbSvg(id).replace("<svg ", "<svg hidden ")}`;
+  return `<img src="${img}" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()">${thumbSvg(id).replace("<svg ", "<svg hidden ")}`;
 };
 const thumbClass = id => (PRODUCTS[id] && PRODUCTS[id].img) ? "thumb has-img" : "thumb";
 const $ = id => document.getElementById(id);
