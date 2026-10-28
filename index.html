@@ -229,6 +229,7 @@ a.thumb:hover { border-color: var(--ink); transform: translateY(-1px); }
 .timeline p { color: var(--muted); }
 .timeline b { color: var(--ink); }
 .repo .card .band { background: var(--green); }
+.repo .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .repo form { display: grid; gap: .9rem; padding: 1.1rem 1.2rem 1.3rem; }
 .field { display: grid; gap: .3rem; }
 .field label { font-family: var(--f-sign); font-weight: 700; font-size: 1rem; letter-spacing: .05em; text-transform: uppercase; }
@@ -376,9 +377,10 @@ footer .wrap { display: grid; gap: .6rem; }
             <div class="field"><label for="rPhone">Teléfono (opcional)</label><input id="rPhone" type="tel" placeholder="600 000 000" autocomplete="tel" inputmode="tel"></div>
             <div class="field"><label for="rFullName">Nombre y apellido</label><input id="rFullName" type="text" placeholder="Nombre Apellido" autocomplete="name"></div>
           </div>
+          <div class="hp" aria-hidden="true"><label for="rWeb">No rellenes este campo</label><input id="rWeb" type="text" tabindex="-1" autocomplete="off"></div>
           <ul class="perks"><li>Avisos antes de que caduque tu kit</li><li>Newsletter mensual con información de interés</li><li>Alertas cuando se acerca un temporal</li></ul>
           <button class="btn red" type="submit" style="background:var(--green)">Suscribirme</button>
-          <p class="fine" id="repoErr" hidden>Escribe un email válido para poder avisarte.</p>
+          <p class="fine" id="repoErr" role="alert" hidden></p>
           <p class="ok" id="repoOk" hidden></p>
           <p class="fine">Al suscribirte recibirás los avisos de caducidad y nuestra newsletter. Puedes darte de baja con un clic en cualquier email.</p>
         </form>
@@ -856,20 +858,35 @@ $("extras").innerHTML = EXTRAS.map(([id, why]) => {
 $("extras").addEventListener("click", e => { const a = e.target.closest("a"); const box = e.target.closest("[data-id]"); if (a && box) track("extra", { item: resolve(box.dataset.id).name }); });
 
 /* Avisos de reposición: en la web real, este formulario se conecta a la herramienta de email (Brevo, Mailchimp…). */
-$("repoForm").addEventListener("submit", e => {
+// Las suscripciones se guardan en el backend propio (analytics/worker.js) y se ven en su panel, pestaña «Suscriptores».
+$("repoForm").addEventListener("submit", async e => {
   e.preventDefault();
+  const err = msg => { $("repoErr").textContent = msg; $("repoErr").hidden = !msg; };
   const email = $("rEmail").value.trim();
-  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  $("repoErr").hidden = valid;
-  if (!valid) { $("rEmail").focus(); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err("Escribe un email válido para poder avisarte."); $("rEmail").focus(); return; }
+  if (!ANALYTICS_URL) { err("Las suscripciones abren muy pronto. Vuelve en unos días."); return; }
+  err("");
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.disabled = true; btn.textContent = "Guardando…";
+  try {
+    const r = await fetch(ANALYTICS_URL + "/lead", { method: "POST", body: JSON.stringify({
+      email, name: $("rFullName").value.trim(), phone: $("rPhone").value.trim(), website: $("rWeb").value, source: "web" }) });
+    if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || "Error");
+  } catch (x) {
+    err("No hemos podido guardar tu suscripción. Inténtalo de nuevo en unos minutos.");
+    btn.disabled = false; btn.textContent = "Suscribirme";
+    return;
+  }
   // Sin fecha de compra: se toma la de suscripción como referencia aproximada.
   const now = new Date();
   const due = new Date(now.getFullYear() + 5, now.getMonth() - 2, 1).toLocaleDateString("es-ES", { month: "long", year: "numeric" });
   const yearly = new Date(now.getFullYear() + 1, now.getMonth(), 1).toLocaleDateString("es-ES", { month: "long", year: "numeric" });
   const name = $("rFullName").value.trim().split(/\s+/)[0];
-  $("repoOk").hidden = false;
   track("subscribe", { item: $("rPhone").value.trim() ? "con teléfono" : "sin teléfono" });
-  $("repoOk").textContent = `Listo${name ? ", " + name : ""}, ya estás suscrito. Primera revisión: ${yearly}. Aviso de reposición del agua y la comida: ${due}. La newsletter te llegará cada mes. (Prototipo: todavía no se envía ningún email.)`;
+  e.target.reset();
+  btn.textContent = "Suscrito ✓";
+  $("repoOk").hidden = false;
+  $("repoOk").textContent = `Listo${name ? ", " + name : ""}, ya estás suscrito. Primera revisión: ${yearly}. Aviso de reposición del agua y la comida: ${due}. La newsletter te llegará cada mes.`;
 });
 
 { const k = new URLSearchParams(location.search).get("kit"); if (k && KITS[k]) state.kit = k; }

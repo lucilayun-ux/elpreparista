@@ -1,6 +1,6 @@
-# Estadísticas de El Preparista
+# Estadísticas y suscriptores de El Preparista
 
-Backend propio de estadísticas para elpreparista.com. Funciona en **Cloudflare Workers** con una base de datos **D1**. El plan gratuito da de sobra: 100.000 eventos al día y 5 GB de base de datos.
+Backend propio de estadísticas y suscriptores para elpreparista.com. Funciona en **Cloudflare Workers** con una base de datos **D1**. El plan gratuito da de sobra: 100.000 eventos al día y 5 GB de base de datos.
 
 - No usa cookies ni guarda la IP. Cada visitante se cuenta con un código que cambia cada día, así que no hace falta aviso de cookies.
 - Descarta robots y buscadores.
@@ -18,6 +18,14 @@ Backend propio de estadísticas para elpreparista.com. Funciona en **Cloudflare 
 | Complemento | Al pulsar un producto de Complementos. |
 | Quitado | Al desmarcar un producto de la lista. |
 | Suscripción | Al suscribirse (solo si dio teléfono o no; nunca el email ni el nombre). |
+
+## Suscriptores (leads)
+
+El formulario «Suscríbete gratis» de la web guarda cada suscripción (nombre, email, teléfono y fecha) en la misma base de datos. Se ven en el panel, pestaña **Suscriptores**: buscador, botón **Descargar Excel (CSV)** y botón **Borrar** (para cuando alguien pida que borres sus datos).
+
+- Si un email ya estaba, no se duplica: se actualizan el nombre y el teléfono.
+- Solo se aceptan suscripciones enviadas desde elpreparista.com, y un campo invisible frena a los robots.
+- Mientras `ANALYTICS_URL` esté vacío, el formulario avisa de que las suscripciones abren pronto y no guarda nada.
 
 El panel muestra visitantes por día, clics al carrito, el valor enviado a Amazon, qué kits y niveles se compran, qué productos se miran y cuáles se quitan, de dónde vienen las visitas, países y dispositivos.
 
