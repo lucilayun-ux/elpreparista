@@ -336,7 +336,7 @@ footer .wrap { display: grid; gap: .6rem; }
             <span class="cap" id="rCount"></span>
             <span class="fine">Desmarca lo que ya tengas. Se abre Amazon con los productos ya en tu cesta; pagas allí, con tu cuenta y tu envío.</span>
           </div>
-          <a class="btn red" id="sendAll" href="#" target="_blank" rel="noopener sponsored">Añadido a tu lista en Amazon</a>
+          <a class="btn red" id="sendAll" href="#" target="_blank" rel="noopener sponsored">Revisa tu lista en Amazon</a>
         </div>
       </div>
     </div>
@@ -790,7 +790,7 @@ function render() {
     send.setAttribute("aria-disabled", "true"); send.textContent = "No has elegido ningún producto";
   } else if (toBuy.some(l => l.asin)) {
     // Los productos sin ASIN (p. ej. fundas de nieve, que van por medida) se eligen aparte con su miniatura.
-    send.removeAttribute("aria-disabled"); send.href = cartUrl(toBuy.filter(l => l.asin)); send.textContent = toBuy.length === buyable.length ? "Añadido a tu lista en Amazon" : `${toBuy.length} productos añadidos a tu lista en Amazon`;
+    send.removeAttribute("aria-disabled"); send.href = cartUrl(toBuy.filter(l => l.asin)); send.textContent = toBuy.length === buyable.length ? "Revisa tu lista en Amazon" : `Revisa tu lista en Amazon (${toBuy.length} productos)`;
   } else {
     send.removeAttribute("aria-disabled"); send.href = productUrl(toBuy[0]); send.textContent = "Empezar la compra en Amazon";
   }
