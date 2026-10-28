@@ -141,9 +141,6 @@ section { padding-block: 3.5rem; scroll-margin-top: 4.5rem; }
 .kitintro .text { max-width: 44rem; }
 .kitintro p { color: var(--muted); }
 .kitintro .text .cap { color: var(--muted); }
-.kitintro .price { display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .5rem; margin-top: .2rem; }
-.kitintro .price b { font-family: var(--f-sign); font-weight: 700; font-size: 1rem; line-height: 1.2; white-space: nowrap; }
-.kitintro .price small { color: var(--muted); font-size: .8rem; line-height: 1.35; flex: 1 1 14rem; }
 .kitintro .art { border: 1px solid var(--hair); background: var(--paper); position: relative; overflow: hidden; }
 .kitintro .art .ex { position: absolute; right: 5px; bottom: 3px; font-size: .62rem; color: var(--muted); font-family: var(--f-sign); letter-spacing: .06em; text-transform: uppercase; }
 @media (max-width: 560px) { .kitintro { grid-template-columns: 1fr; } .kitintro .art { max-width: 240px; } }
@@ -312,7 +309,7 @@ footer .wrap { display: grid; gap: .6rem; }
     <div class="kitpanel" id="kitpanel">
     <div class="kitintro">
       <div class="art"><div id="kArt"></div><span class="ex">Imagen de ejemplo</span></div>
-      <div class="text"><span class="cap" id="kArtCap"></span><h4 id="kTitle"></h4><p id="kScene"></p><div class="price" id="kPrice"></div></div>
+      <div class="text"><span class="cap" id="kArtCap"></span><h4 id="kTitle"></h4><p id="kScene"></p></div>
     </div>
 
     <div class="stephead"><span class="num">2</span><h3>Elige el nivel</h3>
@@ -796,10 +793,9 @@ function render() {
     send.removeAttribute("aria-disabled"); send.href = productUrl(toBuy[0]); send.textContent = "Empezar la compra en Amazon";
   }
 
-  // Coste aproximado de lo marcado, redondeado a 5 €.
+  // Coste aproximado de lo marcado (solo para las estadísticas), redondeado a 5 €.
   const total = Math.round(toBuy.reduce((n, l) => n + l.qty * l.price, 0) / 5) * 5;
   state.total = total; state.count = toBuy.length;
-  $("kPrice").innerHTML = `<b>≈ ${fmt(total)} €</b><small>Precio orientativo x ${toBuy.length} ${toBuy.length === 1 ? "producto" : "productos"} del ${kit.name} ${kit.levels[state.level].name} para ${p === 1 ? "1 persona" : p + " personas"} en Amazon. Puedes reducir productos.</small>`;
 }
 
 function selectKit(k, focus) {
