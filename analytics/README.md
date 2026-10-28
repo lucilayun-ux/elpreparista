@@ -25,7 +25,7 @@ El formulario «Suscríbete gratis» de la web guarda cada suscripción (nombre,
 
 - Si un email ya estaba, no se duplica: se actualizan el nombre y el teléfono.
 - Solo se aceptan suscripciones enviadas desde elpreparista.com, y un campo invisible frena a los robots.
-- Mientras `ANALYTICS_URL` esté vacío, el formulario avisa de que las suscripciones abren pronto y no guarda nada.
+- La dirección del backend está en `index.html`, en `ANALYTICS_URL` (https://elpreparista-stats.lucialayunta.workers.dev).
 
 El panel muestra visitantes por día, clics al carrito, el valor enviado a Amazon, qué kits y niveles se compran, qué productos se miran y cuáles se quitan, de dónde vienen las visitas, países y dispositivos.
 

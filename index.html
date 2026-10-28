@@ -690,7 +690,7 @@ const thumbClass = id => (PRODUCTS[id] && PRODUCTS[id].img) ? "thumb has-img" : 
 const $ = id => document.getElementById(id);
 
 /* Estadísticas propias, sin cookies (código en analytics/). Vacío = desactivado. */
-const ANALYTICS_URL = "";
+const ANALYTICS_URL = "https://elpreparista-stats.lucialayunta.workers.dev";
 function track(type, data = {}) {
   // Google Analytics (solo si el visitante aceptó las cookies; la visita la cuenta Analytics solo).
   if (type !== "pageview" && window.analyticsAllowed && window.analyticsAllowed()) gtag("event", type === "cart" ? "add_to_cart_amazon" : type, data);
