@@ -378,7 +378,7 @@ footer .wrap { display: grid; gap: .6rem; }
             <div class="field"><label for="rFullName">Nombre y apellido</label><input id="rFullName" type="text" placeholder="Nombre Apellido" autocomplete="name"></div>
           </div>
           <div class="hp" aria-hidden="true"><label for="rWeb">No rellenes este campo</label><input id="rWeb" type="text" tabindex="-1" autocomplete="off"></div>
-          <ul class="perks"><li>Avisos antes de que caduque tu kit</li><li>Newsletter mensual con información de interés</li><li>Alertas cuando se acerca un temporal</li></ul>
+          <ul class="perks"><li>Avisos antes de que caduque tu kit</li><li>Newsletter con información de interés</li><li>Alertas cuando se acerca un temporal</li></ul>
           <button class="btn red" type="submit" style="background:var(--green)">Suscribirme</button>
           <p class="fine" id="repoErr" role="alert" hidden></p>
           <p class="ok" id="repoOk" hidden></p>
@@ -886,7 +886,7 @@ $("repoForm").addEventListener("submit", async e => {
   e.target.reset();
   btn.textContent = "Suscrito ✓";
   $("repoOk").hidden = false;
-  $("repoOk").textContent = `Listo${name ? ", " + name : ""}, ya estás suscrito. Primera revisión: ${yearly}. Aviso de reposición del agua y la comida: ${due}. La newsletter te llegará cada mes.`;
+  $("repoOk").textContent = `Listo${name ? ", " + name : ""}, ya estás suscrito. Primera revisión: ${yearly}. Aviso de reposición del agua y la comida: ${due}.`;
 });
 
 { const k = new URLSearchParams(location.search).get("kit"); if (k && KITS[k]) state.kit = k; }
