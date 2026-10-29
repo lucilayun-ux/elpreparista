@@ -21,7 +21,7 @@ Backend propio de estadísticas y suscriptores para elpreparista.com. Funciona e
 
 ## Suscriptores (leads)
 
-El formulario «Suscríbete gratis» de la web guarda cada suscripción (nombre, email, teléfono y fecha) en la misma base de datos. Se ven en el panel, pestaña **Suscriptores**: buscador, botón **Descargar Excel (CSV)** y botón **Borrar** (para cuando alguien pida que borres sus datos).
+El formulario «Entra en la comunidad de El Preparista» de la web guarda cada suscripción (nombre, email, teléfono y fecha) en la misma base de datos. Se ven en el panel, pestaña **Suscriptores**: buscador, botón **Descargar Excel (CSV)** y botón **Borrar** (para cuando alguien pida que borres sus datos).
 
 - Si un email ya estaba, no se duplica: se actualizan el nombre y el teléfono.
 - Solo se aceptan suscripciones enviadas desde elpreparista.com, y un campo invisible frena a los robots.

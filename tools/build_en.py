@@ -87,7 +87,7 @@ TRADUCCIONES = [
      '<span class="when">Every month</span><p><b>Useful information</b> in our newsletter: preparedness tips and kit updates.</p>'),
     ('<span class="when">Siempre</span><p><b>Compartimos</b> noticias, alertas y avisos de temporal.</p>',
      '<span class="when">Always</span><p><b>We share</b> news, alerts and storm warnings.</p>'),
-    ('<b>Suscríbete gratis</b><span class="cap">Avisos + newsletter</span>', '<b>Subscribe for free</b><span class="cap">Reminders + newsletter</span>'),
+    ('<b>Entra en la comunidad de <span style="white-space:nowrap">El Preparista</span></b><span class="cap">Avisos + newsletter</span>', '<b>Join the <span style="white-space:nowrap">El Preparista</span> community</b><span class="cap">Reminders + newsletter</span>'),
     ('<label for="rEmail">Tu email</label>', '<label for="rEmail">Your email</label>'),
     ('placeholder="nombre@correo.com"', 'placeholder="name@email.com"'),
     ('<label for="rPhone">Teléfono (opcional)</label>', '<label for="rPhone">Phone (optional)</label>'),
