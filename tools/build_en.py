@@ -246,6 +246,22 @@ TRADUCCIONES = [
     ('source: "web" }', 'source: "web-en" }'),
     ('"es-ES"', '"en-GB"'),
 
+    # --- Formulario emergente (push) ---
+    ('aria-label="Cerrar"', 'aria-label="Close"'),
+    ('<b id="pushTitle">Conecta con la comunidad</b>', '<b id="pushTitle">Connect with the community</b>'),
+    ('<p>Recibe la información para estar preparados: avisos antes de que caduque tu kit, alertas de temporal y consejos.</p>',
+     '<p>Get the information to be prepared: reminders before your kit expires, storm alerts and tips.</p>'),
+    ('<label for="pEmail">Tu email</label>', '<label for="pEmail">Your email</label>'),
+    ('<label for="pPhone">Teléfono (opcional)</label>', '<label for="pPhone">Phone (optional)</label>'),
+    ('<label for="pWeb">No rellenes este campo</label>', '<label for="pWeb">Leave this field empty</label>'),
+    ('<button class="btn red" type="submit">Suscribirme</button>', '<button class="btn red" type="submit">Subscribe</button>'),
+    ('<p class="fine">Puedes darte de baja con un clic en cualquier email. <a href="privacidad.html">Privacidad</a>.</p>',
+     '<p class="fine">You can unsubscribe with one click from any email. <a href="privacidad.html" hreflang="es">Privacy</a> (in Spanish).</p>'),
+    ('source: "popup" }', 'source: "popup-en" }'),
+    ('"¡Ya eres de la comunidad!"', '"You\'re part of the community!"'),
+    ('<p>Te avisaremos cuando toque revisar tu kit y te mandaremos la información para estar preparados.</p><button class="btn red" type="button" id="pushOk">Cerrar</button>',
+     '<p>We will let you know when it is time to check your kit and send you the information to be prepared.</p><button class="btn red" type="button" id="pushOk">Close</button>'),
+
     ('Elige tu kit', 'Choose your kit'),
 ]
 

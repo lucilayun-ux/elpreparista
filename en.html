@@ -235,6 +235,19 @@ a.thumb:hover { border-color: var(--ink); transform: translateY(-1px); }
 .timeline p { color: var(--muted); }
 .timeline b { color: var(--ink); }
 .repo .card .band { background: var(--green); }
+/* Formulario emergente (push) */
+dialog.push { padding: 0; border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); max-width: min(420px, calc(100vw - 32px)); width: 100%; background: var(--paper); color: var(--ink); }
+dialog.push::backdrop { background: rgba(17, 17, 17, .5); }
+dialog.push .band { background: var(--green); color: #fff; padding: .7rem 3rem .7rem 1rem; border-bottom: 3px solid var(--ink); }
+dialog.push .band b { font-family: var(--f-sign); font-weight: 800; font-size: 1.6rem; text-transform: uppercase; letter-spacing: .03em; line-height: 1; }
+dialog.push .body { padding: 1rem 1.1rem 1.2rem; display: grid; gap: .8rem; }
+dialog.push .body > p:first-child { font-size: 1.05rem; }
+dialog.push .x { position: absolute; top: .45rem; right: .55rem; width: 2rem; height: 2rem; border: 0; background: transparent; color: #fff; font-size: 1.8rem; line-height: 1; }
+dialog.push .x:hover { color: var(--yellow); }
+dialog.push .x:focus-visible { outline-color: #fff; outline-offset: 0; }
+@media (max-width: 420px) { dialog.push .band b { font-size: 1.35rem; } }
+dialog.push .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+dialog.push .btn { width: 100%; background: var(--green); color: #fff; }
 .repo .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .repo form { display: grid; gap: .9rem; padding: 1.1rem 1.2rem 1.3rem; }
 .field { display: grid; gap: .3rem; }
@@ -421,6 +434,22 @@ footer .wrap { display: grid; gap: .6rem; }
     <p><a href="/en/blog/">Blog</a> · <a href="aviso-legal.html" hreflang="es">Legal notice</a> · <a href="privacidad.html" hreflang="es">Privacy</a> · <a href="cookies.html" hreflang="es">Cookies</a> (in Spanish) · <a href="#" data-cookies>Cookie settings</a> · <a href="/" hreflang="es" lang="es">Versión en español</a></p>
   </div>
 </footer>
+
+<dialog class="push" id="push" aria-labelledby="pushTitle">
+  <form id="pushForm" novalidate>
+    <button type="button" class="x" id="pushClose" aria-label="Close">×</button>
+    <div class="band"><b id="pushTitle">Connect with the community</b></div>
+    <div class="body">
+      <p>Get the information to be prepared: reminders before your kit expires, storm alerts and tips.</p>
+      <div class="field"><label for="pEmail">Your email</label><input id="pEmail" type="email" placeholder="name@email.com" autocomplete="email" required></div>
+      <div class="field"><label for="pPhone">Phone (optional)</label><input id="pPhone" type="tel" placeholder="+34 600 000 000" autocomplete="tel" inputmode="tel"></div>
+      <div class="hp" aria-hidden="true"><label for="pWeb">Leave this field empty</label><input id="pWeb" type="text" tabindex="-1" autocomplete="off"></div>
+      <button class="btn red" type="submit">Subscribe</button>
+      <p class="fine" id="pushMsg" role="alert" hidden></p>
+      <p class="fine">You can unsubscribe with one click from any email. <a href="privacidad.html" hreflang="es">Privacy</a> (in Spanish).</p>
+    </div>
+  </form>
+</dialog>
 
 <script>
 /* ===== PICTOGRAMAS =====
@@ -891,11 +920,56 @@ $("repoForm").addEventListener("submit", async e => {
   const yearly = new Date(now.getFullYear() + 1, now.getMonth(), 1).toLocaleDateString("en-GB", { month: "long", year: "numeric" });
   const name = $("rFullName").value.trim().split(/\s+/)[0];
   track("subscribe", { item: $("rPhone").value.trim() ? "con teléfono" : "sin teléfono" });
+  try { localStorage.setItem("ep-sub", "1"); } catch (x) {}
   e.target.reset();
   btn.textContent = "Subscribed ✓";
   $("repoOk").hidden = false;
   $("repoOk").textContent = `Done${name ? ", " + name : ""}, you're subscribed. First check-up: ${yearly}. Water and food restock reminder: ${due}.`;
 });
+
+/* Formulario emergente: sale una vez (y no antes de 30 días) a los 25 s o al pasar la mitad de la página,
+   si no se ha suscrito ya, si ya respondió al aviso de cookies y si no está viendo el formulario de abajo. */
+(() => {
+  const dlg = $("push");
+  if (!dlg || !dlg.showModal) return;
+  const get = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  const put = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+  if (get("ep-sub") || Date.now() - (+get("ep-push") || 0) < 30 * 864e5) return;
+  let shown = false;
+  const open = () => {
+    if (shown || dlg.open || document.getElementById("cookies")) return;
+    const r = $("repoForm").getBoundingClientRect();
+    if (r.top < innerHeight * .8 && r.bottom > innerHeight * .2) return; // ya tiene el formulario de abajo delante
+    shown = true; put("ep-push", Date.now()); dlg.showModal();
+  };
+  setTimeout(open, 25000);
+  addEventListener("scroll", () => { if (scrollY > (document.documentElement.scrollHeight - innerHeight) / 2) open(); }, { passive: true });
+  $("pushClose").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+  $("pushForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const msg = t => { $("pushMsg").textContent = t; $("pushMsg").hidden = !t; };
+    const email = $("pEmail").value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg("Please enter a valid email so we can reach you."); $("pEmail").focus(); return; }
+    if (!ANALYTICS_URL) { msg("Subscriptions open very soon. Please come back in a few days."); return; }
+    msg("");
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = "Saving…";
+    try {
+      const r = await fetch(ANALYTICS_URL + "/lead", { method: "POST", body: JSON.stringify({ email, phone: $("pPhone").value.trim(), website: $("pWeb").value, source: "popup-en" }) });
+      if (!r.ok) throw new Error();
+    } catch (x) {
+      msg("We couldn't save your subscription. Please try again in a few minutes.");
+      btn.disabled = false; btn.textContent = "Subscribe";
+      return;
+    }
+    put("ep-sub", "1");
+    track("subscribe", { item: $("pPhone").value.trim() ? "popup con teléfono" : "popup sin teléfono" });
+    $("pushTitle").textContent = "You're part of the community!";
+    e.target.querySelector(".body").innerHTML = '<p>We will let you know when it is time to check your kit and send you the information to be prepared.</p><button class="btn red" type="button" id="pushOk">Close</button>';
+    $("pushOk").addEventListener("click", () => dlg.close());
+  });
+})();
 
 { const k = new URLSearchParams(location.search).get("kit"); if (k && KITS[k]) state.kit = k; }
 render();
