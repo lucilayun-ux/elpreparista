@@ -5,6 +5,8 @@ description: "Qué es el kit de 72 horas que recomienda la Unión Europea, qué 
 summary: "Un kit de emergencia de 72 horas es lo necesario para que tu hogar aguante tres días sin ayuda exterior: agua (al menos 2 litros por persona y día), comida que no haya que cocinar, linterna, radio de pilas, batería para el móvil, botiquín y medicación, efectivo y copias de documentos. La Comisión Europea recomienda desde 2025 que cada hogar lo tenga preparado."
 category: Guía
 kit: casa
+image: /blog/img/kit-72-horas.jpg
+image_alt: "Persona de espaldas con una mochila de emergencia con botiquín y silbato"
 faq:
   - q: "¿Qué es un kit de emergencia de 72 horas?"
     a: "Es un conjunto de agua, comida, luz, información, salud y documentos que permite a un hogar aguantar tres días por su cuenta durante un apagón, un temporal u otra emergencia, sin depender de tiendas, electricidad ni servicios de emergencia."

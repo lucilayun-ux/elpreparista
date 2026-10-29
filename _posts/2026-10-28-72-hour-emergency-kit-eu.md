@@ -7,6 +7,8 @@ description: "What the 72-hour kit recommended by the European Union is, what it
 summary: "A 72-hour emergency kit is what your household needs to manage for three days without outside help: water (at least 2 litres per person per day), food that needs no cooking, a torch, a battery radio, a phone power bank, a first aid kit and medication, cash and copies of documents. Since 2025 the European Commission has recommended that every household has one ready."
 category: Guide
 kit: casa
+image: /blog/img/kit-72-horas.jpg
+image_alt: "Person seen from behind wearing an emergency backpack with a first aid pouch and whistle"
 faq:
   - q: "What is a 72-hour emergency kit?"
     a: "It is a set of water, food, light, information, health supplies and documents that lets a household manage on its own for three days during a blackout, a storm or another emergency, without relying on shops, electricity or the emergency services."
