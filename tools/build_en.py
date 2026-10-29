@@ -46,7 +46,7 @@ TRADUCCIONES = [
     ('alt="Persona de espaldas con la mochila de emergencia puesta"', 'alt="Person seen from behind wearing an emergency backpack"'),
     ('alt="Persona con una mochila de tres módulos: Esencial, Completo y Total"', 'alt="Person wearing a three-module backpack: Essential, Complete and Total"'),
     ('alt="Mano sujetando un móvil con el pedido del kit de emergencia"', 'alt="Hand holding a phone with the emergency kit order"'),
-    ('alt="Mujer sujetando una caja de kit de emergencia"', 'alt="Woman holding an emergency kit box"'),
+    ('alt="Mujer con una caja de kit de emergencia haciendo el gesto de OK con el pulgar"', 'alt="Woman holding an emergency kit box and giving a thumbs-up"'),
     ('<p>Elige tu kit</p><small>Casa, coche o evacuación.</small>', '<p>Choose your kit</p><small>Home, car or evacuation.</small>'),
     ('<p>¿Esencial o Pro?</p><small>Esencial, Completo o Total.</small>', '<p>Essential or Pro?</p><small>Essential, Complete or Total.</small>'),
     ('<p>Todo al carrito</p><small>Un clic y te creamos el pedido.</small>', '<p>All in the basket</p><small>One click and we build your order.</small>'),
