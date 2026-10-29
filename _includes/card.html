@@ -1,7 +1,7 @@
 {% assign p = include.post %}
 <a class="card" href="{{ p.url }}">
   {% if p.category %}<span class="cap tag">{{ p.category }}</span>{% endif %}
-  <h3>{{ p.title }}</h3>
+  {% if p.image %}<div class="cardhead"><h3>{{ p.title }}</h3><img src="{{ p.image }}" alt="" loading="lazy"></div>{% else %}<h3>{{ p.title }}</h3>{% endif %}
   <p>{{ p.description }}</p>
   <span class="cap go">{% if p.lang == "en" %}Read article{% else %}Leer artículo{% endif %} →</span>
 </a>
