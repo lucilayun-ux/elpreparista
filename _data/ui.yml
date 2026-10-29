@@ -1,0 +1,15 @@
+# Textos fijos de la plantilla de artículo, en cada idioma.
+es:
+  blog_url: /blog/
+  read: min de lectura
+  answer: Respuesta rápida
+  faq: Preguntas frecuentes
+  see: Ver el
+  more: Más artículos
+en:
+  blog_url: /en/blog/
+  read: min read
+  answer: Quick answer
+  faq: Frequently asked questions
+  see: See the
+  more: More articles

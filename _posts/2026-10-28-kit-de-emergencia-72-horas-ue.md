@@ -1,4 +1,5 @@
 ---
+ref: kit72
 title: "Kit de emergencia de 72 horas: qué recomienda la UE y lista completa"
 description: "Qué es el kit de 72 horas que recomienda la Unión Europea, qué debe llevar, dónde guardarlo y cada cuánto revisarlo. Lista completa y sin alarmismo."
 summary: "Un kit de emergencia de 72 horas es lo necesario para que tu hogar aguante tres días sin ayuda exterior: agua (al menos 2 litros por persona y día), comida que no haya que cocinar, linterna, radio de pilas, batería para el móvil, botiquín y medicación, efectivo y copias de documentos. La Comisión Europea recomienda desde 2025 que cada hogar lo tenga preparado."

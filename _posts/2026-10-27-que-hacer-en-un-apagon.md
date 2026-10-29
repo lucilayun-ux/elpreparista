@@ -1,4 +1,5 @@
 ---
+ref: apagon
 title: "Qué hacer en un apagón: guía para las primeras 72 horas"
 description: "Qué comprobar en los primeros minutos, cómo conservar la comida y el móvil, y qué tener preparado en casa para pasar tres días sin luz."
 category: Apagón

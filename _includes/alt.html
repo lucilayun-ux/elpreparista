@@ -1,0 +1,5 @@
+{% comment %} Busca la misma página en el otro idioma (artículos con el mismo «ref»; portadas del blog). Deja alt_url. {% endcomment %}
+{% assign alt_url = nil %}
+{% if page.ref %}
+  {% for p in site.posts %}{% if p.ref == page.ref and p.lang != page.lang %}{% assign alt_url = p.url %}{% endif %}{% endfor %}
+{% endif %}

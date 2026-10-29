@@ -10,6 +10,6 @@ description: Guías claras para preparar tu casa, tu coche y tu familia ante apa
     <p>Guías claras y sin alarmismo para preparar tu casa, tu coche y tu familia ante apagones, temporales y evacuaciones.</p>
   </header>
   <div class="cards">
-    {% for p in site.posts %}{% include card.html post=p %}{% endfor %}
+    {% assign posts_es = site.posts | where_exp: "p", "p.lang != 'en'" %}{% for p in posts_es %}{% include card.html post=p %}{% endfor %}
   </div>
 </main>

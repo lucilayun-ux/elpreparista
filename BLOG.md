@@ -56,3 +56,21 @@ Texto normal. **Negrita** con dos asteriscos.
 ## Enlazar a un kit desde el texto
 
 `[prepara tu Kit Casa](/?kit=casa#kits)` abre la web con ese kit ya elegido. También funciona con `coche` y `salida`.
+
+## Versión en inglés de un artículo
+
+Los artículos en inglés están en la misma carpeta `_posts` y se publican en `elpreparista.com/en/blog/...`. Para que un artículo y su traducción se enlacen entre sí (botón ES/EN y aviso a Google), los dos llevan el mismo `ref`:
+
+```
+---
+ref: apagon                 ← el mismo en el artículo español y en el inglés
+lang: en                    ← solo en el inglés
+permalink: /en/blog/power-outage-guide-72-hours/   ← solo en el inglés
+title: "What to do in a power outage..."
+description: "..."
+category: Blackout
+kit: casa
+---
+```
+
+El artículo español solo necesita añadir `ref: apagon`. Los enlaces dentro de un artículo en inglés deben ir a `/en/blog/...` y los botones de kit llevan solos a la web en inglés.

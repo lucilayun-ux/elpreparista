@@ -1,4 +1,5 @@
 ---
+ref: mochila
 title: "Mochila de evacuación: qué meter y dónde guardarla"
 description: "Una mochila por persona, lista para salir de casa en un minuto. Qué llevar, cuánto debe pesar y los errores más comunes."
 category: Evacuación

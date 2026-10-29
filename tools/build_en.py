@@ -31,7 +31,7 @@ TRADUCCIONES = [
     ('<a href="#complementos">Complementos</a>', '<a href="#complementos">Add-ons</a>'),
     ('<a href="#reposicion">Reposición</a>', '<a href="#reposicion">Restocking</a>'),
     ('<a href="#faq">Preguntas</a>', '<a href="#faq">FAQ</a>'),
-    ('      <a href="/blog/">Blog</a>\n    </nav>', '      <a href="/blog/" hreflang="es">Blog (ES)</a>\n    </nav>'),
+    ('      <a href="/blog/">Blog</a>\n    </nav>', '      <a href="/en/blog/">Blog</a>\n    </nav>'),
     ('box-shadow:3px 3px 0 var(--ink)">Elegir kit</a>', 'box-shadow:3px 3px 0 var(--ink)">Choose kit</a>'),
 
     # --- Portada ---
@@ -119,7 +119,7 @@ TRADUCCIONES = [
     ('Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.',
      'As an Amazon Associate I earn from qualifying purchases.'),
     ('<p><a href="/blog/">Blog</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="#" data-cookies>Configurar cookies</a></p>',
-     '<p><a href="/blog/" hreflang="es">Blog (Spanish)</a> · <a href="aviso-legal.html" hreflang="es">Legal notice</a> · <a href="privacidad.html" hreflang="es">Privacy</a> · <a href="cookies.html" hreflang="es">Cookies</a> (in Spanish) · <a href="#" data-cookies>Cookie settings</a> · <a href="/" hreflang="es" lang="es">Versión en español</a></p>'),
+     '<p><a href="/en/blog/">Blog</a> · <a href="aviso-legal.html" hreflang="es">Legal notice</a> · <a href="privacidad.html" hreflang="es">Privacy</a> · <a href="cookies.html" hreflang="es">Cookies</a> (in Spanish) · <a href="#" data-cookies>Cookie settings</a> · <a href="/" hreflang="es" lang="es">Versión en español</a></p>'),
 
     # --- Ilustraciones de los kits ---
     ('cap: "Formato caja"', 'cap: "Box format"'),

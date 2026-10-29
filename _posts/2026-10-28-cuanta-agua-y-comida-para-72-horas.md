@@ -1,4 +1,5 @@
 ---
+ref: agua
 title: "Cuánta agua y comida necesitas para 72 horas (tabla por personas)"
 description: "Litros de agua y comida por persona para tres días de emergencia, con una tabla para familias de 1 a 6 personas, qué alimentos elegir y cómo guardarlos."
 summary: "Para 72 horas calcula al menos 2 litros de agua por persona y día solo para beber (6 litros por persona) y, mejor, 3 litros si incluyes cocinar y asearte (9 litros por persona). En comida, guarda alimentos que no necesiten nevera ni cocinarse para tres días: conservas con abrefácil, legumbres cocidas, frutos secos, galletas o raciones de emergencia."

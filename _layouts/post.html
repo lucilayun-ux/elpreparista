@@ -3,27 +3,28 @@ layout: blog
 ---
 {% assign words = content | number_of_words %}
 {% assign minutes = words | divided_by: 200 | plus: 1 %}
-{% assign meses = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" | split: "," %}
+{% if page.lang == "en" %}{% assign meses = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}{% assign T = site.data.ui.en %}{% assign kits = site.data.kits_en %}{% assign home = "/en" %}
+{% else %}{% assign meses = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" | split: "," %}{% assign T = site.data.ui.es %}{% assign kits = site.data.kits %}{% assign home = "/" %}{% endif %}
 {% assign m = page.date | date: "%-m" | minus: 1 %}
 <main class="wrap post">
   <article>
     <header class="posthead">
-      <a class="cap back" href="/blog/">← Blog</a>
+      <a class="cap back" href="{{ T.blog_url }}">← Blog</a>
       {% if page.category %}<span class="cap tag">{{ page.category }}</span>{% endif %}
       <h1>{{ page.title }}</h1>
       {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
-      <p class="meta">{{ page.date | date: "%-d" }} de {{ meses[m] }} de {{ page.date | date: "%Y" }} · {{ minutes }} min de lectura</p>
+      <p class="meta">{% if page.lang == "en" %}{{ page.date | date: "%-d" }} {{ meses[m] }} {{ page.date | date: "%Y" }}{% else %}{{ page.date | date: "%-d" }} de {{ meses[m] }} de {{ page.date | date: "%Y" }}{% endif %} · {{ minutes }} {{ T.read }}</p>
     </header>
     {% if page.image %}<img class="cover" src="{{ page.image }}" alt="{{ page.image_alt }}">{% endif %}
     {% if page.summary %}
-    <div class="answer"><span class="cap">Respuesta rápida</span><p>{{ page.summary }}</p></div>
+    <div class="answer"><span class="cap">{{ T.answer }}</span><p>{{ page.summary }}</p></div>
     {% endif %}
     <div class="prose">
       {{ content }}
     </div>
     {% if page.faq %}
     <section class="faq">
-      <h2>Preguntas frecuentes</h2>
+      <h2>{{ T.faq }}</h2>
       {% for q in page.faq %}
       <h3>{{ q.q }}</h3>
       <p>{{ q.a }}</p>
@@ -34,20 +35,20 @@ layout: blog
     </script>
     {% endif %}
     {% if page.kit %}
-    {% assign k = site.data.kits[page.kit] %}
+    {% assign k = kits[page.kit] %}
     <aside class="cta">
       <span class="cap">{{ k.cap }}</span>
       <h2>{{ k.title }}</h2>
       <p>{{ k.text }}</p>
-      <a class="btn red" href="/?kit={{ page.kit }}#kits" data-kit="{{ page.kit }}">Ver el {{ k.name }}</a>
+      <a class="btn red" href="{{ home }}?kit={{ page.kit }}#kits" data-kit="{{ page.kit }}">{{ T.see }} {{ k.name }}</a>
     </aside>
     {% endif %}
   </article>
 
-  {% assign others = site.posts | where_exp: "p", "p.url != page.url" %}
+  {% assign others = site.posts | where_exp: "p", "p.url != page.url" | where_exp: "p", "p.lang == page.lang" %}
   {% if others.size > 0 %}
   <section class="more">
-    <h2>Más artículos</h2>
+    <h2>{{ T.more }}</h2>
     <div class="cards">
       {% for p in others limit: 3 %}{% include card.html post=p %}{% endfor %}
     </div>

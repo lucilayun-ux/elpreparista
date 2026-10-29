@@ -1,4 +1,5 @@
 ---
+ref: coche
 title: "Qué llevar en el coche para una nevada, una DANA o un atasco de horas"
 description: "Lo que conviene llevar siempre en el maletero, qué hacer si te quedas atrapado en la carretera y cuándo hay que salir del coche."
 category: Coche

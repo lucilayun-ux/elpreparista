@@ -1,0 +1,16 @@
+# Recuadro final de los artículos en inglés (campo «kit:»).
+casa:
+  name: Home Kit
+  cap: For the next blackout
+  title: Your Home Kit, ready in one click
+  text: Light, water, no-cook food, radio and battery for 72 hours. Choose the level and the number of people, and we build your list on Amazon.
+coche:
+  name: Car Kit
+  cap: For snow, flash floods and traffic jams
+  title: Your Car Kit, ready in one click
+  text: Warmth, water, light, food and the tool to get out of the car. Choose the level and we build your list on Amazon.
+salida:
+  name: Go Bag
+  cap: To evacuate in a minute
+  title: Your go bag, ready in one click
+  text: Water, food, light, warmth and documents in one backpack per person. Choose the level and we build your list on Amazon.

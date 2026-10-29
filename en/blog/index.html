@@ -1,0 +1,16 @@
+---
+layout: blog
+lang: en
+title: Blog
+description: Clear guides to prepare your home, your car and your family for blackouts, storms and evacuations in Spain.
+---
+<main class="wrap bloghome">
+  <header class="sechead">
+    <span class="cap" style="color:var(--red)">Blog</span>
+    <h1>Information to be prepared</h1>
+    <p>Clear, no-panic guides to prepare your home, your car and your family for blackouts, storms and evacuations in Spain.</p>
+  </header>
+  <div class="cards">
+    {% assign posts_en = site.posts | where: "lang", "en" %}{% for p in posts_en %}{% include card.html post=p %}{% endfor %}
+  </div>
+</main>

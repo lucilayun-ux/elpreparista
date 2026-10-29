@@ -3,5 +3,5 @@
   {% if p.category %}<span class="cap tag">{{ p.category }}</span>{% endif %}
   <h3>{{ p.title }}</h3>
   <p>{{ p.description }}</p>
-  <span class="cap go">Leer artículo →</span>
+  <span class="cap go">{% if p.lang == "en" %}Read article{% else %}Leer artículo{% endif %} →</span>
 </a>

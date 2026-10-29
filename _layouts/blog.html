@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="{% if page.lang == 'en' %}en{% else %}es{% endif %}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="/fonts.css">
 <link rel="stylesheet" href="/blog.css">
 <link rel="alternate" type="application/rss+xml" title="Blog de El Preparista" href="/blog/feed.xml">
+{% include alt.html %}{% if page.lang == "en" %}{% assign es_url = alt_url %}{% assign en_url = page.url %}{% else %}{% assign es_url = page.url %}{% assign en_url = alt_url %}{% endif %}
+{% if page.url == "/blog/" or page.url == "/en/blog/" %}{% assign es_url = "/blog/" %}{% assign en_url = "/en/blog/" %}{% endif %}
+{% if es_url and en_url %}<link rel="alternate" hreflang="es" href="{{ site.url }}{{ es_url }}">
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ en_url }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ es_url }}">{% endif %}
 {% seo %}
 <script src="/consent.js" defer></script>
 </head>
