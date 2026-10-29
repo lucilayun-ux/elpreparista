@@ -27,3 +27,4 @@ exclude:
   - analytics
   - README.md
   - BLOG.md
+  - tools

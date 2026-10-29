@@ -43,9 +43,13 @@
     var box = document.createElement("div");
     box.id = "cookies";
     box.setAttribute("role", "region");
-    box.setAttribute("aria-label", "Aviso de cookies");
-    box.innerHTML = '<div class="in"><p>Usamos cookies de Google Analytics para saber cuántas personas visitan la web y mejorarla. Solo se activan si las aceptas. ' +
-      '<a href="cookies.html">Más información</a>.</p><div class="bt"><button type="button" data-v="no">Rechazar</button><button type="button" data-v="si">Aceptar</button></div></div>';
+    box.setAttribute("aria-label", document.documentElement.lang === "en" ? "Cookie notice" : "Aviso de cookies");
+    var en = document.documentElement.lang === "en";
+    box.innerHTML = en
+      ? '<div class="in"><p>We use Google Analytics cookies to see how many people visit the site and improve it. They are only enabled if you accept them. ' +
+        '<a href="/cookies.html" hreflang="es">More information</a> (in Spanish).</p><div class="bt"><button type="button" data-v="no">Reject</button><button type="button" data-v="si">Accept</button></div></div>'
+      : '<div class="in"><p>Usamos cookies de Google Analytics para saber cuántas personas visitan la web y mejorarla. Solo se activan si las aceptas. ' +
+        '<a href="/cookies.html">Más información</a>.</p><div class="bt"><button type="button" data-v="no">Rechazar</button><button type="button" data-v="si">Aceptar</button></div></div>';
     box.addEventListener("click", function (e) {
       var v = e.target.getAttribute && e.target.getAttribute("data-v");
       if (!v) return;

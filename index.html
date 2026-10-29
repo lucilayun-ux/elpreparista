@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>El Preparista · Kits de emergencia para casa, coche y evacuación</title>
 <meta name="description" content="Kits de emergencia para 72 horas: casa, coche y evacuación. Elige tu kit y el nivel y te lo dejamos en tu cesta de Amazon en un clic.">
+<link rel="canonical" href="https://elpreparista.com/">
+<link rel="alternate" hreflang="es" href="https://elpreparista.com/">
+<link rel="alternate" hreflang="en" href="https://elpreparista.com/en">
+<link rel="alternate" hreflang="x-default" href="https://elpreparista.com/">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="fonts.css">
@@ -67,6 +71,10 @@ header.top .wrap { display: flex; align-items: center; justify-content: space-be
 nav.links { display: flex; gap: 1.5rem; font-family: var(--f-sign); font-weight: 700; font-size: 1.05rem; letter-spacing: .05em; text-transform: uppercase; }
 nav.links a { text-decoration: none; }
 nav.links a:hover { color: var(--red); }
+.hdr-act { display: flex; align-items: center; gap: .8rem; }
+.lang { font-family: var(--f-sign); font-weight: 700; font-size: .95rem; letter-spacing: .06em; text-decoration: none; border: 2px solid var(--ink); padding: .1rem .45rem; line-height: 1.3; }
+.lang:hover { background: var(--ink); color: #fff; }
+@media (max-width: 400px) { .logo span { font-size: 1.35rem; } .hdr-act { gap: .5rem; } }
 @media (max-width: 760px) { nav.links { display: none; } }
 
 /* Hero */
@@ -267,7 +275,10 @@ footer .wrap { display: grid; gap: .6rem; }
       <a href="#faq">Preguntas</a>
       <a href="/blog/">Blog</a>
     </nav>
-    <a class="btn red" href="#kits" style="padding:.35rem .8rem;font-size:1rem;box-shadow:3px 3px 0 var(--ink)">Elegir kit</a>
+    <div class="hdr-act">
+      <a class="lang" href="/en" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <a class="btn red" href="#kits" style="padding:.35rem .8rem;font-size:1rem;box-shadow:3px 3px 0 var(--ink)">Elegir kit</a>
+    </div>
   </div>
 </header>
 

@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Preparista · Emergency kits for home, car and evacuation</title>
+<meta name="description" content="72-hour emergency kits for home, car and evacuation in Spain. Choose your kit and level and we put it in your Amazon basket in one click.">
+<link rel="canonical" href="https://elpreparista.com/en">
+<link rel="alternate" hreflang="es" href="https://elpreparista.com/">
+<link rel="alternate" hreflang="en" href="https://elpreparista.com/en">
+<link rel="alternate" hreflang="x-default" href="https://elpreparista.com/">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts.css">
+<style>
+/* Layout: hoja de instrucciones de seguridad (etiqueta de extintor, señales ISO 7010). Papel blanco, bordes negros gruesos,
+   paneles numerados con pictogramas, bandas de color de señalización. Tema único claro a propósito: es un objeto impreso. */
+:root {
+  --paper: #FFFFFF;
+  --bg: #FFFFFF;
+  --ink: #111111;
+  --muted: #4B4B4B;
+  --hair: #C9C9C4;
+  --red: #C8102E;      /* equipos de emergencia */
+  --green: #00804A;    /* salvamento y evacuación */
+  --yellow: #F6B400;   /* advertencia */
+  --f-sign: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.wrap { max-width: 1120px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--f-sign); font-weight: 800; text-transform: uppercase; line-height: .95; letter-spacing: .01em; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(2.2rem, 5vw, 3.3rem); }
+h3 { font-size: 1.6rem; }
+p { margin: 0; }
+.cap { font-family: var(--f-sign); font-weight: 700; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+svg.pic { display: block; width: 100%; height: auto; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  font-family: var(--f-sign); font-weight: 700; font-size: 1.15rem; letter-spacing: .04em; text-transform: uppercase;
+  border: 3px solid var(--ink); background: var(--paper); color: var(--ink);
+  padding: .6rem 1.2rem; text-decoration: none; box-shadow: 4px 4px 0 var(--ink);
+  transition: transform .1s, box-shadow .1s;
+}
+.btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.btn.red { background: var(--red); color: #fff; }
+.btn[aria-disabled="true"] { opacity: .4; pointer-events: none; }
+
+.proto { font-family: var(--f-sign); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; text-align: center; color: var(--muted); padding-block: .45rem; }
+
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-block: 3px solid var(--ink); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .55rem; }
+.logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+.logo svg, .logo img { width: 40px; height: 40px; flex: none; }
+.logo span { font-family: var(--f-sign); font-weight: 800; font-size: 1.65rem; letter-spacing: .03em; }
+nav.links { display: flex; gap: 1.5rem; font-family: var(--f-sign); font-weight: 700; font-size: 1.05rem; letter-spacing: .05em; text-transform: uppercase; }
+nav.links a { text-decoration: none; }
+nav.links a:hover { color: var(--red); }
+.hdr-act { display: flex; align-items: center; gap: .8rem; }
+.lang { font-family: var(--f-sign); font-weight: 700; font-size: .95rem; letter-spacing: .06em; text-decoration: none; border: 2px solid var(--ink); padding: .1rem .45rem; line-height: 1.3; }
+.lang:hover { background: var(--ink); color: #fff; }
+@media (max-width: 400px) { .logo span { font-size: 1.35rem; } .hdr-act { gap: .5rem; } }
+@media (max-width: 760px) { nav.links { display: none; } }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; padding-block: 3rem; }
+.hero > * { min-width: 0; }
+.alert { display: inline-flex; align-items: center; gap: .5rem; background: var(--red); color: #fff; padding: .3rem .7rem; }
+.hero h1 { font-size: clamp(3rem, 8vw, 5.6rem); margin-top: 1rem; }
+.hero h1 em { font-style: normal; color: var(--green); }
+.hero .lede { font-size: 1.15rem; max-width: 33rem; margin-top: 1.1rem; color: var(--muted); }
+.hero .lede strong { color: var(--ink); }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.8rem; }
+
+/* Tarjeta de instrucciones (estilo etiqueta de extintor) */
+.card { background: var(--paper); border: 3px solid var(--ink); }
+.card .band { background: var(--red); color: #fff; padding: .5rem .9rem; display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; border-bottom: 3px solid var(--ink); }
+.card .band b { font-family: var(--f-sign); font-weight: 800; font-size: 1.6rem; text-transform: uppercase; letter-spacing: .03em; line-height: 1; }
+.panels { display: grid; grid-template-columns: 1fr 1fr; }
+.panel { padding: .9rem; display: grid; grid-template-columns: auto 1fr; gap: .4rem .7rem; align-items: start; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.panel:nth-child(2n) { border-right: 0; }
+.panel:nth-last-child(-n+2) { border-bottom: 0; }
+.num { width: 2rem; height: 2rem; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-family: var(--f-sign); font-weight: 800; font-size: 1.2rem; }
+.panel .pic { grid-column: 1 / -1; max-width: 120px; margin: .2rem auto; color: var(--ink); }
+.panel img.photo { max-width: 190px; width: 100%; height: auto; margin: 0 auto; mix-blend-mode: multiply; }
+@media (max-width: 400px) { .panel img.photo { max-width: 130px; } }
+.panel p { grid-column: 1 / -1; font-family: var(--f-sign); font-weight: 600; font-size: 1.05rem; line-height: 1.15; text-transform: uppercase; text-align: center; }
+.panel .num { grid-column: 1; }
+/* Títulos de los pasos a la misma altura: la ilustración ocupa el hueco y se apoya abajo */
+.panels .panel { grid-row: span 4; grid-template-rows: subgrid; }
+.panels .panel .pic { align-self: end; }
+a.panel { text-decoration: none; color: var(--ink); transition: background .12s; }
+a.panel:hover { background: #F3F3F0; }
+a.panel:hover p { color: var(--red); }
+.panel small { grid-column: 1 / -1; text-align: center; color: var(--muted); font-size: .9rem; line-height: 1.35; }
+.panel small b { color: var(--ink); }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; gap: 2.2rem; } }
+@media (max-width: 400px) { .panel .pic { max-width: 90px; } }
+
+section { padding-block: 3.5rem; scroll-margin-top: 4.5rem; }
+.sechead { display: grid; gap: .6rem; margin-bottom: 1.8rem; max-width: 44rem; }
+.sechead p { color: var(--muted); font-size: 1.05rem; }
+.rule { border: 0; border-top: 3px solid var(--ink); margin: 0; }
+
+/* Selector de kit: tres señales */
+.stephead { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1rem; margin-block: 2.6rem 1.1rem; }
+.stephead:first-of-type { margin-top: 0; }
+.stephead .num { width: 2.6rem; height: 2.6rem; font-size: 1.6rem; flex: none; }
+.stephead h3 { font-size: clamp(1.8rem, 3.6vw, 2.4rem); }
+.stephead .stepwrap { margin-left: auto; }
+
+.signs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.sign {
+  background: var(--paper); color: var(--ink); text-align: left; border: 2px solid var(--hair);
+  padding: 1rem; display: grid; grid-template-columns: 84px 1fr; gap: 1rem; align-items: center;
+}
+.sign > div { min-width: 0; display: grid; gap: .2rem; }
+.sign b { font-family: var(--f-sign); font-weight: 800; font-size: 1.8rem; text-transform: uppercase; line-height: 1; }
+.sign small { color: var(--muted); font-size: .92rem; line-height: 1.3; }
+.sign[aria-selected="true"] { border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); }
+@media (max-width: 820px) { .signs { grid-template-columns: 1fr; } .sign { grid-template-columns: 64px 1fr; } }
+
+.kitpanel { background: #EDEDEA; margin-top: 1.6rem; padding: 1.4rem max(1rem, 2.5vw) 1.8rem; }
+.kitpanel .stephead { margin-top: 2.2rem; }
+.sign { position: relative; }
+.sign[aria-selected="true"]::after {
+  content: ""; position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: calc(-1.6rem - 3px); border: 18px solid transparent; border-bottom-color: #EDEDEA; border-top: 0;
+}
+@media (max-width: 820px) { .sign[aria-selected="true"]::after { display: none; } }
+.kitintro { display: grid; grid-template-columns: 180px 1fr; align-items: center; gap: 1rem 1.5rem; }
+.kitintro > div { min-width: 0; display: grid; gap: .3rem; }
+.kitintro h4 { font-family: var(--f-sign); font-weight: 800; font-size: 1.4rem; text-transform: uppercase; margin: 0; }
+.kitintro .text { max-width: 44rem; }
+.kitintro p { color: var(--muted); }
+.kitintro .text .cap { color: var(--muted); }
+.kitintro .art { border: 1px solid var(--hair); background: var(--paper); position: relative; overflow: hidden; }
+.kitintro .art .ex { position: absolute; right: 5px; bottom: 3px; font-size: .62rem; color: var(--muted); font-family: var(--f-sign); letter-spacing: .06em; text-transform: uppercase; }
+@media (max-width: 560px) { .kitintro { grid-template-columns: 1fr; } .kitintro .art { max-width: 240px; } }
+.stepwrap { display: flex; align-items: center; gap: .8rem; }
+.stepper { display: inline-flex; align-items: center; border: 3px solid var(--ink); background: var(--paper); }
+.stepper button { width: 2.6rem; height: 2.6rem; background: transparent; border: 0; color: var(--ink); font-size: 1.4rem; font-weight: 700; }
+.stepper button:disabled { opacity: .25; cursor: default; }
+.stepper output { min-width: 2.6rem; text-align: center; font-family: var(--f-sign); font-weight: 800; font-size: 1.7rem; border-inline: 2px solid var(--ink); }
+
+/* Niveles */
+.levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.level { position: relative; text-align: left; color: var(--ink); background: var(--paper); border: 2px solid var(--hair); padding: 1rem 1.1rem; display: grid; gap: .5rem; align-content: start; }
+.level[aria-checked="true"] { border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); }
+.level .lvname { font-family: var(--f-sign); font-weight: 800; font-size: 2rem; text-transform: uppercase; line-height: 1; }
+.level .bars { display: flex; gap: 3px; }
+.level .bars i { width: 24px; height: 12px; border: 2px solid var(--ink); }
+.level .bars i.on { background: var(--ink); }
+.level p { color: var(--muted); font-size: .95rem; }
+.level .count { font-family: var(--f-sign); font-weight: 600; font-size: .95rem; letter-spacing: .05em; text-transform: uppercase; }
+.level .badge { position: absolute; top: -.8rem; right: .8rem; background: var(--red); color: #fff; font-family: var(--f-sign); font-weight: 700; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; padding: .15rem .55rem; }
+@media (max-width: 760px) { .levels { grid-template-columns: 1fr; } }
+
+/* Lista */
+.result { margin-top: 1.8rem; --kc: var(--red); --kc-ink: #fff; }
+.result[data-kit="coche"] { --kc: var(--yellow); --kc-ink: var(--ink); }
+.result[data-kit="salida"] { --kc: var(--green); --kc-ink: #fff; }
+.result .band { background: var(--kc); color: var(--kc-ink); flex-wrap: wrap; }
+.result .inner { padding: 1rem 1.2rem 1.2rem; display: grid; gap: 1rem; }
+.shop { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; }
+.shop li { display: grid; grid-template-columns: 1.6rem 1fr auto; gap: .1rem .8rem; align-items: center; padding-block: .55rem; border-bottom: 1px solid var(--hair); }
+.shop li > div { min-width: 0; }
+.shop .box { position: relative; width: 1.3rem; height: 1.3rem; border: 2px solid var(--ink); background: var(--ink); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: .9rem; line-height: 1; }
+label.box { cursor: pointer; }
+label.box input { position: absolute; inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px); margin: 0; opacity: 0; cursor: pointer; }
+label.box:has(input:focus-visible) { outline: 3px solid var(--red); outline-offset: 2px; }
+.shop li.off .box { background: var(--paper); color: transparent; }
+.shop li.off .nm { text-decoration: line-through; color: var(--muted); }
+.shop li.off .amt, .shop li.off .thumb { opacity: .4; }
+.shop .nm { font-weight: 600; }
+.shop .nm .new { font-family: var(--f-sign); font-weight: 700; font-size: .75rem; letter-spacing: .08em; border: 1.5px solid var(--ink); padding: 0 .3rem; margin-left: .35rem; vertical-align: 2px; }
+.shop .amt { font-family: var(--f-sign); font-weight: 600; font-size: .95rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; font-variant-numeric: tabular-nums; }
+.thumb { width: 64px; height: 64px; padding: 9px; background: #F3F3F0; border: 1.5px solid var(--hair); color: var(--ink); display: block; transition: border-color .12s, transform .12s; }
+.thumb svg, .thumb img { display: block; width: 100%; height: 100%; }
+.thumb img { object-fit: contain; }
+.thumb svg[hidden] { display: none; } /* icono de reserva: solo se ve si la foto no carga */
+.thumb.has-img { background: #fff; padding: 4px; }
+a.thumb:hover { border-color: var(--ink); transform: translateY(-1px); }
+.thumb.diy { background: transparent; border-style: dashed; color: var(--muted); }
+@media (max-width: 860px) { .shop { grid-template-columns: 1fr; } }
+@media (max-width: 460px) { .thumb { width: 52px; height: 52px; padding: 7px; } }
+.sendbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; border-top: 3px solid var(--ink); padding-top: 1rem; }
+.sendbar > div { display: grid; gap: .2rem; min-width: 0; flex: 1 1 18rem; }
+.fine { font-size: .85rem; color: var(--muted); }
+
+/* Complementos */
+.extras { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.2rem; }
+.extra { background: var(--paper); border: 2px solid var(--hair); padding: 1rem; display: grid; grid-template-columns: 72px 1fr; gap: .4rem 1rem; align-items: start; }
+.extra .thumb { width: 72px; height: 72px; grid-row: span 3; }
+.extra h3 { font-size: 1.3rem; line-height: 1.05; }
+.extra p { color: var(--muted); font-size: .92rem; line-height: 1.35; }
+.extra .go { font-family: var(--f-sign); font-weight: 700; font-size: .95rem; letter-spacing: .04em; text-transform: uppercase; color: var(--red); }
+.extra:hover { border-color: var(--ink); }
+
+/* Cómo funciona: tira de instrucciones */
+.strip { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--paper); border: 3px solid var(--ink); }
+.strip .panel { border-bottom: 0; border-right: 2px solid var(--ink); }
+.strip .panel:last-child { border-right: 0; }
+.strip .panel p { font-size: 1.1rem; }
+.strip .panel small { grid-column: 1 / -1; text-align: center; color: var(--muted); font-size: .9rem; line-height: 1.35; }
+@media (max-width: 860px) {
+  .strip { grid-template-columns: 1fr 1fr; }
+  .strip .panel { border-bottom: 2px solid var(--ink); }
+  .strip .panel:nth-child(2n) { border-right: 0; }
+  .strip .panel:nth-last-child(-n+2) { border-bottom: 0; }
+}
+
+/* Reposición */
+.repo { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+.repo > * { min-width: 0; }
+.repo .timeline { align-self: center; }
+.timeline { list-style: none; padding: 0; margin: 0; display: grid; border-top: 3px solid var(--ink); }
+.timeline li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding-block: .9rem; border-bottom: 1px solid var(--hair); }
+.timeline .when { font-family: var(--f-sign); font-weight: 800; font-size: 1.1rem; text-transform: uppercase; color: var(--green); line-height: 1.2; }
+.timeline p { color: var(--muted); }
+.timeline b { color: var(--ink); }
+.repo .card .band { background: var(--green); }
+.repo .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.repo form { display: grid; gap: .9rem; padding: 1.1rem 1.2rem 1.3rem; }
+.field { display: grid; gap: .3rem; }
+.field label { font-family: var(--f-sign); font-weight: 700; font-size: 1rem; letter-spacing: .05em; text-transform: uppercase; }
+.field input, .field select { padding: .65rem .8rem; border: 2px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); width: 100%; }
+.field input:focus, .field select:focus { outline: 3px solid var(--green); outline-offset: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.ok { border: 3px solid var(--green); padding: .8rem 1rem; font-weight: 500; }
+.perks { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; font-weight: 600; }
+.perks li { display: flex; gap: .55rem; align-items: baseline; }
+.perks li::before { content: "✓"; color: var(--green); font-weight: 800; }
+@media (max-width: 860px) { .repo { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .two { grid-template-columns: 1fr; } .timeline li { grid-template-columns: 1fr; gap: .2rem; } }
+
+.faq { display: grid; max-width: 48rem; border-top: 3px solid var(--ink); }
+.faq details { border-bottom: 1px solid var(--hair); padding-block: .9rem; }
+.faq summary { font-family: var(--f-sign); font-weight: 700; font-size: 1.25rem; text-transform: uppercase; letter-spacing: .02em; cursor: pointer; }
+.faq details p { margin-top: .5rem; color: var(--muted); max-width: 42rem; }
+
+footer { background: var(--paper); border-top: 3px solid var(--ink); padding-block: 1.8rem 2.6rem; margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); color: var(--muted); font-size: .92rem; }
+footer .wrap { display: grid; gap: .6rem; }
+</style>
+<script src="consent.js" defer></script>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="El Preparista, home">
+      <img src="logo.png" alt="" width="40" height="40">
+      <span>EL PREPARISTA</span>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#kits">Kits</a>
+      <a href="#complementos">Add-ons</a>
+      <a href="#reposicion">Restocking</a>
+      <a href="#faq">FAQ</a>
+      <a href="/blog/" hreflang="es">Blog (ES)</a>
+    </nav>
+    <div class="hdr-act">
+      <a class="lang" href="/" hreflang="es" lang="es" aria-label="Versión en español">ES</a>
+      <a class="btn red" href="#kits" style="padding:.35rem .8rem;font-size:1rem;box-shadow:3px 3px 0 var(--ink)">Choose kit</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="inicio">
+  <div class="hero">
+    <div>
+      <span class="alert cap">In an emergency</span>
+      <h1>Your emergency kit is <em>ready</em></h1>
+      <p class="lede">Almost everyone sells the evacuation backpack. But what happens most is <strong>a blackout at home or hours stuck in your car</strong>. Choose your kit, choose the level, review the products and we build the basket for you to buy on Amazon. It&#8217;s that easy.</p>
+      <div class="ctas">
+        <a class="btn red" href="#kits">Choose my kit</a>
+        <a class="btn" href="#reposicion">Automatic restocking</a>
+      </div>
+    </div>
+
+    <div class="card" aria-label="How it works in four steps">
+      <div class="band"><b>In four steps</b><span class="cap">How it works</span></div>
+      <div class="panels">
+        <a class="panel" href="#kits"><span class="num">1</span><img class="pic photo" src="paso1.jpg" alt="Person seen from behind wearing an emergency backpack" width="140" height="142"><p>Choose your kit</p><small>Home, car or evacuation.</small></a>
+        <a class="panel" href="#kits"><span class="num">2</span><img class="pic photo" src="paso2.jpg" alt="Person wearing a three-module backpack: Essential, Complete and Total" width="140" height="140"><p>Essential or Pro?</p><small>Essential, Complete or Total.</small></a>
+        <a class="panel" href="#kits"><span class="num">3</span><img class="pic photo" src="paso3.jpg" alt="Hand holding a phone with the emergency kit order" width="140" height="140"><p>All in the basket</p><small>One click and we build your order.</small></a>
+        <a class="panel" href="#reposicion"><span class="num">4</span><img class="pic photo" src="paso4.jpg" alt="Woman holding an emergency kit box" width="140" height="142"><p>Delivered to your door</p><small>We&#8217;re ready!</small></a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <section id="kits">
+    <div class="sechead">
+      <span class="cap" style="color:var(--red)">Choose your kit</span>
+      <h2>Three kits, three levels</h2>
+      <p>Each kit covers a different situation. Within each one, choose from basic to most complete.</p>
+    </div>
+
+    <div class="stephead"><span class="num">1</span><h3>Choose your kit</h3></div>
+    <div class="signs" role="tablist" aria-label="Kit type" id="tabs"></div>
+
+    <div class="kitpanel" id="kitpanel">
+    <div class="kitintro">
+      <div class="art"><div id="kArt"></div><span class="ex">Sample image</span></div>
+      <div class="text"><span class="cap" id="kArtCap"></span><h4 id="kTitle"></h4><p id="kScene"></p></div>
+    </div>
+
+    <div class="stephead"><span class="num">2</span><h3>Choose the level</h3>
+      <div class="stepwrap">
+        <span class="cap" id="lblPeople">How many of you?</span>
+        <div class="stepper" role="group" aria-labelledby="lblPeople">
+          <button type="button" id="pMinus" aria-label="One person fewer">−</button>
+          <output id="people" aria-live="polite">2</output>
+          <button type="button" id="pPlus" aria-label="One more person">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="levels" role="radiogroup" aria-label="Kit level" id="levels"></div>
+
+    <div class="stephead"><span class="num">3</span><h3>Review and buy</h3></div>
+    <div class="card result" id="result" aria-live="polite">
+      <div class="band"><b id="rName"></b><span class="cap">Kit contents</span></div>
+      <div class="inner">
+        <ul class="shop" id="rList"></ul>
+        <div class="sendbar">
+          <div>
+            <span class="cap" id="rCount"></span>
+            <span class="fine">Untick anything you already have. Amazon opens with the products already in your basket; you pay there, with your own account and delivery. Products are sold on Amazon Spain (amazon.es).</span>
+          </div>
+          <a class="btn red" id="sendAll" href="#" target="_blank" rel="noopener sponsored">Review and buy your kit</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="complementos">
+    <div class="sechead">
+      <span class="cap" style="color:var(--red)">Add-ons</span>
+      <h2>Upgrade your kit</h2>
+      <p>Individual items to expand the kit you already have or replace what you have used.</p>
+    </div>
+    <div class="extras" id="extras"></div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="reposicion">
+    <div class="sechead">
+      <span class="cap" style="color:var(--green)">Automatic restocking</span>
+      <h2>We don&#8217;t sell you a kit, we make it easy to get one</h2>
+      <p>We email you when things are about to expire. A kit with expired water is no use to anyone.</p>
+    </div>
+    <div class="repo">
+      <ol class="timeline">
+        <li><span class="when">Today</span><p><b>You buy your kit.</b> We store the approximate expiry date of each item.</p></li>
+        <li><span class="when">Every year</span><p><b>We remind you to check it:</b> batteries, torch, and that the cash is still in the envelope.</p></li>
+        <li><span class="when">Every month</span><p><b>Useful information</b> in our newsletter: preparedness tips and kit updates.</p></li>
+        <li><span class="when">Always</span><p><b>We share</b> news, alerts and storm warnings.</p></li>
+      </ol>
+      <div class="card">
+        <div class="band"><b>Subscribe for free</b><span class="cap">Reminders + newsletter</span></div>
+        <form id="repoForm" novalidate>
+          <div class="field"><label for="rEmail">Your email</label><input id="rEmail" type="email" placeholder="name@email.com" autocomplete="email" required></div>
+          <div class="two">
+            <div class="field"><label for="rPhone">Phone (optional)</label><input id="rPhone" type="tel" placeholder="+34 600 000 000" autocomplete="tel" inputmode="tel"></div>
+            <div class="field"><label for="rFullName">Full name</label><input id="rFullName" type="text" placeholder="First and last name" autocomplete="name"></div>
+          </div>
+          <div class="hp" aria-hidden="true"><label for="rWeb">Leave this field empty</label><input id="rWeb" type="text" tabindex="-1" autocomplete="off"></div>
+          <ul class="perks"><li>Reminders before your kit expires</li><li>Newsletter with useful information</li><li>Alerts when a storm is coming</li></ul>
+          <button class="btn red" type="submit" style="background:var(--green)">Subscribe</button>
+          <p class="fine" id="repoErr" role="alert" hidden></p>
+          <p class="ok" id="repoOk" hidden></p>
+          <p class="fine">By subscribing you will receive expiry reminders and our newsletter. You can unsubscribe with one click from any email.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="faq">
+    <div class="sechead">
+      <span class="cap" style="color:var(--red)">Frequently asked questions</span>
+      <h2>What people ask us</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Why three kits and not just a backpack?</summary><p>Because the most common emergencies in Spain are not evacuations. They are blackouts like the one in April 2025, storms and flash floods (DANAs), and snowfalls that leave people stuck on the road for hours. Each situation calls for different things in a different place: a box in the cupboard, a bag in the car boot and a backpack by the door.</p></details>
+      <details><summary>Which level should I choose?</summary><p>If you have nothing yet, Essential already covers the basics. Complete is the one we recommend for a family. Total is for people who live in areas prone to snow or flooding, or far from everything.</p></details>
+      <details><summary>Who sells me the products?</summary><p>Amazon. We choose the products and calculate the quantities; the purchase, payment, delivery and returns are with Amazon, just like any other order of yours. The links go to Amazon Spain (amazon.es), where you can switch the site language to English.</p></details>
+      <details><summary>Does it cost more to buy through you?</summary><p>No. You pay the same as if you searched for each product yourself. Amazon pays us a small commission for recommending them.</p></details>
+      <details><summary>How much water do I need?</summary><p>At home, 2 litres of drinking water per person per day, as recommended by Spanish Civil Protection: 6 litres per person for 72 hours. In the car we allow 1.5 litres per person for a long traffic jam.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:var(--ink)">El Preparista</strong> · elpreparista.com</p>
+    <p>As an Amazon Associate I earn from qualifying purchases.</p>
+    <p><a href="/blog/" hreflang="es">Blog (Spanish)</a> · <a href="aviso-legal.html" hreflang="es">Legal notice</a> · <a href="privacidad.html" hreflang="es">Privacy</a> · <a href="cookies.html" hreflang="es">Cookies</a> (in Spanish) · <a href="#" data-cookies>Cookie settings</a> · <a href="/" hreflang="es" lang="es">Versión en español</a></p>
+  </div>
+</footer>
+
+<script>
+/* ===== PICTOGRAMAS =====
+   Dibujos de trazo grueso al estilo de las instrucciones de seguridad. currentColor = color del trazo. */
+const S = 'fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"';
+const ICONS = {
+  armario: `<rect x="18" y="10" width="64" height="80" ${S}/><path d="M18 50h64M50 10v40" ${S}/><rect x="30" y="58" width="40" height="24" fill="currentColor"/><path d="M42 58v-5h16v5" ${S} stroke-width="5"/>`,
+  linterna: `<path d="M14 66 44 36l14 14-30 30z" fill="currentColor"/><path d="M44 36l8-8 14 14-8 8" ${S}/><path d="M66 22l12-12M74 36l16-4M58 14l4-12" ${S} stroke-width="6"/>`,
+  agua: `<path d="M40 8h20v10l8 10v62H32V28l8-10z" ${S}/><path d="M32 52h36v38H32z" fill="currentColor"/><path d="M42 66c0 8 16 8 16 0l-8-10z" fill="#fff"/>`,
+  calendario: `<rect x="12" y="20" width="76" height="68" ${S}/><path d="M12 38h76M32 10v18M68 10v18" ${S}/><path d="M34 62l12 12 22-22" ${S} stroke-width="8"/>`,
+  elegir: `<rect x="8" y="30" width="24" height="24" ${S} stroke-width="5"/><rect x="38" y="30" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="5"/><rect x="68" y="30" width="24" height="24" ${S} stroke-width="5"/><path d="M50 62v26M40 78l10 10 10-10" ${S} stroke-width="6"/>`,
+  mochila: `<path d="M43 17 C43 8 57 8 57 17" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M26 36 C26 21 36 15 50 15 C64 15 74 21 74 36 V85 C74 89 71 92 67 92 H33 C29 92 26 89 26 85 Z" fill="currentColor"/><path d="M29.5 35 C29.5 24 38 18.5 50 18.5 C62 18.5 70.5 24 70.5 35" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><rect x="67.5" y="35" width="6" height="8" rx="1.5" fill="#fff"/><rect x="35" y="71" width="30" height="15" rx="4" fill="none" stroke="#fff" stroke-width="3"/><path d="M40 76 H60" stroke="#fff" stroke-width="3" stroke-linecap="round"/><text x="50" y="63" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="22" fill="#fff">72 h</text>`,
+  casa: `<path d="M10 50 50 14l40 36" ${S}/><path d="M22 42v46h56V42" ${S}/><rect x="42" y="60" width="16" height="28" fill="currentColor"/>`,
+  comida: `<rect x="26" y="26" width="48" height="58" rx="6" fill="currentColor"/><path d="M26 42h48M26 68h48" stroke="#fff" stroke-width="4"/>`,
+  radio: `<path d="M30 36 64 14" ${S} stroke-width="5"/><rect x="12" y="36" width="76" height="48" rx="6" fill="currentColor"/><circle cx="35" cy="60" r="12" fill="#fff"/><path d="M58 52h18M58 66h18" stroke="#fff" stroke-width="5"/>`,
+  bateria: `<rect x="40" y="10" width="20" height="10" fill="currentColor"/><rect x="24" y="20" width="52" height="70" rx="6" fill="currentColor"/><path d="M55 32 41 56h12l-6 20 17-26H52l7-18z" fill="#fff"/>`,
+  pilas: `<rect x="27" y="18" width="10" height="8" fill="currentColor"/><rect x="20" y="26" width="24" height="60" rx="4" fill="currentColor"/><rect x="63" y="18" width="10" height="8" fill="currentColor"/><rect x="56" y="26" width="24" height="60" rx="4" fill="currentColor"/>`,
+  vela: `<path d="M50 10c9 11 9 20 0 25-9-5-9-14 0-25z" fill="currentColor"/><rect x="37" y="40" width="26" height="50" fill="currentColor"/>`,
+  botiquin: `<path d="M38 30v-8h24v8" ${S} stroke-width="6"/><rect x="12" y="30" width="76" height="56" rx="6" fill="currentColor"/><path d="M45 44h10v9h9v10h-9v9H45v-9h-9V53h9z" fill="#fff"/>`,
+  manta: `<rect x="14" y="26" width="72" height="20" rx="4" fill="currentColor"/><rect x="14" y="52" width="72" height="20" rx="4" fill="currentColor"/><path d="M14 36h72M14 62h72" stroke="#fff" stroke-width="2" opacity=".5"/>`,
+  caja: `<rect x="10" y="20" width="80" height="16" fill="currentColor"/><rect x="16" y="38" width="68" height="48" fill="currentColor"/><rect x="40" y="48" width="20" height="8" fill="#fff"/>`,
+  doc: `<rect x="22" y="12" width="56" height="76" rx="4" fill="currentColor"/><path d="M33 32h34M33 46h34M33 60h22" stroke="#fff" stroke-width="5"/>`,
+  billete: `<rect x="8" y="28" width="84" height="44" rx="4" fill="currentColor"/><circle cx="50" cy="50" r="11" fill="#fff"/>`,
+  herramienta: `<rect x="26" y="16" width="48" height="18" rx="3" fill="currentColor"/><rect x="44" y="34" width="12" height="54" rx="3" fill="currentColor"/>`,
+  chaleco: `<path d="M30 12l10 10h20l10-10 18 16v62H12V28z" fill="currentColor"/><path d="M12 58h76" stroke="var(--yellow)" stroke-width="9"/>`,
+  baliza: `<path d="M32 58c0-26 36-26 36 0z" fill="var(--yellow)" stroke="currentColor" stroke-width="5"/><rect x="26" y="58" width="48" height="26" rx="4" fill="currentColor"/>`,
+  cuerda: `<circle cx="50" cy="50" r="32" ${S} stroke-width="9"/><circle cx="50" cy="50" r="16" ${S} stroke-width="9"/>`,
+  fuego: `<path d="M50 12c15 14 17 27 9 40-4-8-9-11-9-11s-5 5-9 11c-8-13-6-26 9-40z" fill="currentColor"/><rect x="16" y="64" width="68" height="20" rx="3" fill="currentColor"/>`,
+  nivel: `<rect x="12" y="62" width="20" height="26" fill="currentColor"/><rect x="40" y="42" width="20" height="46" fill="currentColor"/><rect x="68" y="16" width="20" height="72" ${S} stroke-width="6"/>`,
+  carrito: `<path d="M6 16h14l10 46h50l8-34H26" ${S}/><circle cx="36" cy="80" r="7" fill="currentColor"/><circle cx="74" cy="80" r="7" fill="currentColor"/><path d="M48 32v18M40 44l8 8 8-8" ${S} stroke-width="6"/>`,
+  aviso: `<path d="M24 70V46a26 26 0 0 1 52 0v24l8 8H16z" fill="currentColor"/><path d="M42 84a8 8 0 0 0 16 0" ${S} stroke-width="6"/><path d="M50 8v6M10 40h8M82 40h8" ${S} stroke-width="6"/>`,
+};
+function pic(name) { return `<svg class="pic" viewBox="0 0 100 100" aria-hidden="true">${ICONS[name]}</svg>`; }
+document.querySelectorAll("[data-icon]").forEach(el => el.outerHTML = pic(el.dataset.icon));
+
+/* Señales de cada kit, con forma y color de señalización:
+   Casa = cuadrado rojo (equipo de emergencia), Coche = triángulo amarillo (advertencia), Salida = verde (evacuación). */
+const SIGNS = {
+  casa: `<svg class="pic" viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="96" height="96" fill="var(--red)"/>
+    <g fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"><path d="M14 50 50 18l36 32"/><path d="M24 44v42h52V44"/></g>
+    <path d="M56 40 38 68h13l-6 18 20-28H52l8-18z" fill="#fff"/></svg>`,
+  coche: `<svg class="pic" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 6 96 90H4z" fill="var(--yellow)" stroke="#111" stroke-width="6" stroke-linejoin="round"/>
+    <g transform="translate(25 40) scale(.5)"><path d="M6 66V54l10-4 10-18h44l12 18 12 4v12z" fill="#111"/><path d="M32 37h14v13H24zM52 37h15l8 13H52z" fill="var(--yellow)"/>
+    <circle cx="28" cy="68" r="10" fill="#111" stroke="var(--yellow)" stroke-width="5"/><circle cx="74" cy="68" r="10" fill="#111" stroke="var(--yellow)" stroke-width="5"/></g>
+    <g stroke="#111" stroke-width="3.5" stroke-linecap="round"><path d="M50 22v14M44 25l12 8M56 25l-12 8"/></g></svg>`,
+  salida: `<svg class="pic" viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="96" height="96" fill="var(--green)"/>
+    <rect x="66" y="14" width="22" height="72" fill="none" stroke="#fff" stroke-width="6"/>
+    <circle cx="50" cy="22" r="7.5" fill="#fff"/>
+    <g fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M44 34 35 58"/><path d="M44 36l10 10 9-4"/><path d="M42 36 30 42l-6 10"/><path d="M35 58l12 10-2 16"/><path d="M35 58l-9 14H14"/></g></svg>`,
+};
+
+/* Imágenes de ejemplo de cada kit (ilustración tipo foto de producto). Sustituir por fotos reales. */
+const STUDIO = id => `<defs>
+  <radialGradient id="${id}bg" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4E4DF"/></radialGradient>
+  <filter id="${id}blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  <filter id="${id}soft"><feGaussianBlur stdDeviation="1.2"/></filter>
+</defs><rect width="400" height="300" fill="url(#${id}bg)"/>`;
+const LOGO = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})"><rect width="20" height="20" fill="#00804A"/><path d="M8.5 3.5h3v5h5v3h-5v5h-3v-5h-5v-3h5z" fill="#fff"/></g>`;
+const ART = {
+  casa: { cap: "Box format", svg: `<svg class="pic" viewBox="0 0 400 300" role="img" aria-label="Sample image: red Home Kit box">${STUDIO("ca")}
+    <defs>
+      <linearGradient id="caF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E0213D"/><stop offset="1" stop-color="#A90D24"/></linearGradient>
+      <linearGradient id="caS" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8E0A1E"/><stop offset="1" stop-color="#6E0716"/></linearGradient>
+      <linearGradient id="caL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A3A3A"/><stop offset="1" stop-color="#111"/></linearGradient>
+    </defs>
+    <ellipse cx="210" cy="262" rx="150" ry="16" fill="#000" opacity=".28" filter="url(#cablur)"/>
+    <path d="M82 142 248 152 246 258 84 247z" fill="url(#caF)"/>
+    <path d="M248 152 330 130 328 230 246 258z" fill="url(#caS)"/>
+    <path d="M72 124 252 134 338 112 168 104z" fill="#4A4A4A"/>
+    <path d="M72 124 252 134 252 152 72 141z" fill="url(#caL)"/>
+    <path d="M252 134 338 112 338 128 252 152z" fill="#0C0C0C"/>
+    <path d="M80 128 250 137" stroke="#777" stroke-width="1.2" opacity=".7"/>
+    <path d="M276 168 306 160 306 172 276 180z" fill="#4A0510"/>
+    <path d="M92 150 110 151 108 240 94 239z" fill="#fff" opacity=".12" filter="url(#casoft)"/>
+    <g transform="matrix(1 .06 0 1 0 0)">
+      <rect x="112" y="166" width="106" height="62" fill="#fff"/>
+      <rect x="112" y="166" width="106" height="10" fill="#111"/>
+      ${LOGO(118, 183, 1.1)}
+      <text x="146" y="197" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="16" fill="#111">HOME KIT</text>
+      <text x="146" y="214" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="11" fill="#C8102E">72 HOURS</text>
+    </g>
+  </svg>` },
+  coche: { cap: "Bag format", svg: `<svg class="pic" viewBox="0 0 400 300" role="img" aria-label="Sample image: black Car Kit bag with a reflective band">${STUDIO("co")}
+    <defs>
+      <linearGradient id="coB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4B4E52"/><stop offset=".55" stop-color="#26282B"/><stop offset="1" stop-color="#151617"/></linearGradient>
+      <linearGradient id="coY" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD24A"/><stop offset="1" stop-color="#E9A800"/></linearGradient>
+      <linearGradient id="coE" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1C1D1F"/><stop offset="1" stop-color="#36383B"/></linearGradient>
+    </defs>
+    <ellipse cx="205" cy="256" rx="160" ry="15" fill="#000" opacity=".3" filter="url(#coblur)"/>
+    <path d="M150 128c4-44 96-44 100 0" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+    <path d="M150 128c4-44 96-44 100 0" fill="none" stroke="#3a3a3a" stroke-width="4" stroke-linecap="round"/>
+    <path d="M78 122h244c20 0 30 14 30 40v52c0 26-10 38-30 38H78c-20 0-30-12-30-38v-52c0-26 10-40 30-40z" fill="url(#coB)"/>
+    <ellipse cx="72" cy="187" rx="24" ry="62" fill="url(#coE)"/>
+    <path d="M48 170h304v22H48z" fill="url(#coY)"/>
+    <path d="M48 176h304M48 186h304" stroke="#fff" stroke-width="1.5" opacity=".55"/>
+    <path d="M92 134h220" stroke="#8a8a8a" stroke-width="3" stroke-dasharray="3 4"/>
+    <rect x="304" y="128" width="10" height="14" rx="2" fill="#9a9a9a"/>
+    <rect x="232" y="204" width="80" height="36" rx="5" fill="#1E1F21" stroke="#3c3d40" stroke-width="2"/>
+    <rect x="132" y="204" width="84" height="34" fill="#fff"/>
+    <path d="M144 230 152 214 160 230z" fill="#F6B400" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/>
+    <text x="166" y="226" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="12" fill="#111">CAR KIT</text>
+    <path d="M90 140c30-4 160-4 210 0" stroke="#fff" stroke-width="5" opacity=".08"/>
+  </svg>` },
+  salida: { cap: "Backpack format", svg: `<svg class="pic" viewBox="0 0 400 300" role="img" aria-label="Sample image: green Go Bag backpack">${STUDIO("sa")}
+    <defs>
+      <linearGradient id="saB" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00663B"/><stop offset=".45" stop-color="#0B9A5A"/><stop offset="1" stop-color="#005A33"/></linearGradient>
+      <linearGradient id="saP" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00794A"/><stop offset="1" stop-color="#004D2C"/></linearGradient>
+    </defs>
+    <ellipse cx="200" cy="270" rx="105" ry="13" fill="#000" opacity=".3" filter="url(#sablur)"/>
+    <path d="M128 92c-14 30-14 120-6 166M272 92c14 30 14 120 6 166" fill="none" stroke="#1a1a1a" stroke-width="12" stroke-linecap="round"/>
+    <path d="M182 46c0-18 36-18 36 0" fill="none" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round"/>
+    <path d="M136 84c0-30 24-42 64-42s64 12 64 42v176c0 6-4 10-10 10H146c-6 0-10-4-10-10z" fill="url(#saB)"/>
+    <path d="M148 80c10-24 94-24 104 0" fill="none" stroke="#C9C9C9" stroke-width="2.5" stroke-dasharray="3 3"/>
+    <rect x="252" y="170" width="28" height="70" rx="8" fill="#1c1c1c" opacity=".85"/>
+    <path d="M254 180h24M254 192h24M254 204h24M254 216h24M254 228h24" stroke="#555" stroke-width="1.5"/>
+    <rect x="186" y="96" width="28" height="28" fill="#fff"/>
+    <path d="M196 100h8v8h8v8h-8v8h-8v-8h-8v-8h8z" fill="#00804A"/>
+    <path d="M154 166c0-10 6-14 14-14h64c8 0 14 4 14 14v80c0 6-4 10-10 10h-72c-6 0-10-4-10-10z" fill="url(#saP)"/>
+    <path d="M160 170h80" stroke="#C9C9C9" stroke-width="2.5" stroke-dasharray="3 3"/>
+    <path d="M136 146h128M136 214h128" stroke="#141414" stroke-width="7"/>
+    <rect x="190" y="140" width="20" height="12" rx="2" fill="#141414"/><rect x="190" y="208" width="20" height="12" rx="2" fill="#141414"/>
+    <rect x="164" y="232" width="72" height="10" fill="#E9E9E9"/><rect x="164" y="232" width="72" height="10" fill="url(#saP)" opacity="0"/>
+    <path d="M146 60c10-10 30-14 40-14" stroke="#fff" stroke-width="6" opacity=".12" stroke-linecap="round"/>
+    <text x="200" y="240.5" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="9" fill="#111">GO BAG · 72 H</text>
+  </svg>` },
+};
+
+document.querySelectorAll("[data-sign]").forEach(el => el.outerHTML = SIGNS[el.dataset.sign]);
+document.querySelectorAll("[data-go]").forEach(a => a.addEventListener("click", () => selectKit(a.dataset.go)));
+
+/* ===== CONFIGURACIÓN DE AMAZON =====
+   tag: tu ID de Amazon Afiliados (termina en -21 en amazon.es).
+   En cada producto: pon su ASIN (el código de 10 caracteres de la URL de Amazon)
+   y "pack" = cuánto trae una unidad (p. ej. un pack de 6 botellas de 1,5 L = 9 L).
+   Sin ASIN, el enlace lleva a una búsqueda en Amazon con tu ID.
+   Los productos con diy no se compran: son cosas que pone el cliente.
+   alts: productos alternativos por si el principal se queda sin existencias. Puede ser solo el ASIN
+   o { asin, pack, name } si la alternativa trae otra cantidad o conviene otro nombre.
+   AGOTADOS (más abajo): los códigos que pongas ahí se sustituyen solos por la siguiente alternativa,
+   en la lista y en el carrito, sin que el cliente vea ningún aviso.
+   img (opcional): enlace a la foto del producto que da Amazon Afiliados (SiteStripe → Imagen,
+   o la API de productos). Sin img se muestra el dibujo. */
+const AMAZON = { domain: "www.amazon.es", tag: "betender-21" };
+
+const PRODUCTS = {
+  // Casa
+  caja:      { name: "Storage box with lid", search: "caja almacenaje plastico tapa 50 litros", asin: "B01NCM40UF", alts: ["B01IEKKQP6"], pack: 1, unit: "ud", img: "img/caja.jpg" },
+  agua:      { name: "Emergency water pouches (5-year shelf life)", search: "agua emergencia larga duracion", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L", img: "img/agua.jpg" },
+  comida:    { name: "3,600 kcal no-cook rations (5-year shelf life)", search: "raciones emergencia 5 años", asin: "B01HPGX1QG", alts: [{ asin: "B07DX92V1X", pack: 6, name: "NRG-5 no-cook emergency rations", price: 6 }], pack: 18, unit: "raciones", img: "img/raciones.jpg" },
+  linterna:  { name: "LED torch", search: "linterna led potente pilas", asin: "B005FEGYCO", alts: ["B07YZ4TMZS"], pack: 1, unit: "ud", img: "img/linterna.jpg" },
+  farol:     { name: "LED table lantern", search: "farol led camping pilas", asin: "B08C2CVBF4", alts: ["B0BXLYZZHM"], pack: 1, unit: "ud", img: "img/farol.jpg" },
+  pilas:     { name: "Duracell AA and AAA batteries (24 pack)", search: "pilas alcalinas aa aaa pack", asin: "B096QYFG1D", alts: ["B093LVB4P7"], pack: 1, unit: "pack", img: "img/pilas.jpg" },
+  radio:     { name: "Hand-crank and solar radio with USB", search: "radio dinamo solar manivela usb", asin: "B00WIF2T7C", alts: ["B0FBPD6XW5"], pack: 1, unit: "ud", img: "img/radio.jpg" },
+  powerbank: { name: "20,000 mAh power bank", search: "bateria externa 20000mah", asin: "B07YPS5JC5", alts: ["B0DCJXYKYD", "B0DZGZ4Y7R"], pack: 1, unit: "ud", img: "img/powerbank.jpg" }, // INIU 22,5 W; alternativas: INIU ultrapequeña, Powelephant
+  funda:     { name: "Waterproof pouch for documents and cash", search: "funda estanca documentos", asin: "B08DK57NFH", alts: ["B00UN4ROLQ"], pack: 1, unit: "ud", img: "img/funda.jpg" },
+  efectivo:  { name: "Cash in small notes", diy: "You add it: €150–200" },
+  docs:      { name: "Copies of ID, insurance and prescriptions", diy: "You add it: photocopies" },
+  botiquin:  { name: "First aid kit (120 pieces)", search: "botiquin primeros auxilios completo", asin: "B074SW64NR", alts: [{ asin: "B07R3RMFC4", name: "First aid kit (200 pieces)" }], pack: 1, unit: "ud", img: "img/botiquin.jpg" },
+  mantas:    { name: "Emergency thermal blankets", search: "manta termica emergencia pack", asin: "B01M19HAEB", alts: ["B0F3TR3QGD"], pack: 10, unit: "uds", img: "img/mantas.jpg" },
+  garrafa:   { name: "10 L water container with tap", search: "garrafa plegable agua 10 litros", asin: "B00CFNKX6G", alts: ["B0GQGW9GF8"], pack: 1, unit: "ud", img: "img/garrafa.jpg" },
+  estacion:  { name: "300 W portable power station", search: "estacion energia portatil 300w", asin: "B0C27VWNM7", alts: ["B0CYLP7M8P"], pack: 1, unit: "ud", img: "img/estacion.jpg" },
+  solar:     { name: "Foldable USB solar panel", search: "panel solar plegable usb 28w", asin: "B08FJ12RTM", alts: ["B0DNYGT71X"], pack: 1, unit: "ud", img: "img/solar.jpg" },
+  filtro:    { name: "Portable water filter", search: "filtro agua portatil emergencia", asin: "B0D1M4LQ7F", alts: ["B0C62WZ2WY"], pack: 1, unit: "ud", img: "img/filtro.jpg" },
+  // Coche
+  bolsa:     { name: "Car boot organiser bag", search: "organizador maletero coche plegable", asin: "B07K2NC1CB", alts: ["B0GYYKG8ZZ"], pack: 1, unit: "ud" },
+  aguacoche: { name: "Emergency water pouches (5-year shelf life)", search: "agua emergencia botella 500ml larga duracion", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L", img: "img/agua.jpg" },
+  barritas:  { name: "NRG-5 emergency food bars", search: "barritas energeticas emergencia larga duracion", asin: "B07DX92V1X", alts: ["B0757V93HD"], pack: 9, unit: "uds", img: "img/raciones.jpg" },
+  manta:     { name: "Fleece travel blanket", search: "manta polar coche viaje", asin: "B09JGPTMFN", alts: ["B012TKIZV4"], pack: 1, unit: "ud" },
+  chaleco:   { name: "Reflective vests", search: "chaleco reflectante homologado pack", asin: "B0DDJH4C68", alts: ["B0GS9V6W9B"], pack: 2, unit: "uds" },
+  rescate:   { name: "Window breaker with seatbelt cutter", search: "martillo emergencia coche cortacinturones", asin: "B00ASKSB0I", alts: ["B00ASKSB1M"], pack: 1, unit: "ud" },
+  cargador:  { name: "USB car charger", search: "cargador coche usb c carga rapida", asin: "B0CP7NV936", alts: ["B0BSVB93DK"], pack: 1, unit: "ud" },
+  v16:       { name: "V-16 connected warning light (mandatory in Spain from 2026)", search: "baliza v16 conectada dgt", asin: "B0CR9JC98B", alts: ["B0DQR63NKN"], pack: 1, unit: "ud" },
+  guantes:   { name: "Waterproof thermal gloves", search: "guantes trabajo invierno", asin: "B0D62RDQPV", alts: ["B0BFHD36NR"], pack: 1, unit: "par" },
+  pala:      { name: "Folding shovel", search: "pala plegable coche nieve", asin: "B0046RDLPY", alts: ["B08NVDTQST"], pack: 1, unit: "ud" },
+  calcetines:{ name: "AutoSock textile snow socks", search: "autosock fundas nieve", pack: 1, unit: "juego", note: "Choose your tyre size" },
+  arrancador:{ name: "Car jump starter with power bank", search: "arrancador bateria coche portatil", asin: "B015TKUPIC", alts: ["B0CNWWRKY6"], pack: 1, unit: "ud" },
+  botcoche:  { name: "Car first aid kit", search: "botiquin coche compacto", asin: "B009XP5KP8", alts: ["B0BB2YK3X7"], pack: 1, unit: "ud" },
+  // Salida
+  mochila:   { name: "40 L backpack", search: "mochila 40 litros impermeable", asin: "B0C3HRC8D7", alts: ["B0BXSWPWKH"], pack: 1, unit: "ud" },
+  aguamoch:  { name: "Emergency water pouches (5-year shelf life)", search: "agua emergencia bolsa 500ml", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L", img: "img/agua.jpg" },
+  frontal:   { name: "Head torch", search: "linterna frontal recargable", asin: "B09ZNGN89C", alts: ["B09ZN8SH2F"], pack: 1, unit: "ud" },
+  poncho:    { name: "Rain ponchos", search: "poncho lluvia emergencia pack", asin: "B09WVXHHJ8", alts: ["B09WYFYZLF"], pack: 15, unit: "uds" },
+  silbato:   { name: "Emergency whistles", search: "silbato emergencia pack", asin: "B08732GFZ2", alts: ["B07N1K7WQJ"], pack: 2, unit: "uds" },
+  navaja:    { name: "Swiss army knife", search: "navaja multiusos", asin: "B0001P151W", alts: ["B001U5773W"], pack: 1, unit: "ud" },
+  paracord:  { name: "30 m paracord rope", search: "paracord 30 metros", asin: "B00IAP2YVU", alts: ["B0BZJKXSWJ"], pack: 1, unit: "ud" },
+  vivac:     { name: "Emergency bivvy bag", search: "saco vivac emergencia termico", asin: "B0743HGTMD", alts: ["B09GMBWQ95"], pack: 2, unit: "uds" },
+  higiene:   { name: "Toiletry bag with refillable bottles", search: "kit higiene viaje neceser", asin: "B0DTJRS4L3", alts: ["B0BTTPF1G6"], pack: 1, unit: "ud" },
+  pastillas: { name: "Water purification tablets", search: "pastillas potabilizadoras agua", asin: "B006QJN2OA", alts: ["B0016HS8CI"], pack: 1, unit: "pack", img: "img/pastillas.jpg" },
+  hornillo:  { name: "Compact gas stove", search: "hornillo gas compacto camping", asin: "B08QZQGRR3", alts: ["B09KNQL782"], pack: 1, unit: "ud" },
+};
+
+/* Cada nivel incluye todo lo del anterior. Las cantidades dependen de p (personas). */
+const KITS = {
+  casa: {
+    name: "Home Kit", tab: "Blackouts and water cuts",
+    scene: "Not a backpack: a box that lives in a cupboard. Light, water, no-cook food, radio, battery, cash and documents to get through 72 hours.",
+    levels: [
+      { name: "Essential", blurb: "The minimum for a three-day blackout.",
+        items: p => ({ caja: 1, agua: p * 6, comida: p * 9, linterna: 2, pilas: 1, radio: 1, funda: 1, efectivo: 1, docs: 1 }) },
+      { name: "Complete", blurb: "With a battery for phones, a first aid kit and light for the whole home.",
+        items: p => ({ powerbank: 1, farol: 1, botiquin: 1, mantas: p, garrafa: 1 }) },
+      { name: "Total", blurb: "Your own power for days: power station, solar panel and water filter.",
+        items: p => ({ estacion: 1, solar: 1, filtro: 1 }) },
+    ],
+  },
+  coche: {
+    name: "Car Kit", tab: "Snow, flash floods, hours-long jams",
+    scene: "A bag that lives in the car boot. To spend a cold night on the road without your phone dying, and able to get out of the car if you need to.",
+    levels: [
+      { name: "Essential", blurb: "Warmth, water, light and the tool to get out of the car.",
+        items: p => ({ bolsa: 1, manta: p, mantas: p, aguacoche: p * 1.5, linterna: 1, cargador: 1, chaleco: p, rescate: 1 }) },
+      { name: "Complete", blurb: "For snow: food, gloves, shovel and an extra battery.",
+        items: p => ({ barritas: p * 4, powerbank: 1, guantes: 1, pala: 1, v16: 1 }) },
+      { name: "Total", blurb: "For people who drive a lot or in mountain areas.",
+        items: p => ({ calcetines: 1, arrancador: 1, botcoche: 1 }) },
+    ],
+  },
+  salida: {
+    name: "Go Bag", tab: "Evacuate with just the essentials",
+    scene: "The backpack to leave home in a minute: fire, flood or an evacuation order. One per person, hanging by the door.",
+    levels: [
+      { name: "Essential", blurb: "Water, food, light and warmth for 72 hours.",
+        items: p => ({ mochila: p, aguamoch: p * 3, comida: p * 9, frontal: p, mantas: p, poncho: p, silbato: p, funda: 1, efectivo: 1, docs: 1 }) },
+      { name: "Complete", blurb: "With a first aid kit, radio, battery and tools.",
+        items: p => ({ botiquin: 1, radio: 1, powerbank: 1, navaja: 1, paracord: 1 }) },
+      { name: "Total", blurb: "For nights away: filtered water, shelter and cooking.",
+        items: p => ({ filtro: 1, vivac: p, hornillo: 1, higiene: p }) },
+    ],
+  },
+};
+
+/* Códigos (ASIN) agotados ahora mismo en Amazon. Cada producto usa la primera opción
+   (principal o alternativa) que no esté en esta lista. */
+const AGOTADOS = [
+  "B01HPGX1QG", // raciones SOS
+  "B00WIF2T7C", // radio iRonsnow
+  "B08DK57NFH", // funda YUMQUA 3 piezas
+  "B07S829LBX", // powerbank Anker PowerCore Essential
+  "B0D4MD1GSY", // powerbank Anker 325
+  "B0BLM1TFTW", // powerbank Anker 525
+  "B08C2CVBF4", // farol Lepro
+  "B074SW64NR", // botiquín Active Era
+  "B08QZQGRR3", // hornillo Campingaz Camp Bistro DLX
+];
+/* Precio orientativo en Amazon (€ por unidad de compra), solo para el coste aproximado del kit. Revisar de vez en cuando. */
+const PRICE = { caja: 25, agua: 40, comida: 25, linterna: 15, farol: 20, pilas: 18, radio: 30, powerbank: 24, funda: 12,
+  botiquin: 25, mantas: 12, garrafa: 12, estacion: 250, solar: 60, filtro: 25, bolsa: 20, aguacoche: 40, barritas: 6,
+  manta: 15, chaleco: 8, rescate: 10, cargador: 15, v16: 35, guantes: 15, pala: 20, calcetines: 70, arrancador: 70,
+  botcoche: 15, mochila: 40, aguamoch: 40, frontal: 15, poncho: 15, silbato: 7, navaja: 30, paracord: 10, vivac: 20,
+  higiene: 12, pastillas: 10, hornillo: 30 };
+const resolve = id => {
+  const pr = PRODUCTS[id];
+  if (!pr.asin) return pr;
+  const options = [{ asin: pr.asin }, ...(pr.alts || []).map(a => typeof a === "string" ? { asin: a } : a)];
+  const pick = options.find(o => !AGOTADOS.includes(o.asin));
+  return pick ? { ...pr, ...pick } : pr;
+};
+
+const state = { kit: "casa", level: 1, people: 2, removed: new Set() };
+/* Miniatura de cada producto (dibujo de ejemplo hasta tener las fotos reales). */
+const THUMB = { agua: "agua", aguacoche: "agua", aguamoch: "agua", garrafa: "agua", filtro: "agua", comida: "comida", barritas: "comida",
+  linterna: "linterna", frontal: "linterna", farol: "linterna", radio: "radio", powerbank: "bateria", estacion: "bateria", solar: "bateria",
+  arrancador: "bateria", cargador: "bateria", pilas: "pilas", velas: "vela", botiquin: "botiquin", botcoche: "botiquin", mantas: "manta",
+  manta: "manta", vivac: "manta", poncho: "manta", caja: "caja", bolsa: "caja", higiene: "caja", mochila: "mochila", funda: "doc", docs: "doc",
+  efectivo: "billete", chaleco: "chaleco", rescate: "herramienta", navaja: "herramienta", pala: "herramienta", guantes: "herramienta",
+  calcetines: "herramienta", silbato: "herramienta", v16: "baliza", paracord: "cuerda", hornillo: "fuego", pastillas: "agua" };
+const thumbSvg = id => `<svg viewBox="0 0 100 100" aria-hidden="true">${ICONS[THUMB[id] || "caja"]}</svg>`;
+/* Con foto (campo img del producto) se muestra la foto; si no carga, vuelve el dibujo. */
+const thumbHtml = id => {
+  const img = PRODUCTS[id] && PRODUCTS[id].img;
+  if (!img) return thumbSvg(id);
+  return `<img src="${img}" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()">${thumbSvg(id).replace("<svg ", "<svg hidden ")}`;
+};
+const thumbClass = id => (PRODUCTS[id] && PRODUCTS[id].img) ? "thumb has-img" : "thumb";
+const $ = id => document.getElementById(id);
+
+/* Estadísticas propias, sin cookies (código en analytics/). Vacío = desactivado. */
+const ANALYTICS_URL = "https://elpreparista-stats.lucialayunta.workers.dev";
+function track(type, data = {}) {
+  // Google Analytics (solo si el visitante aceptó las cookies; la visita la cuenta Analytics solo).
+  if (type !== "pageview" && window.analyticsAllowed && window.analyticsAllowed()) gtag("event", type === "cart" ? "add_to_cart_amazon" : type, data);
+  if (!ANALYTICS_URL) return;
+  const body = JSON.stringify({ type, path: location.pathname, ...data });
+  try { navigator.sendBeacon(ANALYTICS_URL + "/e", body) || fetch(ANALYTICS_URL + "/e", { method: "POST", body, keepalive: true }); } catch (e) {}
+}
+const fmt = n => n.toLocaleString("en-GB");
+
+function productUrl(pr) {
+  const t = encodeURIComponent(AMAZON.tag);
+  return pr.asin
+    ? `https://${AMAZON.domain}/dp/${pr.asin}?tag=${t}`
+    : `https://${AMAZON.domain}/s?k=${encodeURIComponent(pr.search)}&tag=${t}`;
+}
+// Formulario oficial "Add to Cart" de Amazon: mete varios ASIN de golpe en el carrito.
+function cartUrl(lines) {
+  const q = lines.map((l, i) => `ASIN.${i + 1}=${l.asin}&Quantity.${i + 1}=${l.qty}`).join("&");
+  return `https://${AMAZON.domain}/gp/aws/cart/add.html?AssociateTag=${encodeURIComponent(AMAZON.tag)}&${q}`;
+}
+
+function buildLines(kitKey, level, p) {
+  const out = new Map();
+  KITS[kitKey].levels.slice(0, level + 1).forEach((lv, li) => {
+    Object.entries(lv.items(p)).forEach(([id, amount]) => {
+      const prev = out.get(id);
+      out.set(id, { id, amount: (prev ? prev.amount : 0) + amount, from: prev ? prev.from : li });
+    });
+  });
+  return [...out.values()].map(l => {
+    const pr = resolve(l.id);
+    return { ...l, ...pr, qty: pr.diy ? 0 : Math.ceil(l.amount / pr.pack), price: pr.price ?? PRICE[l.id] ?? 0 };
+  });
+}
+
+function amountText(l) {
+  if (l.diy) return l.diy;
+  if (l.note) return l.note;
+  if (l.unit === "L") return `${fmt(l.amount)} L`;
+  if (l.unit === "raciones") return `${fmt(l.amount)} rations`;
+  if (l.pack > 1) return `${fmt(l.amount)} pcs`;
+  const UNIT = { ud: ["unit", "units"], pack: ["pack", "packs"], par: ["pair", "pairs"], juego: ["set", "sets"] };
+  return `${l.qty} ${UNIT[l.unit][l.qty > 1 ? 1 : 0]}`;
+}
+
+function renderTabs() {
+  $("tabs").innerHTML = Object.entries(KITS).map(([k, kit]) =>
+    `<button class="sign" role="tab" type="button" id="tab-${k}" data-kit="${k}" aria-selected="${k === state.kit}" tabindex="${k === state.kit ? 0 : -1}">
+      ${SIGNS[k]}<div><b>${kit.name}</b><small>${kit.tab}</small></div></button>`).join("");
+}
+
+function render() {
+  const kit = KITS[state.kit], p = state.people;
+  renderTabs();
+  $("people").textContent = p;
+  $("pMinus").disabled = p <= 1;
+  $("pPlus").disabled = p >= 8;
+  $("kTitle").textContent = kit.name;
+  $("kScene").textContent = kit.scene;
+  $("kArt").innerHTML = ART[state.kit].svg;
+  $("kArtCap").textContent = ART[state.kit].cap;
+  $("result").dataset.kit = state.kit;
+
+  $("levels").innerHTML = kit.levels.map((lv, i) => {
+    const n = buildLines(state.kit, i, p).length;
+    return `<button class="level" type="button" role="radio" data-level="${i}" aria-checked="${i === state.level}" tabindex="${i === state.level ? 0 : -1}">
+      ${i === 1 ? '<span class="badge">Recommended</span>' : ""}
+      <span class="bars" aria-hidden="true">${[0, 1, 2].map(b => `<i class="${b <= i ? "on" : ""}"></i>`).join("")}</span>
+      <span class="lvname">${lv.name}</span>
+      <p>${i > 0 ? "Everything in " + kit.levels[i - 1].name + ", plus: " + lv.blurb.charAt(0).toLowerCase() + lv.blurb.slice(1) : lv.blurb}</p>
+      <span class="count">${n} items</span>
+    </button>`;
+  }).join("");
+
+  const lines = buildLines(state.kit, state.level, p);
+  $("rName").textContent = `${kit.name} · ${kit.levels[state.level].name} · ${p === 1 ? "1 person" : p + " people"}`;
+  $("rList").innerHTML = lines.map(l => {
+    const tag = l.from > 0 ? `<span class="new">${kit.levels[l.from].name.toUpperCase()}</span>` : "";
+    const thumb = l.diy
+      ? `<span class="thumb diy" title="Not bought online">${thumbHtml(l.id)}</span>`
+      : `<a class="${thumbClass(l.id)}" data-id="${l.id}" href="${productUrl(l)}" target="_blank" rel="noopener sponsored" aria-label="View ${l.name} on Amazon">${thumbHtml(l.id)}</a>`;
+    const off = state.removed.has(l.id);
+    const box = l.diy
+      ? `<span class="box" aria-hidden="true">✓</span>`
+      : `<label class="box"><input type="checkbox" data-pick="${l.id}" ${off ? "" : "checked"} aria-label="Include ${l.name} in the basket"><span aria-hidden="true">✓</span></label>`;
+    return `<li class="${off ? "off" : ""}">${box}<div><div class="nm">${l.name}${tag}</div><div class="amt">${amountText(l)}</div></div>${thumb}</li>`;
+  }).join("");
+
+  const buyable = lines.filter(l => !l.diy);
+  const toBuy = buyable.filter(l => !state.removed.has(l.id));
+  const units = toBuy.filter(l => l.asin).reduce((n, l) => n + l.qty, 0);
+  $("rCount").textContent = (toBuy.length === buyable.length
+    ? `${toBuy.length} products to buy`
+    : `${toBuy.length} of ${buyable.length} products to buy`) + ` · ${units} units in the basket`;
+  const send = $("sendAll");
+  if (!toBuy.length) {
+    send.setAttribute("aria-disabled", "true"); send.textContent = "You haven't chosen any products";
+  } else if (toBuy.some(l => l.asin)) {
+    // Los productos sin ASIN (p. ej. fundas de nieve, que van por medida) se eligen aparte con su miniatura.
+    send.removeAttribute("aria-disabled"); send.href = cartUrl(toBuy.filter(l => l.asin)); send.textContent = toBuy.length === buyable.length ? "Review and buy your kit" : `Review and buy your kit (${toBuy.length} products)`;
+  } else {
+    send.removeAttribute("aria-disabled"); send.href = productUrl(toBuy[0]); send.textContent = "Start shopping on Amazon";
+  }
+
+  // Coste aproximado de lo marcado (solo para las estadísticas), redondeado a 5 €.
+  const total = Math.round(toBuy.reduce((n, l) => n + l.qty * l.price, 0) / 5) * 5;
+  state.total = total; state.count = toBuy.length;
+}
+
+function selectKit(k, focus) {
+  state.kit = k; render();
+  track("kit", { kit: k });
+  if (focus) $("tab-" + k).focus();
+}
+$("tabs").addEventListener("click", e => { const b = e.target.closest("[data-kit]"); if (b) selectKit(b.dataset.kit); });
+$("tabs").addEventListener("keydown", e => {
+  const keys = Object.keys(KITS), i = keys.indexOf(state.kit);
+  if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); selectKit(keys[(i + 1) % 3], true); }
+  if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); selectKit(keys[(i + 2) % 3], true); }
+});
+$("levels").addEventListener("click", e => { const b = e.target.closest("[data-level]"); if (b) { state.level = +b.dataset.level; render(); track("level", { kit: state.kit, level: KITS[state.kit].levels[state.level].name }); } });
+$("levels").addEventListener("keydown", e => {
+  let d = 0;
+  if (e.key === "ArrowRight" || e.key === "ArrowDown") d = 1;
+  if (e.key === "ArrowLeft" || e.key === "ArrowUp") d = 2;
+  if (!d) return;
+  e.preventDefault(); state.level = (state.level + d) % 3; render();
+  $("levels").querySelector(`[data-level="${state.level}"]`).focus();
+});
+$("rList").addEventListener("change", e => {
+  const id = e.target.dataset.pick; if (!id) return;
+  e.target.checked ? state.removed.delete(id) : state.removed.add(id);
+  render();
+  if (!e.target.checked) track("remove", { kit: state.kit, item: resolve(id).name });
+});
+$("pMinus").addEventListener("click", () => { state.people = Math.max(1, state.people - 1); render(); });
+$("pPlus").addEventListener("click", () => { state.people = Math.min(8, state.people + 1); render(); });
+$("rList").addEventListener("click", e => { const a = e.target.closest("a[data-id]"); if (a) track("product", { kit: state.kit, item: resolve(a.dataset.id).name }); });
+$("sendAll").addEventListener("click", () => {
+  if ($("sendAll").getAttribute("aria-disabled") === "true") return;
+  track("cart", { kit: state.kit, level: KITS[state.kit].levels[state.level].name, people: state.people, item: state.count, value: state.total });
+});
+
+/* Complementos: piezas sueltas para ampliar o reponer el kit. */
+const EXTRAS = [
+  ["estacion", "Charges phones, lights and a small fridge for days."],
+  ["solar", "Recharges batteries from the sun if the blackout drags on."],
+  ["radio", "News without power or signal, by hand crank or solar."],
+  ["frontal", "Light with your hands free."],
+  ["powerbank", "Two or three full phone charges."],
+  ["filtro", "Drinking water from water you are unsure about."],
+  ["pastillas", "To make stored or tap water safe to drink."],
+  ["garrafa", "Fill it up when water cuts are announced."],
+  ["botiquin", "For home, car or backpack."],
+  ["hornillo", "Hot food without electricity."],
+  ["v16", "Signals your position if you break down on the road."],
+  ["mantas", "Light and small, for home, car or backpack."],
+];
+$("extras").innerHTML = EXTRAS.map(([id, why]) => {
+  const pr = resolve(id);
+  return `<article class="extra" data-id="${id}"><a class="${thumbClass(id)}" href="${productUrl(pr)}" target="_blank" rel="noopener sponsored" aria-label="View ${pr.name} on Amazon">${thumbHtml(id)}</a>
+    <h3>${pr.name}</h3><p>${why}</p><a class="go" href="${productUrl(pr)}" target="_blank" rel="noopener sponsored">View on Amazon</a></article>`;
+}).join("");
+$("extras").addEventListener("click", e => { const a = e.target.closest("a"); const box = e.target.closest("[data-id]"); if (a && box) track("extra", { item: resolve(box.dataset.id).name }); });
+
+/* Avisos de reposición: en la web real, este formulario se conecta a la herramienta de email (Brevo, Mailchimp…). */
+// Las suscripciones se guardan en el backend propio (analytics/worker.js) y se ven en su panel, pestaña «Suscriptores».
+$("repoForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const err = msg => { $("repoErr").textContent = msg; $("repoErr").hidden = !msg; };
+  const email = $("rEmail").value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err("Please enter a valid email so we can reach you."); $("rEmail").focus(); return; }
+  if (!ANALYTICS_URL) { err("Subscriptions open very soon. Please come back in a few days."); return; }
+  err("");
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.disabled = true; btn.textContent = "Saving…";
+  try {
+    const r = await fetch(ANALYTICS_URL + "/lead", { method: "POST", body: JSON.stringify({
+      email, name: $("rFullName").value.trim(), phone: $("rPhone").value.trim(), website: $("rWeb").value, source: "web-en" }) });
+    if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || "Error");
+  } catch (x) {
+    err("We couldn't save your subscription. Please try again in a few minutes.");
+    btn.disabled = false; btn.textContent = "Subscribe";
+    return;
+  }
+  // Sin fecha de compra: se toma la de suscripción como referencia aproximada.
+  const now = new Date();
+  const due = new Date(now.getFullYear() + 5, now.getMonth() - 2, 1).toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+  const yearly = new Date(now.getFullYear() + 1, now.getMonth(), 1).toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+  const name = $("rFullName").value.trim().split(/\s+/)[0];
+  track("subscribe", { item: $("rPhone").value.trim() ? "con teléfono" : "sin teléfono" });
+  e.target.reset();
+  btn.textContent = "Subscribed ✓";
+  $("repoOk").hidden = false;
+  $("repoOk").textContent = `Done${name ? ", " + name : ""}, you're subscribed. First check-up: ${yearly}. Water and food restock reminder: ${due}.`;
+});
+
+{ const k = new URLSearchParams(location.search).get("kit"); if (k && KITS[k]) state.kit = k; }
+render();
+{
+  const q = new URLSearchParams(location.search);
+  let ref = q.get("utm_source") || "";
+  try { if (!ref && document.referrer) { const h = new URL(document.referrer).hostname.replace(/^www\./, ""); if (h !== location.hostname.replace(/^www\./, "")) ref = h; } } catch (e) {}
+  track("pageview", ref ? { ref } : {});
+}
+</script>
+
+</body>
+</html>
