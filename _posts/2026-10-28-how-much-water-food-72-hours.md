@@ -7,6 +7,8 @@ description: "Litres of water and food per person for a three-day emergency, wit
 summary: "For 72 hours, plan at least 2 litres of water per person per day just for drinking (6 litres per person) and, better, 3 litres if you include cooking and washing (9 litres per person). For food, store three days of food that needs no fridge and no cooking: ring-pull tins, cooked pulses, nuts, biscuits or emergency rations."
 category: Water and food
 kit: casa
+image: /blog/img/agua-72-horas.jpg
+image_alt: "Woman holding a large bottle of drinking water"
 faq:
   - q: "How many litres of water does one person need for 3 days?"
     a: "At least 6 litres just for drinking (2 litres a day). If you also want to cover cooking and basic hygiene, plan about 9 litres per person (3 litres a day). In hot weather, during pregnancy or breastfeeding, or with physical activity, you need more."

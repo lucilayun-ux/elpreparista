@@ -5,6 +5,8 @@ description: "Litros de agua y comida por persona para tres días de emergencia,
 summary: "Para 72 horas calcula al menos 2 litros de agua por persona y día solo para beber (6 litros por persona) y, mejor, 3 litros si incluyes cocinar y asearte (9 litros por persona). En comida, guarda alimentos que no necesiten nevera ni cocinarse para tres días: conservas con abrefácil, legumbres cocidas, frutos secos, galletas o raciones de emergencia."
 category: Agua y comida
 kit: casa
+image: /blog/img/agua-72-horas.jpg
+image_alt: "Mujer sujetando una garrafa grande de agua potable"
 faq:
   - q: "¿Cuántos litros de agua necesita una persona para 3 días?"
     a: "Al menos 6 litros solo para beber (2 litros al día). Si quieres cubrir también cocinar y una higiene mínima, calcula unos 9 litros por persona (3 litros al día). Con calor, embarazo, lactancia o actividad física, la cantidad aumenta."
