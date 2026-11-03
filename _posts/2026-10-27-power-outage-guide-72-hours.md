@@ -61,3 +61,5 @@ Check the box **once a year**: batteries, torch and that the cash is still there
 ## If someone at home is vulnerable
 
 If someone depends on an electrical device (oxygen, a sleep apnoea machine, an electric wheelchair), talk to their doctor or the supplier about a backup battery, and have a plan before you need it. If you have older neighbours who live alone, check whether they need anything.
+
+To get your home ready before the next outage, and know what to do when the power comes back, read [how to prepare for a power outage in 30 minutes](/en/blog/how-to-prepare-for-a-power-outage/).

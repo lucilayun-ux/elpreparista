@@ -59,3 +59,5 @@ Revisa la caja **una vez al año**: pilas, linterna y que el efectivo siga en su
 ## Si en casa hay personas vulnerables
 
 Si alguien depende de un aparato eléctrico (oxígeno, una máquina de apnea, una silla eléctrica), habla con su médico o con la empresa que lo suministra sobre una batería de respaldo, y ten el plan pensado antes de que haga falta. Si tienes vecinos mayores que viven solos, pásate a ver si necesitan algo.
+
+Para dejar tu casa lista antes del próximo apagón, y saber qué hacer cuando vuelve la luz, lee [cómo prepararse para un apagón en 30 minutos](/blog/como-prepararse-para-un-apagon/).
