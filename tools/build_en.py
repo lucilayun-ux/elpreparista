@@ -65,8 +65,8 @@ TRADUCCIONES = [
     ('aria-label="Nivel del kit"', 'aria-label="Kit level"'),
     ('<h3>Revisa, selecciona y compra</h3>', '<h3>Review, select and buy</h3>'),
     ('<span class="cap">Contenido del kit</span>', '<span class="cap">Kit contents</span>'),
-    ('Desmarca lo que ya tengas. Se abre Amazon con los productos ya en tu cesta; pagas allí, con tu cuenta y tu envío.',
-     'Untick anything you already have. Amazon opens with the products already in your basket; you pay there, with your own account and delivery. Products are sold on Amazon Spain (amazon.es).'),
+    ('Desmarca lo que ya tengas. Se abre Amazon con los productos ya en tu cesta; pagas allí, con tu cuenta y tu envío. Si en el móvil se abre la app de Amazon con la cesta vacía, mantén pulsado el botón y elige abrirlo en el navegador.',
+     'Untick anything you already have. Amazon opens with the products already in your basket; you pay there, with your own account and delivery. Products are sold on Amazon Spain (amazon.es). If the Amazon app opens on your phone with an empty basket, press and hold the button and choose to open it in your browser.'),
     ('rel="noopener sponsored">Revisa y compra tu kit</a>', 'rel="noopener sponsored">Review and buy your kit</a>'),
 
     # --- Complementos ---

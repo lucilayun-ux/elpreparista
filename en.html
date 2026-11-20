@@ -415,7 +415,7 @@ footer .wrap { display: grid; gap: .6rem; }
         <div class="sendbar">
           <div>
             <span class="cap" id="rCount"><!--pre:rCount-->12 products to buy · 16 units in the basket<!--/pre:rCount--></span>
-            <span class="fine">Untick anything you already have. Amazon opens with the products already in your basket; you pay there, with your own account and delivery. Products are sold on Amazon Spain (amazon.es).</span>
+            <span class="fine">Untick anything you already have. Amazon opens with the products already in your basket; you pay there, with your own account and delivery. Products are sold on Amazon Spain (amazon.es). If the Amazon app opens on your phone with an empty basket, press and hold the button and choose to open it in your browser.</span>
           </div>
           <a class="btn red" id="sendAll" href="#" target="_blank" rel="noopener sponsored">Review and buy your kit</a>
         </div>
@@ -938,6 +938,18 @@ $("rList").addEventListener("change", e => {
 });
 $("pMinus").addEventListener("click", () => { state.people = Math.max(1, state.people - 1); render(); });
 $("pPlus").addEventListener("click", () => { state.people = Math.min(8, state.people + 1); render(); });
+// En el móvil, la app de Amazon se queda con los enlaces de amazon.es y abre la cesta vacía,
+// porque no entiende el enlace de «añadir a la cesta». Enviando los mismos datos como formulario
+// (no como enlace), se abren en el navegador y los productos llegan a la cesta.
+$("sendAll").addEventListener("click", e => {
+  const a = $("sendAll");
+  if (a.getAttribute("aria-disabled") === "true" || a.href.indexOf("/cart/add.html") === -1) return;
+  e.preventDefault();
+  const u = new URL(a.href), form = document.createElement("form");
+  form.method = "GET"; form.action = u.origin + u.pathname; form.target = "_blank";
+  u.searchParams.forEach((v, k) => { const i = document.createElement("input"); i.type = "hidden"; i.name = k; i.value = v; form.appendChild(i); });
+  document.body.appendChild(form); form.submit(); form.remove();
+});
 $("rList").addEventListener("click", e => { const a = e.target.closest("a[data-id]"); if (a) track("product", { kit: state.kit, item: resolve(a.dataset.id).name }); });
 $("sendAll").addEventListener("click", () => {
   if ($("sendAll").getAttribute("aria-disabled") === "true") return;
