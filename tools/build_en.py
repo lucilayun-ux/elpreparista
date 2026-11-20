@@ -37,8 +37,8 @@ TRADUCCIONES = [
     # --- Portada ---
     ('<span class="alert cap">En caso de alerta</span>', '<span class="alert cap">In an emergency</span>'),
     ('<h1>Tu kit de emergencia está <em>preparado</em></h1>', '<h1>Your emergency kit is <em>ready</em></h1>'),
-    ('¿No tienes kit de emergencia y no sabes por dónde empezar? En España las emergencias más habituales son <strong>apagones, temporales, DANAs y nevadas que dejan a la gente horas en la carretera</strong>. Por eso hemos creado tres kits, con tres niveles cada uno. Elige el tuyo, te creamos la lista de productos en Amazon y lo recibes en casa.',
-     'Don&#8217;t have an emergency kit and don&#8217;t know where to start? In Spain the most common emergencies are <strong>blackouts, storms, flash floods (DANAs) and snowfalls that leave people stuck on the road for hours</strong>. That&#8217;s why we created three kits, with three levels each. Choose yours, we build your product list on Amazon and you get it delivered to your door.'),
+    ('¿No tienes kit de emergencia y no sabes por dónde empezar? En España las emergencias más habituales son <strong>apagones, temporales, DANAs y nevadas que dejan a la gente horas en la carretera</strong>. Por eso hemos creado tres kits, con tres niveles cada uno. Elige el tuyo, te creamos la lista de productos en Amazon (sin pagar nada más) y lo recibes en casa.',
+     'Don&#8217;t have an emergency kit and don&#8217;t know where to start? In Spain the most common emergencies are <strong>blackouts, storms, flash floods (DANAs) and snowfalls that leave people stuck on the road for hours</strong>. That&#8217;s why we created three kits, with three levels each. Choose yours, we build your product list on Amazon (at no extra cost to you) and you get it delivered to your door.'),
     ('>Elegir mi kit</a>', '>Choose my kit</a>'),
     ('Reposición automática', 'Automatic restocking'),
     ('aria-label="Cómo funciona en cuatro pasos"', 'aria-label="How it works in four steps"'),
