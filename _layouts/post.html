@@ -14,7 +14,7 @@ layout: blog
       <h1>{{ page.title }}</h1>
       {% if page.image %}<img class="cover" src="{{ page.image }}" alt="{{ page.image_alt }}">{% endif %}
       {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
-      <p class="meta">{% if page.lang == "en" %}{{ page.date | date: "%-d" }} {{ meses[m] }} {{ page.date | date: "%Y" }}{% else %}{{ page.date | date: "%-d" }} de {{ meses[m] }} de {{ page.date | date: "%Y" }}{% endif %} · {{ minutes }} {{ T.read }}</p>
+      <p class="meta">{% if page.lang == "en" %}Published{% else %}Publicado el{% endif %} {% include fecha.html date=page.date lang=page.lang %}{% if page.last_modified_at %} · {% if page.lang == "en" %}Updated{% else %}Actualizado el{% endif %} {% include fecha.html date=page.last_modified_at lang=page.lang %}{% endif %} · {{ minutes }} {{ T.read }}</p>
     </header>
     {% if page.summary %}
     <div class="answer"><span class="cap">{{ T.answer }}</span><p>{{ page.summary }}</p></div>
@@ -43,6 +43,19 @@ layout: blog
       <a class="btn red" href="{{ home }}?kit={{ page.kit }}#kits" data-kit="{{ page.kit }}">{{ T.see }} {{ k.name }}</a>
     </aside>
     {% endif %}
+    <aside class="leadbox">
+      {% if page.lang == "en" %}
+      <span class="cap">Free download</span>
+      <h2>Your emergency plan on one page</h2>
+      <p>A printable sheet to fill in as a family: phone numbers, meeting point, where everything is and the checklist for each kit. Join the community and download it.</p>
+      <a class="btn" href="/en#reposicion">Get the plan</a>
+      {% else %}
+      <span class="cap">Descarga gratis</span>
+      <h2>Tu plan de emergencia en una página</h2>
+      <p>Una hoja para imprimir y rellenar en familia: teléfonos, punto de encuentro, dónde está cada cosa y la lista de cada kit. Entra en la comunidad y descárgala.</p>
+      <a class="btn" href="/#reposicion">Quiero el plan</a>
+      {% endif %}
+    </aside>
   </article>
 
   {% assign others = site.posts | where_exp: "p", "p.url != page.url" | where_exp: "p", "p.lang == page.lang" %}

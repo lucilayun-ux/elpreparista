@@ -2,6 +2,7 @@
 <a class="card" href="{{ p.url }}">
   {% if p.category %}<span class="cap tag">{{ p.category }}</span>{% endif %}
   {% if p.image %}<div class="cardhead"><h3>{{ p.title }}</h3><img src="{{ p.image }}" alt="" loading="lazy"></div>{% else %}<h3>{{ p.title }}</h3>{% endif %}
+  <p class="date">{% include fecha.html date=p.date lang=p.lang %}{% if p.last_modified_at %} · {% if p.lang == "en" %}Updated{% else %}Actualizado{% endif %} {% include fecha.html date=p.last_modified_at lang=p.lang %}{% endif %}</p>
   <p>{{ p.description }}</p>
   <span class="cap go">{% if p.lang == "en" %}Read article{% else %}Leer artículo{% endif %} →</span>
 </a>

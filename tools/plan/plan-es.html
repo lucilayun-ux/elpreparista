@@ -1,0 +1,43 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Tu plan de emergencia en una página</title>
+<link rel="stylesheet" href="file:///home/user/elpreparista/fonts.css"><style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Barlow", "Helvetica Neue", Arial, sans-serif; color: #111; font-size: 10.5pt; }
+.page { width: 210mm; height: 297mm; padding: 11mm 12mm 9mm; display: flex; flex-direction: column; gap: 4.5mm; }
+header { display: flex; align-items: center; gap: 4mm; border-bottom: 1mm solid #111; padding-bottom: 3mm; }
+header img { width: 14mm; height: 14mm; }
+h1 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-weight: 800; text-transform: uppercase; font-size: 23pt; line-height: 1; margin: 0; }
+header p { margin: 1mm 0 0; color: #4B4B4B; font-size: 10pt; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5mm; }
+.box { border: .6mm solid #111; }
+.box h2 { margin: 0; background: #C8102E; color: #fff; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-weight: 800; text-transform: uppercase; font-size: 12pt; letter-spacing: .03em; padding: 1.2mm 2.5mm; }
+.box.g h2 { background: #00804A; }
+.box.k h2 { background: #111; }
+.rows { padding: 1mm 2.5mm 2mm; }
+.row { display: flex; align-items: flex-end; gap: 2mm; height: 7.2mm; border-bottom: .25mm solid #9a9a95; }
+.row span { white-space: nowrap; font-weight: 600; font-size: 9.5pt; padding-bottom: .6mm; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-size: 8.5pt; text-transform: uppercase; letter-spacing: .04em; color: #4B4B4B; padding: 1.5mm 2.5mm 0; }
+td { height: 7.5mm; border-bottom: .25mm solid #9a9a95; }
+td:first-child { width: 28%; } td:nth-child(2) { width: 37%; }
+.kits { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; padding: 2mm 2.5mm 2.5mm; }
+.kits b { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-size: 10.5pt; display: block; margin-bottom: 1mm; }
+.kits li, .check li { list-style: none; display: flex; gap: 1.6mm; align-items: flex-start; font-size: 9pt; line-height: 1.25; margin-bottom: 1.1mm; }
+.kits ul, .check ul { margin: 0; padding: 0; }
+.sq { flex: none; width: 3.4mm; height: 3.4mm; border: .4mm solid #111; margin-top: .3mm; }
+.check { padding: 2mm 2.5mm 2.5mm; display: grid; grid-template-columns: 1fr 1fr; gap: 0 4mm; }
+.date { grid-column: 1 / -1; display: flex; gap: 2mm; align-items: flex-end; height: 7mm; border-bottom: .25mm solid #9a9a95; font-weight: 700; font-size: 9.5pt; }
+footer { margin-top: auto; border-top: .6mm solid #111; padding-top: 2mm; font-size: 8.5pt; color: #4B4B4B; display: flex; justify-content: space-between; }
+</style></head><body><div class="page">
+<header><img src="file:///home/user/elpreparista/logo.png" alt=""><div><h1>Tu plan de emergencia en una página</h1><p>Rellénalo en familia, imprímelo y déjalo en la puerta de la nevera o junto al kit.</p></div></header>
+<div class="grid">
+  <section class="box"><h2>Teléfonos importantes</h2><div class="rows"><div class="row"><span>Emergencias: <b>112</b></span></div><div class="row"><span>Familiar 1</span></div><div class="row"><span>Familiar 2</span></div><div class="row"><span>Médico / centro de salud</span></div><div class="row"><span>Compañía eléctrica (averías)</span></div><div class="row"><span>Seguro de hogar</span></div></div></section>
+  <section class="box g"><h2>En casa: dónde está…</h2><div class="rows"><div class="row"><span>El kit de emergencia</span></div><div class="row"><span>El cuadro eléctrico</span></div><div class="row"><span>La llave del agua</span></div><div class="row"><span>La llave del gas</span></div><div class="row"><span>Las linternas</span></div><div class="row"><span>Las copias de documentos</span></div></div></section>
+  <section class="box g"><h2>Punto de encuentro</h2><div class="rows"><div class="row"><span>Cerca de casa</span></div><div class="row"><span>Fuera del barrio</span></div><div class="row"><span>Quién recoge a los niños</span></div></div></section>
+  <section class="box"><h2>Mascotas</h2><div class="rows"><div class="row"><span>Nombre y comida</span></div><div class="row"><span>Veterinario</span></div></div></section>
+</div>
+<section class="box"><h2>Personas, medicación y alergias</h2><table><tr><th>Nombre</th><th>Medicación</th><th>Alergias / notas</th></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table></section>
+<section class="box k"><h2>¿Lo tenemos?</h2><div class="kits"><div><b>Kit Casa</b><ul><li><i class="sq"></i>Agua: 6 L por persona</li><li><i class="sq"></i>Comida sin cocinar (3 días)</li><li><i class="sq"></i>Linterna y farol + pilas</li><li><i class="sq"></i>Radio de pilas o dinamo</li><li><i class="sq"></i>Powerbank cargada</li><li><i class="sq"></i>Botiquín y medicación</li><li><i class="sq"></i>Efectivo en billetes pequeños</li></ul></div><div><b>Kit Coche</b><ul><li><i class="sq"></i>Mantas y agua</li><li><i class="sq"></i>Linterna y chaleco</li><li><i class="sq"></i>Baliza V-16</li><li><i class="sq"></i>Martillo rompecristales</li><li><i class="sq"></i>Cargador de mechero</li><li><i class="sq"></i>Depósito por encima de la mitad</li></ul></div><div><b>Mochila de salida</b><ul><li><i class="sq"></i>Una por persona</li><li><i class="sq"></i>Agua y comida para 3 días</li><li><i class="sq"></i>Linterna frontal</li><li><i class="sq"></i>Copias de DNI y recetas</li><li><i class="sq"></i>Silbato y manta térmica</li></ul></div></div></section>
+<section class="box g"><h2>Revisión anual</h2><div class="check"><ul><li><i class="sq"></i>Pilas y linternas</li><li><i class="sq"></i>Powerbank cargada</li><li><i class="sq"></i>Caducidad de agua y comida</li></ul><ul><li><i class="sq"></i>Efectivo en su sitio</li><li><i class="sq"></i>Medicación al día</li></ul><div class="date">Próxima revisión:</div></div></section>
+<footer><span>elpreparista.com · Kits de emergencia para casa, coche y evacuación</span></footer>
+</div></body></html>

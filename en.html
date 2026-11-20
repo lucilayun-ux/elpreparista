@@ -191,6 +191,7 @@ label.box:has(input:focus-visible) { outline: 3px solid var(--red); outline-offs
 .shop .nm .new { font-family: var(--f-sign); font-weight: 700; font-size: .75rem; letter-spacing: .08em; border: 1.5px solid var(--ink); padding: 0 .3rem; margin-left: .35rem; vertical-align: 2px; }
 .shop .amt { font-family: var(--f-sign); font-weight: 600; font-size: .95rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; font-variant-numeric: tabular-nums; }
 .thumb { width: 64px; height: 64px; padding: 9px; background: #F3F3F0; border: 1.5px solid var(--hair); color: var(--ink); display: block; transition: border-color .12s, transform .12s; }
+.shop .why { font-size: .85rem; line-height: 1.35; color: var(--muted); margin-top: .15rem; }
 .thumb svg, .thumb img { display: block; width: 100%; height: 100%; }
 .thumb img { object-fit: contain; }
 .thumb svg[hidden] { display: none; } /* icono de reserva: solo se ve si la foto no carga */
@@ -248,6 +249,8 @@ dialog.push .x:focus-visible { outline-color: #fff; outline-offset: 0; }
 @media (max-width: 420px) { dialog.push .band b { font-size: 1.35rem; } }
 dialog.push .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 dialog.push .btn { width: 100%; background: var(--green); color: #fff; }
+dialog.push button.btn[type="button"] { background: var(--paper); color: var(--ink); }
+dialog.push a.btn { background: var(--red); }
 .repo .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .repo form { display: grid; gap: .9rem; padding: 1.1rem 1.2rem 1.3rem; }
 .field { display: grid; gap: .3rem; }
@@ -328,12 +331,50 @@ footer .wrap { display: grid; gap: .6rem; }
     </div>
 
     <div class="stephead"><span class="num">1</span><h3>Choose your kit</h3></div>
-    <div class="signs" role="tablist" aria-label="Kit type" id="tabs"></div>
+    <div class="signs" role="tablist" aria-label="Kit type" id="tabs"><!--pre:tabs--><button class="sign" role="tab" type="button" id="tab-casa" data-kit="casa" aria-selected="true" tabindex="0">
+      <svg class="pic" viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="96" height="96" fill="var(--red)"></rect>
+    <g fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"><path d="M14 50 50 18l36 32"></path><path d="M24 44v42h52V44"></path></g>
+    <path d="M56 40 38 68h13l-6 18 20-28H52l8-18z" fill="#fff"></path></svg><div><b>Home Kit</b><small>Blackouts and water cuts</small></div></button><button class="sign" role="tab" type="button" id="tab-coche" data-kit="coche" aria-selected="false" tabindex="-1">
+      <svg class="pic" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 6 96 90H4z" fill="var(--yellow)" stroke="#111" stroke-width="6" stroke-linejoin="round"></path>
+    <g transform="translate(25 40) scale(.5)"><path d="M6 66V54l10-4 10-18h44l12 18 12 4v12z" fill="#111"></path><path d="M32 37h14v13H24zM52 37h15l8 13H52z" fill="var(--yellow)"></path>
+    <circle cx="28" cy="68" r="10" fill="#111" stroke="var(--yellow)" stroke-width="5"></circle><circle cx="74" cy="68" r="10" fill="#111" stroke="var(--yellow)" stroke-width="5"></circle></g>
+    <g stroke="#111" stroke-width="3.5" stroke-linecap="round"><path d="M50 22v14M44 25l12 8M56 25l-12 8"></path></g></svg><div><b>Car Kit</b><small>Snow, flash floods, hours-long jams</small></div></button><button class="sign" role="tab" type="button" id="tab-salida" data-kit="salida" aria-selected="false" tabindex="-1">
+      <svg class="pic" viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="96" height="96" fill="var(--green)"></rect>
+    <rect x="66" y="14" width="22" height="72" fill="none" stroke="#fff" stroke-width="6"></rect>
+    <circle cx="50" cy="22" r="7.5" fill="#fff"></circle>
+    <g fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M44 34 35 58"></path><path d="M44 36l10 10 9-4"></path><path d="M42 36 30 42l-6 10"></path><path d="M35 58l12 10-2 16"></path><path d="M35 58l-9 14H14"></path></g></svg><div><b>Go Bag</b><small>Evacuate with just the essentials</small></div></button><!--/pre:tabs--></div>
 
     <div class="kitpanel" id="kitpanel">
     <div class="kitintro">
-      <div class="art"><div id="kArt"></div><span class="ex">Sample image</span></div>
-      <div class="text"><span class="cap" id="kArtCap"></span><h4 id="kTitle"></h4><p id="kScene"></p></div>
+      <div class="art"><div id="kArt"><!--pre:kArt--><svg class="pic" viewBox="0 0 400 300" role="img" aria-label="Sample image: red Home Kit box"><defs>
+  <radialGradient id="cabg" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#E4E4DF"></stop></radialGradient>
+  <filter id="cablur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"></feGaussianBlur></filter>
+  <filter id="casoft"><feGaussianBlur stdDeviation="1.2"></feGaussianBlur></filter>
+</defs><rect width="400" height="300" fill="url(#cabg)"></rect>
+    <defs>
+      <linearGradient id="caF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E0213D"></stop><stop offset="1" stop-color="#A90D24"></stop></linearGradient>
+      <linearGradient id="caS" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8E0A1E"></stop><stop offset="1" stop-color="#6E0716"></stop></linearGradient>
+      <linearGradient id="caL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A3A3A"></stop><stop offset="1" stop-color="#111"></stop></linearGradient>
+    </defs>
+    <ellipse cx="210" cy="262" rx="150" ry="16" fill="#000" opacity=".28" filter="url(#cablur)"></ellipse>
+    <path d="M82 142 248 152 246 258 84 247z" fill="url(#caF)"></path>
+    <path d="M248 152 330 130 328 230 246 258z" fill="url(#caS)"></path>
+    <path d="M72 124 252 134 338 112 168 104z" fill="#4A4A4A"></path>
+    <path d="M72 124 252 134 252 152 72 141z" fill="url(#caL)"></path>
+    <path d="M252 134 338 112 338 128 252 152z" fill="#0C0C0C"></path>
+    <path d="M80 128 250 137" stroke="#777" stroke-width="1.2" opacity=".7"></path>
+    <path d="M276 168 306 160 306 172 276 180z" fill="#4A0510"></path>
+    <path d="M92 150 110 151 108 240 94 239z" fill="#fff" opacity=".12" filter="url(#casoft)"></path>
+    <g transform="matrix(1 .06 0 1 0 0)">
+      <rect x="112" y="166" width="106" height="62" fill="#fff"></rect>
+      <rect x="112" y="166" width="106" height="10" fill="#111"></rect>
+      <g transform="translate(118 183) scale(1.1)"><rect width="20" height="20" fill="#00804A"></rect><path d="M8.5 3.5h3v5h5v3h-5v5h-3v-5h-5v-3h5z" fill="#fff"></path></g>
+      <text x="146" y="197" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="16" fill="#111">HOME KIT</text>
+      <text x="146" y="214" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="11" fill="#C8102E">72 HOURS</text>
+    </g>
+  </svg><!--/pre:kArt--></div><span class="ex">Sample image</span></div>
+      <div class="text"><span class="cap" id="kArtCap"><!--pre:kArtCap-->Box format<!--/pre:kArtCap--></span><h4 id="kTitle"><!--pre:kTitle-->Home Kit<!--/pre:kTitle--></h4><p id="kScene"><!--pre:kScene-->Not a backpack: a box that lives in a cupboard. Light, water, no-cook food, radio, battery, cash and documents to get through 72 hours.<!--/pre:kScene--></p></div>
     </div>
 
     <div class="stephead"><span class="num">2</span><h3>Choose the level</h3>
@@ -346,16 +387,34 @@ footer .wrap { display: grid; gap: .6rem; }
         </div>
       </div>
     </div>
-    <div class="levels" role="radiogroup" aria-label="Kit level" id="levels"></div>
+    <div class="levels" role="radiogroup" aria-label="Kit level" id="levels"><!--pre:levels--><button class="level" type="button" role="radio" data-level="0" aria-checked="false" tabindex="-1">
+      
+      <span class="bars" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span>
+      <span class="lvname">Essential</span>
+      <p>The minimum for a three-day blackout.</p>
+      <span class="count">9 items</span>
+    </button><button class="level" type="button" role="radio" data-level="1" aria-checked="true" tabindex="0">
+      <span class="badge">Recommended</span>
+      <span class="bars" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span>
+      <span class="lvname">Complete</span>
+      <p>Everything in Essential, plus: with a battery for phones, a first aid kit and light for the whole home.</p>
+      <span class="count">14 items</span>
+    </button><button class="level" type="button" role="radio" data-level="2" aria-checked="false" tabindex="-1">
+      
+      <span class="bars" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>
+      <span class="lvname">Total</span>
+      <p>Everything in Complete, plus: your own power for days: power station, solar panel and water filter.</p>
+      <span class="count">17 items</span>
+    </button><!--/pre:levels--></div>
 
     <div class="stephead"><span class="num">3</span><h3>Review and buy</h3></div>
     <div class="card result" id="result" aria-live="polite">
-      <div class="band"><b id="rName"></b><span class="cap">Kit contents</span></div>
+      <div class="band"><b id="rName"><!--pre:rName-->Home Kit · Complete · 2 people<!--/pre:rName--></b><span class="cap">Kit contents</span></div>
       <div class="inner">
-        <ul class="shop" id="rList"></ul>
+        <ul class="shop" id="rList"><!--pre:rList--><li class=""><label class="box"><input type="checkbox" data-pick="caja" checked="" aria-label="Include Storage box with lid in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">Storage box with lid</div><div class="amt">1 unit</div><div class="why">Lidded and stackable: the whole kit together in a cupboard, free of dust.</div></div><a class="thumb has-img" data-id="caja" href="https://www.amazon.es/dp/B01NCM40UF?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Storage box with lid on Amazon"><img src="img/caja.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="10" y="20" width="80" height="16" fill="currentColor"></rect><rect x="16" y="38" width="68" height="48" fill="currentColor"></rect><rect x="40" y="48" width="20" height="8" fill="#fff"></rect></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="agua" checked="" aria-label="Include Emergency water pouches (5-year shelf life) in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">Emergency water pouches (5-year shelf life)</div><div class="amt">12 L</div><div class="why">Lasts 5 years without checking and takes no pantry space.</div></div><a class="thumb has-img" data-id="agua" href="https://www.amazon.es/dp/B071RR4H19?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Emergency water pouches (5-year shelf life) on Amazon"><img src="img/agua.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M40 8h20v10l8 10v62H32V28l8-10z" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M32 52h36v38H32z" fill="currentColor"></path><path d="M42 66c0 8 16 8 16 0l-8-10z" fill="#fff"></path></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="comida" checked="" aria-label="Include NRG-5 no-cook emergency rations in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">NRG-5 no-cook emergency rations</div><div class="amt">18 rations</div><div class="why">Needs no cooking or fridge and lasts 5 years: ideal without power.</div></div><a class="thumb has-img" data-id="comida" href="https://www.amazon.es/dp/B07DX92V1X?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View NRG-5 no-cook emergency rations on Amazon"><img src="img/raciones.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="26" y="26" width="48" height="58" rx="6" fill="currentColor"></rect><path d="M26 42h48M26 68h48" stroke="#fff" stroke-width="4"></path></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="linterna" checked="" aria-label="Include LED torch in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">LED torch</div><div class="amt">2 units</div><div class="why">Runs on standard batteries: without power you couldn't recharge it.</div></div><a class="thumb has-img" data-id="linterna" href="https://www.amazon.es/dp/B005FEGYCO?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View LED torch on Amazon"><img src="img/linterna.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 66 44 36l14 14-30 30z" fill="currentColor"></path><path d="M44 36l8-8 14 14-8 8" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M66 22l12-12M74 36l16-4M58 14l4-12" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="pilas" checked="" aria-label="Include Duracell AA and AAA batteries (24 pack) in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">Duracell AA and AAA batteries (24 pack)</div><div class="amt">1 pack</div><div class="why">The two sizes most torches and radios use.</div></div><a class="thumb has-img" data-id="pilas" href="https://www.amazon.es/dp/B096QYFG1D?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Duracell AA and AAA batteries (24 pack) on Amazon"><img src="img/pilas.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="27" y="18" width="10" height="8" fill="currentColor"></rect><rect x="20" y="26" width="24" height="60" rx="4" fill="currentColor"></rect><rect x="63" y="18" width="10" height="8" fill="currentColor"></rect><rect x="56" y="26" width="24" height="60" rx="4" fill="currentColor"></rect></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="radio" checked="" aria-label="Include Hand-crank and solar radio with USB in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">Hand-crank and solar radio with USB</div><div class="amt">1 unit</div><div class="why">Charges by hand crank or sun: keeps you informed with no power or signal.</div></div><a class="thumb has-img" data-id="radio" href="https://www.amazon.es/dp/B0FBPD6XW5?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Hand-crank and solar radio with USB on Amazon"><img src="img/radio.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M30 36 64 14" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><rect x="12" y="36" width="76" height="48" rx="6" fill="currentColor"></rect><circle cx="35" cy="60" r="12" fill="#fff"></circle><path d="M58 52h18M58 66h18" stroke="#fff" stroke-width="5"></path></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="funda" checked="" aria-label="Include Waterproof pouch for documents and cash in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">Waterproof pouch for documents and cash</div><div class="amt">1 unit</div><div class="why">Keeps your ID, prescriptions and cash safe from water.</div></div><a class="thumb has-img" data-id="funda" href="https://www.amazon.es/dp/B00UN4ROLQ?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Waterproof pouch for documents and cash on Amazon"><img src="img/funda.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="22" y="12" width="56" height="76" rx="4" fill="currentColor"></rect><path d="M33 32h34M33 46h34M33 60h22" stroke="#fff" stroke-width="5"></path></svg></a></li><li class=""><span class="box" aria-hidden="true">✓</span><div><div class="nm">Cash in small notes</div><div class="amt">You add it: €150–200</div></div><span class="thumb diy" title="Not bought online"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="8" y="28" width="84" height="44" rx="4" fill="currentColor"></rect><circle cx="50" cy="50" r="11" fill="#fff"></circle></svg></span></li><li class=""><span class="box" aria-hidden="true">✓</span><div><div class="nm">Copies of ID, insurance and prescriptions</div><div class="amt">You add it: photocopies</div></div><span class="thumb diy" title="Not bought online"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="22" y="12" width="56" height="76" rx="4" fill="currentColor"></rect><path d="M33 32h34M33 46h34M33 60h22" stroke="#fff" stroke-width="5"></path></svg></span></li><li class=""><label class="box"><input type="checkbox" data-pick="powerbank" checked="" aria-label="Include 20,000 mAh power bank in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">20,000 mAh power bank<span class="new">COMPLETE</span></div><div class="amt">1 unit</div><div class="why">20,000 mAh: two or three full phone charges.</div></div><a class="thumb has-img" data-id="powerbank" href="https://www.amazon.es/dp/B07YPS5JC5?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View 20,000 mAh power bank on Amazon"><img src="img/powerbank.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="40" y="10" width="20" height="10" fill="currentColor"></rect><rect x="24" y="20" width="52" height="70" rx="6" fill="currentColor"></rect><path d="M55 32 41 56h12l-6 20 17-26H52l7-18z" fill="#fff"></path></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="farol" checked="" aria-label="Include LED table lantern in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">LED table lantern<span class="new">COMPLETE</span></div><div class="amt">1 unit</div><div class="why">Lights the whole room, not just one spot, and is safer than candles.</div></div><a class="thumb has-img" data-id="farol" href="https://www.amazon.es/dp/B0BXLYZZHM?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View LED table lantern on Amazon"><img src="img/farol.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 66 44 36l14 14-30 30z" fill="currentColor"></path><path d="M44 36l8-8 14 14-8 8" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M66 22l12-12M74 36l16-4M58 14l4-12" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="botiquin" checked="" aria-label="Include First aid kit (200 pieces) in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">First aid kit (200 pieces)<span class="new">COMPLETE</span></div><div class="amt">1 unit</div><div class="why">Complete and in a case: works for home, car or backpack.</div></div><a class="thumb has-img" data-id="botiquin" href="https://www.amazon.es/dp/B07R3RMFC4?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View First aid kit (200 pieces) on Amazon"><img src="img/botiquin.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M38 30v-8h24v8" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><rect x="12" y="30" width="76" height="56" rx="6" fill="currentColor"></rect><path d="M45 44h10v9h9v10h-9v9H45v-9h-9V53h9z" fill="#fff"></path></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="mantas" checked="" aria-label="Include Emergency thermal blankets in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">Emergency thermal blankets<span class="new">COMPLETE</span></div><div class="amt">2 pcs</div><div class="why">Weigh almost nothing and keep in body heat.</div></div><a class="thumb has-img" data-id="mantas" href="https://www.amazon.es/dp/B01M19HAEB?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Emergency thermal blankets on Amazon"><img src="img/mantas.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="14" y="26" width="72" height="20" rx="4" fill="currentColor"></rect><rect x="14" y="52" width="72" height="20" rx="4" fill="currentColor"></rect><path d="M14 36h72M14 62h72" stroke="#fff" stroke-width="2" opacity=".5"></path></svg></a></li><li class=""><label class="box"><input type="checkbox" data-pick="garrafa" checked="" aria-label="Include 10 L water container with tap in the basket"><span aria-hidden="true">✓</span></label><div><div class="nm">10 L water container with tap<span class="new">COMPLETE</span></div><div class="amt">1 unit</div><div class="why">With a tap, to fill up when water cuts are announced.</div></div><a class="thumb has-img" data-id="garrafa" href="https://www.amazon.es/dp/B00CFNKX6G?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View 10 L water container with tap on Amazon"><img src="img/garrafa.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M40 8h20v10l8 10v62H32V28l8-10z" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M32 52h36v38H32z" fill="currentColor"></path><path d="M42 66c0 8 16 8 16 0l-8-10z" fill="#fff"></path></svg></a></li><!--/pre:rList--></ul>
         <div class="sendbar">
           <div>
-            <span class="cap" id="rCount"></span>
+            <span class="cap" id="rCount"><!--pre:rCount-->12 products to buy · 16 units in the basket<!--/pre:rCount--></span>
             <span class="fine">Untick anything you already have. Amazon opens with the products already in your basket; you pay there, with your own account and delivery. Products are sold on Amazon Spain (amazon.es).</span>
           </div>
           <a class="btn red" id="sendAll" href="#" target="_blank" rel="noopener sponsored">Review and buy your kit</a>
@@ -373,7 +432,19 @@ footer .wrap { display: grid; gap: .6rem; }
       <h2>Upgrade your kit</h2>
       <p>Individual items to expand the kit you already have or replace what you have used.</p>
     </div>
-    <div class="extras" id="extras"></div>
+    <div class="extras" id="extras"><!--pre:extras--><article class="extra" data-id="estacion"><a class="thumb has-img" href="https://www.amazon.es/dp/B0C27VWNM7?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View 300 W portable power station on Amazon"><img src="img/estacion.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="40" y="10" width="20" height="10" fill="currentColor"></rect><rect x="24" y="20" width="52" height="70" rx="6" fill="currentColor"></rect><path d="M55 32 41 56h12l-6 20 17-26H52l7-18z" fill="#fff"></path></svg></a>
+    <h3>300 W portable power station</h3><p>Charges phones, lights and a small fridge for days.</p><a class="go" href="https://www.amazon.es/dp/B0C27VWNM7?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="solar"><a class="thumb has-img" href="https://www.amazon.es/dp/B08FJ12RTM?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Foldable USB solar panel on Amazon"><img src="img/solar.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="40" y="10" width="20" height="10" fill="currentColor"></rect><rect x="24" y="20" width="52" height="70" rx="6" fill="currentColor"></rect><path d="M55 32 41 56h12l-6 20 17-26H52l7-18z" fill="#fff"></path></svg></a>
+    <h3>Foldable USB solar panel</h3><p>Recharges batteries from the sun if the blackout drags on.</p><a class="go" href="https://www.amazon.es/dp/B08FJ12RTM?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="radio"><a class="thumb has-img" href="https://www.amazon.es/dp/B0FBPD6XW5?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Hand-crank and solar radio with USB on Amazon"><img src="img/radio.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M30 36 64 14" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><rect x="12" y="36" width="76" height="48" rx="6" fill="currentColor"></rect><circle cx="35" cy="60" r="12" fill="#fff"></circle><path d="M58 52h18M58 66h18" stroke="#fff" stroke-width="5"></path></svg></a>
+    <h3>Hand-crank and solar radio with USB</h3><p>News without power or signal, by hand crank or solar.</p><a class="go" href="https://www.amazon.es/dp/B0FBPD6XW5?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="frontal"><a class="thumb" href="https://www.amazon.es/dp/B09ZNGN89C?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Head torch on Amazon"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M14 66 44 36l14 14-30 30z" fill="currentColor"></path><path d="M44 36l8-8 14 14-8 8" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M66 22l12-12M74 36l16-4M58 14l4-12" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    <h3>Head torch</h3><p>Light with your hands free.</p><a class="go" href="https://www.amazon.es/dp/B09ZNGN89C?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="powerbank"><a class="thumb has-img" href="https://www.amazon.es/dp/B07YPS5JC5?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View 20,000 mAh power bank on Amazon"><img src="img/powerbank.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="40" y="10" width="20" height="10" fill="currentColor"></rect><rect x="24" y="20" width="52" height="70" rx="6" fill="currentColor"></rect><path d="M55 32 41 56h12l-6 20 17-26H52l7-18z" fill="#fff"></path></svg></a>
+    <h3>20,000 mAh power bank</h3><p>Two or three full phone charges.</p><a class="go" href="https://www.amazon.es/dp/B07YPS5JC5?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="filtro"><a class="thumb has-img" href="https://www.amazon.es/dp/B0D1M4LQ7F?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Portable water filter on Amazon"><img src="img/filtro.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M40 8h20v10l8 10v62H32V28l8-10z" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M32 52h36v38H32z" fill="currentColor"></path><path d="M42 66c0 8 16 8 16 0l-8-10z" fill="#fff"></path></svg></a>
+    <h3>Portable water filter</h3><p>Drinking water from water you are unsure about.</p><a class="go" href="https://www.amazon.es/dp/B0D1M4LQ7F?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="pastillas"><a class="thumb has-img" href="https://www.amazon.es/dp/B006QJN2OA?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Water purification tablets on Amazon"><img src="img/pastillas.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M40 8h20v10l8 10v62H32V28l8-10z" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M32 52h36v38H32z" fill="currentColor"></path><path d="M42 66c0 8 16 8 16 0l-8-10z" fill="#fff"></path></svg></a>
+    <h3>Water purification tablets</h3><p>To make stored or tap water safe to drink.</p><a class="go" href="https://www.amazon.es/dp/B006QJN2OA?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="garrafa"><a class="thumb has-img" href="https://www.amazon.es/dp/B00CFNKX6G?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View 10 L water container with tap on Amazon"><img src="img/garrafa.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M40 8h20v10l8 10v62H32V28l8-10z" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M32 52h36v38H32z" fill="currentColor"></path><path d="M42 66c0 8 16 8 16 0l-8-10z" fill="#fff"></path></svg></a>
+    <h3>10 L water container with tap</h3><p>Fill it up when water cuts are announced.</p><a class="go" href="https://www.amazon.es/dp/B00CFNKX6G?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="botiquin"><a class="thumb has-img" href="https://www.amazon.es/dp/B07R3RMFC4?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View First aid kit (200 pieces) on Amazon"><img src="img/botiquin.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><path d="M38 30v-8h24v8" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path><rect x="12" y="30" width="76" height="56" rx="6" fill="currentColor"></rect><path d="M45 44h10v9h9v10h-9v9H45v-9h-9V53h9z" fill="#fff"></path></svg></a>
+    <h3>First aid kit (200 pieces)</h3><p>For home, car or backpack.</p><a class="go" href="https://www.amazon.es/dp/B07R3RMFC4?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="hornillo"><a class="thumb" href="https://www.amazon.es/dp/B09KNQL782?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Compact gas stove on Amazon"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 12c15 14 17 27 9 40-4-8-9-11-9-11s-5 5-9 11c-8-13-6-26 9-40z" fill="currentColor"></path><rect x="16" y="64" width="68" height="20" rx="3" fill="currentColor"></rect></svg></a>
+    <h3>Compact gas stove</h3><p>Hot food without electricity.</p><a class="go" href="https://www.amazon.es/dp/B09KNQL782?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="v16"><a class="thumb" href="https://www.amazon.es/dp/B0CR9JC98B?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View V-16 connected warning light (mandatory in Spain from 2026) on Amazon"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M32 58c0-26 36-26 36 0z" fill="var(--yellow)" stroke="currentColor" stroke-width="5"></path><rect x="26" y="58" width="48" height="26" rx="4" fill="currentColor"></rect></svg></a>
+    <h3>V-16 connected warning light (mandatory in Spain from 2026)</h3><p>Signals your position if you break down on the road.</p><a class="go" href="https://www.amazon.es/dp/B0CR9JC98B?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><article class="extra" data-id="mantas"><a class="thumb has-img" href="https://www.amazon.es/dp/B01M19HAEB?tag=betender-21" target="_blank" rel="noopener sponsored" aria-label="View Emergency thermal blankets on Amazon"><img src="img/mantas.jpg" alt="" loading="lazy" onerror="this.nextElementSibling.removeAttribute('hidden');this.parentNode.classList.remove('has-img');this.remove()"><svg hidden="" viewBox="0 0 100 100" aria-hidden="true"><rect x="14" y="26" width="72" height="20" rx="4" fill="currentColor"></rect><rect x="14" y="52" width="72" height="20" rx="4" fill="currentColor"></rect><path d="M14 36h72M14 62h72" stroke="#fff" stroke-width="2" opacity=".5"></path></svg></a>
+    <h3>Emergency thermal blankets</h3><p>Light and small, for home, car or backpack.</p><a class="go" href="https://www.amazon.es/dp/B01M19HAEB?tag=betender-21" target="_blank" rel="noopener sponsored">View on Amazon</a></article><!--/pre:extras--></div>
   </section>
 
   <hr class="rule">
@@ -400,7 +471,7 @@ footer .wrap { display: grid; gap: .6rem; }
             <div class="field"><label for="rFullName">Full name</label><input id="rFullName" type="text" placeholder="First and last name" autocomplete="name"></div>
           </div>
           <div class="hp" aria-hidden="true"><label for="rWeb">Leave this field empty</label><input id="rWeb" type="text" tabindex="-1" autocomplete="off"></div>
-          <ul class="perks"><li>Reminders before your kit expires</li><li>Newsletter with useful information</li><li>Alerts when a storm is coming</li></ul>
+          <ul class="perks"><li><b>Free: “Your emergency plan on one page” (PDF)</b></li><li>Reminders before your kit expires</li><li>Newsletter with useful information</li><li>Alerts when a storm is coming</li></ul>
           <button class="btn red" type="submit" style="background:var(--green)">Subscribe</button>
           <p class="fine" id="repoErr" role="alert" hidden></p>
           <p class="ok" id="repoOk" hidden></p>
@@ -420,6 +491,7 @@ footer .wrap { display: grid; gap: .6rem; }
     <div class="faq">
       <details><summary>Why three kits and not just a backpack?</summary><p>Because the most common emergencies in Spain are not evacuations. They are blackouts like the one in April 2025, storms and flash floods (DANAs), and snowfalls that leave people stuck on the road for hours. Each situation calls for different things in a different place: a box in the cupboard, a bag in the car boot and a backpack by the door.</p></details>
       <details><summary>Which level should I choose?</summary><p>If you have nothing yet, Essential already covers the basics. Complete is the one we recommend for a family. Total is for people who live in areas prone to snow or flooding, or far from everything.</p></details>
+      <details><summary>Who chooses the products, and how?</summary><p>We do, following the recommendations of the European Union, Spanish Civil Protection and the DGT: they must work without power, last a long time, have good ratings and come in the right quantity for each person. Next to each product we explain why it is in the kit. More details in <a href="/en/about/">about us and how we choose the products</a>.</p></details>
       <details><summary>Who sells me the products?</summary><p>Amazon. We choose the products and calculate the quantities; the purchase, payment, delivery and returns are with Amazon, just like any other order of yours. The links go to Amazon Spain (amazon.es), where you can switch the site language to English.</p></details>
       <details><summary>Does it cost more to buy through you?</summary><p>No. You pay the same as if you searched for each product yourself. Amazon pays us a small commission for recommending them.</p></details>
       <details><summary>How much water do I need?</summary><p>At home, 2 litres of drinking water per person per day, as recommended by Spanish Civil Protection: 6 litres per person for 72 hours. In the car we allow 1.5 litres per person for a long traffic jam.</p></details>
@@ -431,7 +503,7 @@ footer .wrap { display: grid; gap: .6rem; }
   <div class="wrap">
     <p><strong style="color:var(--ink)">El Preparista</strong> · elpreparista.com</p>
     <p>As an Amazon Associate I earn from qualifying purchases.</p>
-    <p><a href="/en/blog/">Blog</a> · <a href="aviso-legal.html" hreflang="es">Legal notice</a> · <a href="privacidad.html" hreflang="es">Privacy</a> · <a href="cookies.html" hreflang="es">Cookies</a> (in Spanish) · <a href="#" data-cookies>Cookie settings</a> · <a href="/" hreflang="es" lang="es">Versión en español</a></p>
+    <p><a href="/en/blog/">Blog</a> · <a href="/en/about/">About us</a> · <a href="aviso-legal.html" hreflang="es">Legal notice</a> · <a href="privacidad.html" hreflang="es">Privacy</a> · <a href="cookies.html" hreflang="es">Cookies</a> (in Spanish) · <a href="#" data-cookies>Cookie settings</a> · <a href="/" hreflang="es" lang="es">Versión en español</a></p>
   </div>
 </footer>
 
@@ -440,7 +512,7 @@ footer .wrap { display: grid; gap: .6rem; }
     <button type="button" class="x" id="pushClose" aria-label="Close">×</button>
     <div class="band"><b id="pushTitle">Connect with the community</b></div>
     <div class="body">
-      <p>Get the information to be prepared: reminders before your kit expires, storm alerts and tips.</p>
+      <p>Get the information to be prepared and a free copy of <b>“Your emergency plan on one page”</b> (printable PDF).</p>
       <div class="field"><label for="pEmail">Your email</label><input id="pEmail" type="email" placeholder="name@email.com" autocomplete="email" required></div>
       <div class="field"><label for="pPhone">Phone (optional)</label><input id="pPhone" type="tel" placeholder="+34 600 000 000" autocomplete="tel" inputmode="tel"></div>
       <div class="hp" aria-hidden="true"><label for="pWeb">Leave this field empty</label><input id="pWeb" type="text" tabindex="-1" autocomplete="off"></div>
@@ -597,49 +669,49 @@ const AMAZON = { domain: "www.amazon.es", tag: "betender-21" };
 
 const PRODUCTS = {
   // Casa
-  caja:      { name: "Storage box with lid", search: "caja almacenaje plastico tapa 50 litros", asin: "B01NCM40UF", alts: ["B01IEKKQP6"], pack: 1, unit: "ud", img: "img/caja.jpg" },
-  agua:      { name: "Emergency water pouches (5-year shelf life)", search: "agua emergencia larga duracion", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L", img: "img/agua.jpg" },
-  comida:    { name: "3,600 kcal no-cook rations (5-year shelf life)", search: "raciones emergencia 5 años", asin: "B01HPGX1QG", alts: [{ asin: "B07DX92V1X", pack: 6, name: "NRG-5 no-cook emergency rations", price: 6 }], pack: 18, unit: "raciones", img: "img/raciones.jpg" },
-  linterna:  { name: "LED torch", search: "linterna led potente pilas", asin: "B005FEGYCO", alts: ["B07YZ4TMZS"], pack: 1, unit: "ud", img: "img/linterna.jpg" },
-  farol:     { name: "LED table lantern", search: "farol led camping pilas", asin: "B08C2CVBF4", alts: ["B0BXLYZZHM"], pack: 1, unit: "ud", img: "img/farol.jpg" },
-  pilas:     { name: "Duracell AA and AAA batteries (24 pack)", search: "pilas alcalinas aa aaa pack", asin: "B096QYFG1D", alts: ["B093LVB4P7"], pack: 1, unit: "pack", img: "img/pilas.jpg" },
-  radio:     { name: "Hand-crank and solar radio with USB", search: "radio dinamo solar manivela usb", asin: "B00WIF2T7C", alts: ["B0FBPD6XW5"], pack: 1, unit: "ud", img: "img/radio.jpg" },
-  powerbank: { name: "20,000 mAh power bank", search: "bateria externa 20000mah", asin: "B07YPS5JC5", alts: ["B0DCJXYKYD", "B0DZGZ4Y7R"], pack: 1, unit: "ud", img: "img/powerbank.jpg" }, // INIU 22,5 W; alternativas: INIU ultrapequeña, Powelephant
-  funda:     { name: "Waterproof pouch for documents and cash", search: "funda estanca documentos", asin: "B08DK57NFH", alts: ["B00UN4ROLQ"], pack: 1, unit: "ud", img: "img/funda.jpg" },
+  caja:      { name: "Storage box with lid", why: "Lidded and stackable: the whole kit together in a cupboard, free of dust.", search: "caja almacenaje plastico tapa 50 litros", asin: "B01NCM40UF", alts: ["B01IEKKQP6"], pack: 1, unit: "ud", img: "img/caja.jpg" },
+  agua:      { name: "Emergency water pouches (5-year shelf life)", why: "Lasts 5 years without checking and takes no pantry space.", search: "agua emergencia larga duracion", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L", img: "img/agua.jpg" },
+  comida:    { name: "3,600 kcal no-cook rations (5-year shelf life)", why: "Needs no cooking or fridge and lasts 5 years: ideal without power.", search: "raciones emergencia 5 años", asin: "B01HPGX1QG", alts: [{ asin: "B07DX92V1X", pack: 6, name: "NRG-5 no-cook emergency rations", price: 6 }], pack: 18, unit: "raciones", img: "img/raciones.jpg" },
+  linterna:  { name: "LED torch", why: "Runs on standard batteries: without power you couldn't recharge it.", search: "linterna led potente pilas", asin: "B005FEGYCO", alts: ["B07YZ4TMZS"], pack: 1, unit: "ud", img: "img/linterna.jpg" },
+  farol:     { name: "LED table lantern", why: "Lights the whole room, not just one spot, and is safer than candles.", search: "farol led camping pilas", asin: "B08C2CVBF4", alts: ["B0BXLYZZHM"], pack: 1, unit: "ud", img: "img/farol.jpg" },
+  pilas:     { name: "Duracell AA and AAA batteries (24 pack)", why: "The two sizes most torches and radios use.", search: "pilas alcalinas aa aaa pack", asin: "B096QYFG1D", alts: ["B093LVB4P7"], pack: 1, unit: "pack", img: "img/pilas.jpg" },
+  radio:     { name: "Hand-crank and solar radio with USB", why: "Charges by hand crank or sun: keeps you informed with no power or signal.", search: "radio dinamo solar manivela usb", asin: "B00WIF2T7C", alts: ["B0FBPD6XW5"], pack: 1, unit: "ud", img: "img/radio.jpg" },
+  powerbank: { name: "20,000 mAh power bank", why: "20,000 mAh: two or three full phone charges.", search: "bateria externa 20000mah", asin: "B07YPS5JC5", alts: ["B0DCJXYKYD", "B0DZGZ4Y7R"], pack: 1, unit: "ud", img: "img/powerbank.jpg" }, // INIU 22,5 W; alternativas: INIU ultrapequeña, Powelephant
+  funda:     { name: "Waterproof pouch for documents and cash", why: "Keeps your ID, prescriptions and cash safe from water.", search: "funda estanca documentos", asin: "B08DK57NFH", alts: ["B00UN4ROLQ"], pack: 1, unit: "ud", img: "img/funda.jpg" },
   efectivo:  { name: "Cash in small notes", diy: "You add it: €150–200" },
   docs:      { name: "Copies of ID, insurance and prescriptions", diy: "You add it: photocopies" },
-  botiquin:  { name: "First aid kit (120 pieces)", search: "botiquin primeros auxilios completo", asin: "B074SW64NR", alts: [{ asin: "B07R3RMFC4", name: "First aid kit (200 pieces)" }], pack: 1, unit: "ud", img: "img/botiquin.jpg" },
-  mantas:    { name: "Emergency thermal blankets", search: "manta termica emergencia pack", asin: "B01M19HAEB", alts: ["B0F3TR3QGD"], pack: 10, unit: "uds", img: "img/mantas.jpg" },
-  garrafa:   { name: "10 L water container with tap", search: "garrafa plegable agua 10 litros", asin: "B00CFNKX6G", alts: ["B0GQGW9GF8"], pack: 1, unit: "ud", img: "img/garrafa.jpg" },
-  estacion:  { name: "300 W portable power station", search: "estacion energia portatil 300w", asin: "B0C27VWNM7", alts: ["B0CYLP7M8P"], pack: 1, unit: "ud", img: "img/estacion.jpg" },
-  solar:     { name: "Foldable USB solar panel", search: "panel solar plegable usb 28w", asin: "B08FJ12RTM", alts: ["B0DNYGT71X"], pack: 1, unit: "ud", img: "img/solar.jpg" },
-  filtro:    { name: "Portable water filter", search: "filtro agua portatil emergencia", asin: "B0D1M4LQ7F", alts: ["B0C62WZ2WY"], pack: 1, unit: "ud", img: "img/filtro.jpg" },
+  botiquin:  { name: "First aid kit (120 pieces)", why: "Complete and in a case: works for home, car or backpack.", search: "botiquin primeros auxilios completo", asin: "B074SW64NR", alts: [{ asin: "B07R3RMFC4", name: "First aid kit (200 pieces)" }], pack: 1, unit: "ud", img: "img/botiquin.jpg" },
+  mantas:    { name: "Emergency thermal blankets", why: "Weigh almost nothing and keep in body heat.", search: "manta termica emergencia pack", asin: "B01M19HAEB", alts: ["B0F3TR3QGD"], pack: 10, unit: "uds", img: "img/mantas.jpg" },
+  garrafa:   { name: "10 L water container with tap", why: "With a tap, to fill up when water cuts are announced.", search: "garrafa plegable agua 10 litros", asin: "B00CFNKX6G", alts: ["B0GQGW9GF8"], pack: 1, unit: "ud", img: "img/garrafa.jpg" },
+  estacion:  { name: "300 W portable power station", why: "Charges phones, lights and a small fridge for days.", search: "estacion energia portatil 300w", asin: "B0C27VWNM7", alts: ["B0CYLP7M8P"], pack: 1, unit: "ud", img: "img/estacion.jpg" },
+  solar:     { name: "Foldable USB solar panel", why: "Recharges the power bank or station if the outage drags on.", search: "panel solar plegable usb 28w", asin: "B08FJ12RTM", alts: ["B0DNYGT71X"], pack: 1, unit: "ud", img: "img/solar.jpg" },
+  filtro:    { name: "Portable water filter", why: "Turns water you're unsure of into drinking water.", search: "filtro agua portatil emergencia", asin: "B0D1M4LQ7F", alts: ["B0C62WZ2WY"], pack: 1, unit: "ud", img: "img/filtro.jpg" },
   // Coche
-  bolsa:     { name: "Car boot organiser bag", search: "organizador maletero coche plegable", asin: "B07K2NC1CB", alts: ["B0GYYKG8ZZ"], pack: 1, unit: "ud" },
-  aguacoche: { name: "Emergency water pouches (5-year shelf life)", search: "agua emergencia botella 500ml larga duracion", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L", img: "img/agua.jpg" },
-  barritas:  { name: "NRG-5 emergency food bars", search: "barritas energeticas emergencia larga duracion", asin: "B07DX92V1X", alts: ["B0757V93HD"], pack: 9, unit: "uds", img: "img/raciones.jpg" },
-  manta:     { name: "Fleece travel blanket", search: "manta polar coche viaje", asin: "B09JGPTMFN", alts: ["B012TKIZV4"], pack: 1, unit: "ud" },
-  chaleco:   { name: "Reflective vests", search: "chaleco reflectante homologado pack", asin: "B0DDJH4C68", alts: ["B0GS9V6W9B"], pack: 2, unit: "uds" },
-  rescate:   { name: "Window breaker with seatbelt cutter", search: "martillo emergencia coche cortacinturones", asin: "B00ASKSB0I", alts: ["B00ASKSB1M"], pack: 1, unit: "ud" },
-  cargador:  { name: "USB car charger", search: "cargador coche usb c carga rapida", asin: "B0CP7NV936", alts: ["B0BSVB93DK"], pack: 1, unit: "ud" },
-  v16:       { name: "V-16 connected warning light (mandatory in Spain from 2026)", search: "baliza v16 conectada dgt", asin: "B0CR9JC98B", alts: ["B0DQR63NKN"], pack: 1, unit: "ud" },
-  guantes:   { name: "Waterproof thermal gloves", search: "guantes trabajo invierno", asin: "B0D62RDQPV", alts: ["B0BFHD36NR"], pack: 1, unit: "par" },
-  pala:      { name: "Folding shovel", search: "pala plegable coche nieve", asin: "B0046RDLPY", alts: ["B08NVDTQST"], pack: 1, unit: "ud" },
-  calcetines:{ name: "AutoSock textile snow socks", search: "autosock fundas nieve", pack: 1, unit: "juego", note: "Choose your tyre size" },
-  arrancador:{ name: "Car jump starter with power bank", search: "arrancador bateria coche portatil", asin: "B015TKUPIC", alts: ["B0CNWWRKY6"], pack: 1, unit: "ud" },
-  botcoche:  { name: "Car first aid kit", search: "botiquin coche compacto", asin: "B009XP5KP8", alts: ["B0BB2YK3X7"], pack: 1, unit: "ud" },
+  bolsa:     { name: "Car boot organiser bag", why: "Keeps everything together and in place in the boot.", search: "organizador maletero coche plegable", asin: "B07K2NC1CB", alts: ["B0GYYKG8ZZ"], pack: 1, unit: "ud" },
+  aguacoche: { name: "Emergency water pouches (5-year shelf life)", why: "Lasts 5 years without checking and takes no pantry space.", search: "agua emergencia botella 500ml larga duracion", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L", img: "img/agua.jpg" },
+  barritas:  { name: "NRG-5 emergency food bars", why: "Light and compact: food for a night on the road.", search: "barritas energeticas emergencia larga duracion", asin: "B07DX92V1X", alts: ["B0757V93HD"], pack: 9, unit: "uds", img: "img/raciones.jpg" },
+  manta:     { name: "Fleece travel blanket", why: "Properly warm if you spend the night in the car.", search: "manta polar coche viaje", asin: "B09JGPTMFN", alts: ["B012TKIZV4"], pack: 1, unit: "ud" },
+  chaleco:   { name: "Reflective vests", why: "Mandatory in Spain if you get out of the car on the road.", search: "chaleco reflectante homologado pack", asin: "B0DDJH4C68", alts: ["B0GS9V6W9B"], pack: 2, unit: "uds" },
+  rescate:   { name: "Window breaker with seatbelt cutter", why: "Breaks the window and cuts the seatbelt if the car floods.", search: "martillo emergencia coche cortacinturones", asin: "B00ASKSB0I", alts: ["B00ASKSB1M"], pack: 1, unit: "ud" },
+  cargador:  { name: "USB car charger", why: "Keeps your phone charged while the engine is running.", search: "cargador coche usb c carga rapida", asin: "B0CP7NV936", alts: ["B0BSVB93DK"], pack: 1, unit: "ud" },
+  v16:       { name: "V-16 connected warning light (mandatory in Spain from 2026)", why: "Signals your position without getting out of the car.", search: "baliza v16 conectada dgt", asin: "B0CR9JC98B", alts: ["B0DQR63NKN"], pack: 1, unit: "ud" },
+  guantes:   { name: "Waterproof thermal gloves", why: "Waterproof, for fitting chains or clearing snow.", search: "guantes trabajo invierno", asin: "B0D62RDQPV", alts: ["B0BFHD36NR"], pack: 1, unit: "par" },
+  pala:      { name: "Folding shovel", why: "Folding, to dig your wheels out of snow.", search: "pala plegable coche nieve", asin: "B0046RDLPY", alts: ["B08NVDTQST"], pack: 1, unit: "ud" },
+  calcetines:{ name: "AutoSock textile snow socks", why: "Easier to fit than chains.", search: "autosock fundas nieve", pack: 1, unit: "juego", note: "Choose your tyre size" },
+  arrancador:{ name: "Car jump starter with power bank", why: "Starts the car if the battery dies, without waiting for help.", search: "arrancador bateria coche portatil", asin: "B015TKUPIC", alts: ["B0CNWWRKY6"], pack: 1, unit: "ud" },
+  botcoche:  { name: "Car first aid kit", why: "Compact, for the glovebox or boot.", search: "botiquin coche compacto", asin: "B009XP5KP8", alts: ["B0BB2YK3X7"], pack: 1, unit: "ud" },
   // Salida
-  mochila:   { name: "40 L backpack", search: "mochila 40 litros impermeable", asin: "B0C3HRC8D7", alts: ["B0BXSWPWKH"], pack: 1, unit: "ud" },
-  aguamoch:  { name: "Emergency water pouches (5-year shelf life)", search: "agua emergencia bolsa 500ml", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L", img: "img/agua.jpg" },
-  frontal:   { name: "Head torch", search: "linterna frontal recargable", asin: "B09ZNGN89C", alts: ["B09ZN8SH2F"], pack: 1, unit: "ud" },
-  poncho:    { name: "Rain ponchos", search: "poncho lluvia emergencia pack", asin: "B09WVXHHJ8", alts: ["B09WYFYZLF"], pack: 15, unit: "uds" },
-  silbato:   { name: "Emergency whistles", search: "silbato emergencia pack", asin: "B08732GFZ2", alts: ["B07N1K7WQJ"], pack: 2, unit: "uds" },
-  navaja:    { name: "Swiss army knife", search: "navaja multiusos", asin: "B0001P151W", alts: ["B001U5773W"], pack: 1, unit: "ud" },
-  paracord:  { name: "30 m paracord rope", search: "paracord 30 metros", asin: "B00IAP2YVU", alts: ["B0BZJKXSWJ"], pack: 1, unit: "ud" },
-  vivac:     { name: "Emergency bivvy bag", search: "saco vivac emergencia termico", asin: "B0743HGTMD", alts: ["B09GMBWQ95"], pack: 2, unit: "uds" },
-  higiene:   { name: "Toiletry bag with refillable bottles", search: "kit higiene viaje neceser", asin: "B0DTJRS4L3", alts: ["B0BTTPF1G6"], pack: 1, unit: "ud" },
-  pastillas: { name: "Water purification tablets", search: "pastillas potabilizadoras agua", asin: "B006QJN2OA", alts: ["B0016HS8CI"], pack: 1, unit: "pack", img: "img/pastillas.jpg" },
-  hornillo:  { name: "Compact gas stove", search: "hornillo gas compacto camping", asin: "B08QZQGRR3", alts: ["B09KNQL782"], pack: 1, unit: "ud" },
+  mochila:   { name: "40 L backpack", why: "40 litres: fits 72 hours of supplies without being too heavy.", search: "mochila 40 litros impermeable", asin: "B0C3HRC8D7", alts: ["B0BXSWPWKH"], pack: 1, unit: "ud" },
+  aguamoch:  { name: "Emergency water pouches (5-year shelf life)", why: "Lasts 5 years without checking and takes no pantry space.", search: "agua emergencia bolsa 500ml", asin: "B071RR4H19", alts: ["B09MSXVDL6"], pack: 7.75, unit: "L", img: "img/agua.jpg" },
+  frontal:   { name: "Head torch", why: "Light where you look, hands free.", search: "linterna frontal recargable", asin: "B09ZNGN89C", alts: ["B09ZN8SH2F"], pack: 1, unit: "ud" },
+  poncho:    { name: "Rain ponchos", why: "Light, and covers you and your backpack.", search: "poncho lluvia emergencia pack", asin: "B09WVXHHJ8", alts: ["B09WYFYZLF"], pack: 15, unit: "uds" },
+  silbato:   { name: "Emergency whistles", why: "Carries further than your voice and doesn't tire you out.", search: "silbato emergencia pack", asin: "B08732GFZ2", alts: ["B07N1K7WQJ"], pack: 2, unit: "uds" },
+  navaja:    { name: "Swiss army knife", why: "Several tools in one, with no extra weight.", search: "navaja multiusos", asin: "B0001P151W", alts: ["B001U5773W"], pack: 1, unit: "ud" },
+  paracord:  { name: "30 m paracord rope", why: "Strong and light: to tie, hang or rig a shelter.", search: "paracord 30 metros", asin: "B00IAP2YVU", alts: ["B0BZJKXSWJ"], pack: 1, unit: "ud" },
+  vivac:     { name: "Emergency bivvy bag", why: "Keeps in heat if you have to sleep outdoors.", search: "saco vivac emergencia termico", asin: "B0743HGTMD", alts: ["B09GMBWQ95"], pack: 2, unit: "uds" },
+  higiene:   { name: "Toiletry bag with refillable bottles", why: "Basic toiletries in little space.", search: "kit higiene viaje neceser", asin: "B0DTJRS4L3", alts: ["B0BTTPF1G6"], pack: 1, unit: "ud" },
+  pastillas: { name: "Water purification tablets", why: "Make stored or tap water safe to drink.", search: "pastillas potabilizadoras agua", asin: "B006QJN2OA", alts: ["B0016HS8CI"], pack: 1, unit: "pack", img: "img/pastillas.jpg" },
+  hornillo:  { name: "Compact gas stove", why: "Hot food without electricity (always use it outdoors).", search: "hornillo gas compacto camping", asin: "B08QZQGRR3", alts: ["B09KNQL782"], pack: 1, unit: "ud" },
 };
 
 /* Cada nivel incluye todo lo del anterior. Las cantidades dependen de p (personas). */
@@ -814,7 +886,7 @@ function render() {
     const box = l.diy
       ? `<span class="box" aria-hidden="true">✓</span>`
       : `<label class="box"><input type="checkbox" data-pick="${l.id}" ${off ? "" : "checked"} aria-label="Include ${l.name} in the basket"><span aria-hidden="true">✓</span></label>`;
-    return `<li class="${off ? "off" : ""}">${box}<div><div class="nm">${l.name}${tag}</div><div class="amt">${amountText(l)}</div></div>${thumb}</li>`;
+    return `<li class="${off ? "off" : ""}">${box}<div><div class="nm">${l.name}${tag}</div><div class="amt">${amountText(l)}</div>${l.why ? `<div class="why">${l.why}</div>` : ""}</div>${thumb}</li>`;
   }).join("");
 
   const buyable = lines.filter(l => !l.diy);
@@ -925,9 +997,10 @@ $("repoForm").addEventListener("submit", async e => {
   btn.textContent = "Subscribed ✓";
   $("repoOk").hidden = false;
   $("repoOk").textContent = `Done${name ? ", " + name : ""}, you're subscribed. First check-up: ${yearly}. Water and food restock reminder: ${due}.`;
+  $("repoOk").insertAdjacentHTML("beforeend", ' <a href="/descargas/emergency-plan.pdf" download>Download your emergency plan here (PDF)</a>.');
 });
 
-/* Formulario emergente: sale una vez (y no antes de 30 días) a los 25 s o al pasar la mitad de la página,
+/* Formulario emergente: sale una vez (y no antes de 30 días) a los 25 s o al pasar un tercio de la página,
    si no se ha suscrito ya, si ya respondió al aviso de cookies y si no está viendo el formulario de abajo. */
 (() => {
   const dlg = $("push");
@@ -939,11 +1012,11 @@ $("repoForm").addEventListener("submit", async e => {
   const open = () => {
     if (shown || dlg.open || document.getElementById("cookies")) return;
     const r = $("repoForm").getBoundingClientRect();
-    if (r.top < innerHeight * .8 && r.bottom > innerHeight * .2) return; // ya tiene el formulario de abajo delante
+    if (r.top < innerHeight * 1.5 && r.bottom > 0) return; // tiene delante (o casi) el formulario de abajo
     shown = true; put("ep-push", Date.now()); dlg.showModal();
   };
   setTimeout(open, 25000);
-  addEventListener("scroll", () => { if (scrollY > (document.documentElement.scrollHeight - innerHeight) / 2) open(); }, { passive: true });
+  addEventListener("scroll", () => { if (scrollY > (document.documentElement.scrollHeight - innerHeight) * .35) open(); }, { passive: true });
   $("pushClose").addEventListener("click", () => dlg.close());
   dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
   $("pushForm").addEventListener("submit", async e => {
@@ -966,7 +1039,7 @@ $("repoForm").addEventListener("submit", async e => {
     put("ep-sub", "1");
     track("subscribe", { item: $("pPhone").value.trim() ? "popup con teléfono" : "popup sin teléfono" });
     $("pushTitle").textContent = "You're part of the community!";
-    e.target.querySelector(".body").innerHTML = '<p>We will let you know when it is time to check your kit and send you the information to be prepared.</p><button class="btn red" type="button" id="pushOk">Close</button>';
+    e.target.querySelector(".body").innerHTML = '<p>Here is your emergency plan. We will let you know when it is time to check your kit.</p><a class="btn red" href="/descargas/emergency-plan.pdf" download>Download the plan (PDF)</a><button class="btn" type="button" id="pushOk">Close</button>';
     $("pushOk").addEventListener("click", () => dlg.close());
   });
 })();

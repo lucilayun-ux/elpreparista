@@ -115,11 +115,14 @@ TRADUCCIONES = [
     ('<summary>¿Cuánta agua hace falta?</summary><p>En casa, 2 litros para beber por persona y día, que es lo que recomienda Protección Civil: 6 litros por persona para 72 horas. En el coche calculamos 1,5 litros por persona para un atasco largo.</p>',
      '<summary>How much water do I need?</summary><p>At home, 2 litres of drinking water per person per day, as recommended by Spanish Civil Protection: 6 litres per person for 72 hours. In the car we allow 1.5 litres per person for a long traffic jam.</p>'),
 
+    ('<summary>¿Quién elige los productos y con qué criterio?</summary><p>Los elegimos nosotros siguiendo las recomendaciones de la Unión Europea, Protección Civil y la DGT: que funcionen sin luz, que duren, con buenas valoraciones y en la cantidad justa para cada persona. Junto a cada producto te explicamos por qué está en el kit. Más detalles en <a href="/quienes-somos/">quiénes somos y cómo elegimos los productos</a>.</p>',
+     '<summary>Who chooses the products, and how?</summary><p>We do, following the recommendations of the European Union, Spanish Civil Protection and the DGT: they must work without power, last a long time, have good ratings and come in the right quantity for each person. Next to each product we explain why it is in the kit. More details in <a href="/en/about/">about us and how we choose the products</a>.</p>'),
+
     # --- Pie ---
     ('Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.',
      'As an Amazon Associate I earn from qualifying purchases.'),
-    ('<p><a href="/blog/">Blog</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="#" data-cookies>Configurar cookies</a></p>',
-     '<p><a href="/en/blog/">Blog</a> · <a href="aviso-legal.html" hreflang="es">Legal notice</a> · <a href="privacidad.html" hreflang="es">Privacy</a> · <a href="cookies.html" hreflang="es">Cookies</a> (in Spanish) · <a href="#" data-cookies>Cookie settings</a> · <a href="/" hreflang="es" lang="es">Versión en español</a></p>'),
+    ('<p><a href="/blog/">Blog</a> · <a href="/quienes-somos/">Quiénes somos</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="#" data-cookies>Configurar cookies</a></p>',
+     '<p><a href="/en/blog/">Blog</a> · <a href="/en/about/">About us</a> · <a href="aviso-legal.html" hreflang="es">Legal notice</a> · <a href="privacidad.html" hreflang="es">Privacy</a> · <a href="cookies.html" hreflang="es">Cookies</a> (in Spanish) · <a href="#" data-cookies>Cookie settings</a> · <a href="/" hreflang="es" lang="es">Versión en español</a></p>'),
 
     # --- Ilustraciones de los kits ---
     ('cap: "Formato caja"', 'cap: "Box format"'),
@@ -249,8 +252,8 @@ TRADUCCIONES = [
     # --- Formulario emergente (push) ---
     ('aria-label="Cerrar"', 'aria-label="Close"'),
     ('<b id="pushTitle">Conecta con la comunidad</b>', '<b id="pushTitle">Connect with the community</b>'),
-    ('<p>Recibe la información para estar preparados: avisos antes de que caduque tu kit, alertas de temporal y consejos.</p>',
-     '<p>Get the information to be prepared: reminders before your kit expires, storm alerts and tips.</p>'),
+    ('<p>Recibe la información para estar preparados y llévate gratis <b>«Tu plan de emergencia en una página»</b> (PDF para imprimir).</p>',
+     '<p>Get the information to be prepared and a free copy of <b>“Your emergency plan on one page”</b> (printable PDF).</p>'),
     ('<label for="pEmail">Tu email</label>', '<label for="pEmail">Your email</label>'),
     ('<label for="pPhone">Teléfono (opcional)</label>', '<label for="pPhone">Phone (optional)</label>'),
     ('<label for="pWeb">No rellenes este campo</label>', '<label for="pWeb">Leave this field empty</label>'),
@@ -259,8 +262,10 @@ TRADUCCIONES = [
      '<p class="fine">You can unsubscribe with one click from any email. <a href="privacidad.html" hreflang="es">Privacy</a> (in Spanish).</p>'),
     ('source: "popup" }', 'source: "popup-en" }'),
     ('"¡Ya eres de la comunidad!"', '"You\'re part of the community!"'),
-    ('<p>Te avisaremos cuando toque revisar tu kit y te mandaremos la información para estar preparados.</p><button class="btn red" type="button" id="pushOk">Cerrar</button>',
-     '<p>We will let you know when it is time to check your kit and send you the information to be prepared.</p><button class="btn red" type="button" id="pushOk">Close</button>'),
+    ('<p>Aquí tienes tu plan de emergencia. Te avisaremos cuando toque revisar tu kit.</p><a class="btn red" href="/descargas/plan-de-emergencia.pdf" download>Descargar el plan (PDF)</a><button class="btn" type="button" id="pushOk">Cerrar</button>',
+     '<p>Here is your emergency plan. We will let you know when it is time to check your kit.</p><a class="btn red" href="/descargas/emergency-plan.pdf" download>Download the plan (PDF)</a><button class="btn" type="button" id="pushOk">Close</button>'),
+    ('<li><b>Gratis: «Tu plan de emergencia en una página» (PDF)</b></li>', '<li><b>Free: “Your emergency plan on one page” (PDF)</b></li>'),
+    ('<a href="/descargas/plan-de-emergencia.pdf" download>Descarga aquí tu plan de emergencia (PDF)</a>', '<a href="/descargas/emergency-plan.pdf" download>Download your emergency plan here (PDF)</a>'),
 
     ('Elige tu kit', 'Choose your kit'),
 ]
@@ -271,6 +276,12 @@ OPCIONALES = [
     ('Kit Coche', 'Car Kit'),
     ('Kit Salida', 'Go Bag'),
 ]
+
+# Motivos de cada producto (tools/porque.py)
+sys.path.insert(0, __import__("os").path.dirname(__file__))
+from porque import POR_QUE
+for es_why, en_why in sorted({v for v in POR_QUE.values()}):
+    TRADUCCIONES.append(('why: "%s"' % es_why, 'why: "%s"' % en_why))
 
 html = open(src, encoding="utf-8").read()
 faltan = []

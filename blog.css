@@ -65,6 +65,7 @@ a.card h3 { font-size: 1.65rem; }
 .cardhead { display: flex; align-items: flex-start; justify-content: space-between; gap: .8rem; }
 .cardhead img { flex: none; width: auto; height: 84px; }
 a.card p { color: var(--muted); }
+a.card p.date { font-size: .85rem; margin-top: -.2rem; }
 a.card .go { color: var(--red); margin-top: .3rem; }
 .tag { justify-self: start; background: var(--ink); color: #fff; padding: .2rem .5rem; font-size: .75rem; }
 
@@ -114,3 +115,14 @@ a.card .go { color: var(--red); margin-top: .3rem; }
 footer { border-top: 3px solid var(--ink); padding-block: 1.8rem 2.6rem; color: var(--muted); font-size: .92rem; }
 footer .wrap { display: grid; gap: .6rem; }
 footer strong { color: var(--ink); }
+
+/* Botones y aviso de afiliado dentro de los artículos */
+.prose a.btn { color: var(--ink); text-decoration: none; margin: .2rem .4rem .2rem 0; }
+.prose a.btn.red { color: #fff; }
+.prose .aviso-afiliado { font-size: .9rem; color: var(--muted); border-left: 4px solid var(--hair); padding-left: .8rem; }
+
+/* Recuadro del plan de emergencia (lead magnet) */
+.leadbox { margin-top: 1.6rem; padding: 1.2rem 1.4rem; border: 3px dashed var(--ink); display: grid; gap: .5rem; justify-items: start; }
+.leadbox .cap { color: var(--red); }
+.leadbox h2 { font-size: 1.6rem; }
+.leadbox p { color: var(--muted); }

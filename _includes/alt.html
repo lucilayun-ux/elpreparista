@@ -2,4 +2,5 @@
 {% assign alt_url = nil %}
 {% if page.ref %}
   {% for p in site.posts %}{% if p.ref == page.ref and p.lang != page.lang %}{% assign alt_url = p.url %}{% endif %}{% endfor %}
+  {% for p in site.pages %}{% if p.ref == page.ref and p.lang != page.lang %}{% assign alt_url = p.url %}{% endif %}{% endfor %}
 {% endif %}

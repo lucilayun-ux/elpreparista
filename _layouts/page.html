@@ -1,0 +1,15 @@
+---
+layout: blog
+---
+<main class="wrap post">
+  <article>
+    <header class="posthead">
+      {% if page.cap %}<span class="cap tag">{{ page.cap }}</span>{% endif %}
+      <h1>{{ page.title }}</h1>
+      {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+    </header>
+    <div class="prose">
+      {{ content }}
+    </div>
+  </article>
+</main>

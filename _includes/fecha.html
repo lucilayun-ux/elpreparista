@@ -1,0 +1,3 @@
+{% comment %} Fecha legible según idioma: {% include fecha.html date=X lang=Y %} {% endcomment %}
+{% assign d = include.date %}{% assign mi = d | date: "%-m" | minus: 1 %}
+{% if include.lang == "en" %}{% assign ms = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}<time datetime="{{ d | date: '%Y-%m-%d' }}">{{ d | date: "%-d" }} {{ ms[mi] }} {{ d | date: "%Y" }}</time>{% else %}{% assign ms = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" | split: "," %}<time datetime="{{ d | date: '%Y-%m-%d' }}">{{ d | date: "%-d" }} de {{ ms[mi] }} de {{ d | date: "%Y" }}</time>{% endif %}
