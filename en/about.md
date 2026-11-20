@@ -8,11 +8,13 @@ description: "El Preparista is an independent project that helps you put togethe
 cap: About us
 ---
 
-## What El Preparista is
+## Why we created El Preparista
 
-The blackout of 28 April 2025 in Spain showed that many people did not even have a battery torch at home. Putting together an emergency kit is not hard, but it takes time: knowing what you need, how much, and which specific product to buy among hundreds.
+Don't have an emergency kit and don't know where to start? That's why we created El Preparista.
 
-We do that work for you. You choose the kit (home, car or evacuation), the level and how many of you there are, and we leave the list ready to buy on Amazon.
+Everyone talks about the survival backpack, but in Spain what happens most is **blackouts like the one in April 2025, storms and flash floods (DANAs), and snowfalls that leave people stuck on the road for hours**. Each situation calls for different things. That's why we created **three kits (home, car and evacuation) and three levels for each one**.
+
+You choose the kit, the level and how many of you there are, and we leave the list ready to buy on Amazon.
 
 ## How we choose each product
 

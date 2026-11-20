@@ -7,11 +7,13 @@ description: "El Preparista es un proyecto independiente que te ayuda a montar t
 cap: Quiénes somos
 ---
 
-## Qué es El Preparista
+## Por qué hemos creado El Preparista
 
-El apagón del 28 de abril de 2025 demostró que mucha gente no tenía en casa ni una linterna con pilas. Preparar un kit de emergencia no es difícil, pero sí lleva tiempo: saber qué hace falta, cuánto, y qué producto concreto comprar entre cientos.
+¿No tienes kit de emergencia y no sabes por dónde empezar? Por eso hemos creado El Preparista.
 
-Ese trabajo lo hacemos nosotros. Tú eliges el kit (casa, coche o evacuación), el nivel y cuántos sois, y te dejamos la lista lista para comprar en Amazon.
+En todas partes se habla de la mochila de supervivencia, pero en España lo que más pasa son **apagones como el de abril de 2025, temporales y DANAs, y nevadas que dejan a la gente horas atrapada en la carretera**. Cada situación pide cosas distintas. Por eso hemos creado **tres kits (casa, coche y evacuación) y tres niveles para cada uno**.
+
+Tú eliges el kit, el nivel y cuántos sois, y te dejamos la lista lista para comprar en Amazon.
 
 ## Cómo elegimos cada producto
 
