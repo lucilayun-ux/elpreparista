@@ -57,7 +57,7 @@ A 20,000 mAh power bank weighs around 300 to 400 grams. For a go bag, it is not 
 
 In the Complete level of all three kits we include a **20,000 mAh power bank with a built-in cable and 22.5 W fast charging**: two or three phone charges, and with the cable built in you never have to go looking for it.
 
-<p><a class="btn red" href="https://www.amazon.es/dp/B0DZGZ4Y7R?tag=betender-21" target="_blank" rel="sponsored noopener">See the power bank on Amazon</a></p>
+<p><a class="btn red" href="https://www.amazon.es/dp/B0DC9YQ76M?tag=betender-21" target="_blank" rel="sponsored noopener">See the power bank on Amazon</a></p>
 
 ## If you need more: power station and solar panel
 

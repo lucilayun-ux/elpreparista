@@ -55,7 +55,7 @@ Si es para casa, el tamaño importa poco. Si también la quieres para la mochila
 
 En el Kit Casa y en el nivel Completo del Kit Salida incluimos una **radio de dinamo y solar con USB**: se carga con manivela o al sol, tiene linterna y permite dar algo de carga al móvil.
 
-<a class="btn red" href="https://www.amazon.es/dp/B0FBPD6XW5?tag=betender-21" target="_blank" rel="sponsored noopener">Ver la radio en Amazon</a>
+<a class="btn red" href="https://www.amazon.es/dp/B0GSQJ7KRG?tag=betender-21" target="_blank" rel="sponsored noopener">Ver la radio en Amazon</a>
 
 ## Consejos para que funcione cuando la necesites
 

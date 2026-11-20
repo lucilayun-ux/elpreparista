@@ -55,7 +55,7 @@ Una de 20.000 mAh pesa alrededor de 300 a 400 gramos. Si es para la mochila de e
 
 En el nivel Completo de los tres kits incluimos una **powerbank de 20.000 mAh con cable integrado y carga rápida de 22,5 W**: dos o tres cargas de móvil, y con el cable ya incorporado no tienes que acordarte de buscarlo.
 
-<p><a class="btn red" href="https://www.amazon.es/dp/B0DZGZ4Y7R?tag=betender-21" target="_blank" rel="sponsored noopener">Ver la powerbank en Amazon</a></p>
+<p><a class="btn red" href="https://www.amazon.es/dp/B0DC9YQ76M?tag=betender-21" target="_blank" rel="sponsored noopener">Ver la powerbank en Amazon</a></p>
 
 ## Si necesitas más: estación de energía y panel solar
 

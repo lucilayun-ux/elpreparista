@@ -57,7 +57,7 @@ For home use, size matters little. If you also want it in your go bag, look for 
 
 In the Home Kit and the Complete level of the Go Bag we include a **hand-crank and solar radio with USB**: it charges by crank or in the sun, has a torch and can give your phone some charge.
 
-<a class="btn red" href="https://www.amazon.es/dp/B0FBPD6XW5?tag=betender-21" target="_blank" rel="sponsored noopener">See the radio on Amazon</a>
+<a class="btn red" href="https://www.amazon.es/dp/B0GSQJ7KRG?tag=betender-21" target="_blank" rel="sponsored noopener">See the radio on Amazon</a>
 
 ## Tips so it works when you need it
 
