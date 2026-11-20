@@ -76,7 +76,7 @@ TRADUCCIONES = [
      '<p>Individual items to expand the kit you already have or replace what you have used.</p>'),
 
     # --- Reposición ---
-    ('<h2>No queremos venderte el kit, te facilitamos conseguirlo</h2>', '<h2>We don&#8217;t want to sell you the kit, we make it easy to get one</h2>'),
+    ('<h2>No queremos venderte el kit, queremos que lo tengas preparado</h2>', '<h2>We don&#8217;t want to sell you the kit, we want you to have it ready</h2>'),
     ('<p>Te recordamos por mail las fechas de caducidad. Un kit con el agua caducada no sirve de nada.</p>',
      '<p>We email you when things are about to expire. A kit with expired water is no use to anyone.</p>'),
     ('<span class="when">Hoy</span><p><b>Compras tu kit.</b> Guardamos la fecha de caducidad aproximada de cada pieza.</p>',
