@@ -54,9 +54,9 @@ A 20,000 mAh power bank weighs around 300 to 400 grams. For a go bag, it is not 
 
 ## The one in our kits
 
-In the Complete level of all three kits we include an **INIU 20,000 mAh power bank with 22.5 W fast charging and USB-C**: two or three phone charges, a best-selling brand and a size that fits anywhere.
+In the Complete level of all three kits we include an **INIU ultra-small 20,000 mAh power bank with 22.5 W fast charging and USB-C**: two or three phone charges, a best-selling brand and a size that fits anywhere.
 
-<p><a class="btn red" href="https://www.amazon.es/dp/B07YPS5JC5?tag=betender-21" target="_blank" rel="sponsored noopener">See the power bank on Amazon</a></p>
+<p><a class="btn red" href="https://www.amazon.es/dp/B0DCJXYKYD?tag=betender-21" target="_blank" rel="sponsored noopener">See the power bank on Amazon</a></p>
 
 ## If you need more: power station and solar panel
 

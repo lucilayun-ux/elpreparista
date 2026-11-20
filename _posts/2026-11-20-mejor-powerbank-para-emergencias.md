@@ -52,9 +52,9 @@ Una de 20.000 mAh pesa alrededor de 300 a 400 gramos. Si es para la mochila de e
 
 ## La que llevamos en nuestros kits
 
-En el nivel Completo de los tres kits incluimos una **powerbank INIU de 20.000 mAh con carga rápida de 22,5 W y USB-C**: dos o tres cargas de móvil, una marca muy vendida y un tamaño que cabe en cualquier sitio.
+En el nivel Completo de los tres kits incluimos una **powerbank INIU ultrapequeña de 20.000 mAh con carga rápida de 22,5 W y USB-C**: dos o tres cargas de móvil, una marca muy vendida y un tamaño que cabe en cualquier sitio.
 
-<p><a class="btn red" href="https://www.amazon.es/dp/B07YPS5JC5?tag=betender-21" target="_blank" rel="sponsored noopener">Ver la powerbank en Amazon</a></p>
+<p><a class="btn red" href="https://www.amazon.es/dp/B0DCJXYKYD?tag=betender-21" target="_blank" rel="sponsored noopener">Ver la powerbank en Amazon</a></p>
 
 ## Si necesitas más: estación de energía y panel solar
 
