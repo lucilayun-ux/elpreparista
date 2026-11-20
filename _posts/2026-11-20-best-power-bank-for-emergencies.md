@@ -7,6 +7,7 @@ description: "How many mAh you need for a power outage, how many phone charges y
 summary: "For emergencies, a 20,000 mAh power bank is the ideal balance: it gives two or three full charges of a typical phone, is light and can be taken on a plane. Choose one with a fast-charging USB-C output, keep it charged and top it up every few months, because it loses charge even when you don't use it."
 category: Buying guide
 kit: casa
+last_modified_at: 2026-11-20
 faq:
   - q: "How many phone charges does a 20,000 mAh power bank give?"
     a: "In practice, two or three full charges of a typical phone. Not five, because some energy is lost in conversion and as heat."
@@ -54,9 +55,9 @@ A 20,000 mAh power bank weighs around 300 to 400 grams. For a go bag, it is not 
 
 ## The one in our kits
 
-In the Complete level of all three kits we include an **INIU ultra-small 20,000 mAh power bank with 22.5 W fast charging and USB-C**: two or three phone charges, a best-selling brand and a size that fits anywhere.
+In the Complete level of all three kits we include a **20,000 mAh power bank with a built-in cable and 22.5 W fast charging**: two or three phone charges, and with the cable built in you never have to go looking for it.
 
-<p><a class="btn red" href="https://www.amazon.es/dp/B0DCJXYKYD?tag=betender-21" target="_blank" rel="sponsored noopener">See the power bank on Amazon</a></p>
+<p><a class="btn red" href="https://www.amazon.es/dp/B0DZGZ4Y7R?tag=betender-21" target="_blank" rel="sponsored noopener">See the power bank on Amazon</a></p>
 
 ## If you need more: power station and solar panel
 

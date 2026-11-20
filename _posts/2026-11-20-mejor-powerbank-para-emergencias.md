@@ -5,6 +5,7 @@ description: "Cuántos mAh necesitas para un apagón, cuántas cargas de móvil 
 summary: "Para emergencias, una powerbank de 20.000 mAh es el equilibrio ideal: da para dos o tres cargas completas de un móvil normal, pesa poco y se puede llevar en el avión. Elige una con salida USB-C de carga rápida, guárdala cargada y recárgala cada pocos meses, porque pierde carga aunque no la uses."
 category: Guía de compra
 kit: casa
+last_modified_at: 2026-11-20
 faq:
   - q: "¿Cuántas cargas de móvil da una powerbank de 20.000 mAh?"
     a: "En la práctica, dos o tres cargas completas de un móvil normal. No llega a cinco porque parte de la energía se pierde en la conversión y en el calor."
@@ -52,9 +53,9 @@ Una de 20.000 mAh pesa alrededor de 300 a 400 gramos. Si es para la mochila de e
 
 ## La que llevamos en nuestros kits
 
-En el nivel Completo de los tres kits incluimos una **powerbank INIU ultrapequeña de 20.000 mAh con carga rápida de 22,5 W y USB-C**: dos o tres cargas de móvil, una marca muy vendida y un tamaño que cabe en cualquier sitio.
+En el nivel Completo de los tres kits incluimos una **powerbank de 20.000 mAh con cable integrado y carga rápida de 22,5 W**: dos o tres cargas de móvil, y con el cable ya incorporado no tienes que acordarte de buscarlo.
 
-<p><a class="btn red" href="https://www.amazon.es/dp/B0DCJXYKYD?tag=betender-21" target="_blank" rel="sponsored noopener">Ver la powerbank en Amazon</a></p>
+<p><a class="btn red" href="https://www.amazon.es/dp/B0DZGZ4Y7R?tag=betender-21" target="_blank" rel="sponsored noopener">Ver la powerbank en Amazon</a></p>
 
 ## Si necesitas más: estación de energía y panel solar
 
