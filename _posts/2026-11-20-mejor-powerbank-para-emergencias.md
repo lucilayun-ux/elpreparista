@@ -60,7 +60,7 @@ En el nivel Completo de los tres kits incluimos una **powerbank INIU ultrapeque�
 
 Una powerbank es para el móvil. Si quieres mantener encendidos durante días las luces, el router o una nevera pequeña, el nivel Total del Kit Casa incluye una **estación de energía portátil de 300 W**, con enchufes normales, y un **panel solar plegable** para recargarla.
 
-<p><a class="btn" href="https://www.amazon.es/dp/B0C27VWNM7?tag=betender-21" target="_blank" rel="sponsored noopener">Estación de energía 300 W</a> <a class="btn" href="https://www.amazon.es/dp/B08FJ12RTM?tag=betender-21" target="_blank" rel="sponsored noopener">Panel solar plegable</a></p>
+<p><a class="btn" href="https://www.amazon.es/dp/B0CYLP7M8P?tag=betender-21" target="_blank" rel="sponsored noopener">Estación de energía 300 W</a> <a class="btn" href="https://www.amazon.es/dp/B0DNYGT71X?tag=betender-21" target="_blank" rel="sponsored noopener">Panel solar plegable</a></p>
 
 ## Consejos para que esté lista
 

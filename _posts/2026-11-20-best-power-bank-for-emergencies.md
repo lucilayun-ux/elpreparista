@@ -62,7 +62,7 @@ In the Complete level of all three kits we include an **INIU ultra-small 20,000 
 
 A power bank is for your phone. If you want to keep lights, the router or a small fridge running for days, the Total level of the Home Kit includes a **300 W portable power station** with regular sockets and a **foldable solar panel** to recharge it.
 
-<p><a class="btn" href="https://www.amazon.es/dp/B0C27VWNM7?tag=betender-21" target="_blank" rel="sponsored noopener">300 W power station</a> <a class="btn" href="https://www.amazon.es/dp/B08FJ12RTM?tag=betender-21" target="_blank" rel="sponsored noopener">Foldable solar panel</a></p>
+<p><a class="btn" href="https://www.amazon.es/dp/B0CYLP7M8P?tag=betender-21" target="_blank" rel="sponsored noopener">300 W power station</a> <a class="btn" href="https://www.amazon.es/dp/B0DNYGT71X?tag=betender-21" target="_blank" rel="sponsored noopener">Foldable solar panel</a></p>
 
 ## Tips so it's ready
 
