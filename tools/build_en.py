@@ -50,7 +50,7 @@ TRADUCCIONES = [
     ('alt="Mujer con una caja de kit de emergencia haciendo el gesto de OK con el pulgar"', 'alt="Woman holding an emergency kit box and giving a thumbs-up"'),
     ('<p>Elige tu kit</p><small>Casa, coche o evacuación.</small>', '<p>Choose your kit</p><small>Home, car or evacuation.</small>'),
     ('<p>¿Esencial o Pro?</p><small>Esencial, Completo o Total.</small>', '<p>Essential or Pro?</p><small>Essential, Complete or Total.</small>'),
-    ('<p>Todo al carrito</p><small>Un clic y te creamos el pedido.</small>', '<p>All in the basket</p><small>One click and we build your order.</small>'),
+    ('<p>Creamos tu lista en Amazon</p><small>Sin coste extra.</small>', '<p>We build your Amazon list</p><small>At no extra cost.</small>'),
     ('<p>Recíbelo en casa</p><small>¡Estamos preparados!</small>', '<p>Delivered to your door</p><small>We&#8217;re ready!</small>'),
 
     # --- Kits ---
